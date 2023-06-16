@@ -1,13 +1,27 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import toast, { Toaster } from 'react-hot-toast';
 import Profile from "../../assets/profile.png"
 import Helmet from "../../layout/Helmet";
 import "../../styles/register.scss"
 
 const Register = () => {
+
+    const notify = () => toast.success("Hello I am Bektursun")
+
     return (
         <Helmet title="Register">
-            <div className="register">
+            <Toaster
+                position="top-center"
+                reverseOrder={false}
+                toastOptions={{
+                    duration: 2000,
+                    style: {
+                        height: "40px"
+                    }
+                }}
+            />
+            <div onClick={notify} className="register">
                 <div className="container">
                     <div className="register__wrapper">
                         <div className="register__glass">
@@ -28,8 +42,11 @@ const Register = () => {
 
                                 <div className="form__fields">
                                     <input  className="form__input" type="text" placeholder='Email*' />
-                                    <input  className="form__input" type="text" placeholder='Username*' />
+                                    <input  className="form__input" type="text" placeholder='First Name*' />
+                                    <input  className="form__input" type="text" placeholder='Last Name*' />
                                     <input  className="form__input" type="text" placeholder='Password*' />
+                                    <input  className="form__input" type="text" placeholder='Confirm Password*' />
+                                    <input  className="form__input" type="text" placeholder='Phone Number*' />
                                     <button className="form__button" type='submit'>Register</button>
                                 </div>
 
