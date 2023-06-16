@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import Profile from "../../assets/profile.png"
 import Helmet from "../../layout/Helmet";
 import "../../styles/register.scss"
 
@@ -20,7 +21,7 @@ const Register = () => {
                             <form className="form">
                                 <div className='form__profile'>
                                     <label htmlFor="profile">
-                                        <img className="form__img" src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg" alt="avatar"/>
+                                        <img className="form__img" src={Profile} alt="avatar"/>
                                     </label>
                                     <input className="form__upload" type="file" id='profile' name='profile' />
                                 </div>

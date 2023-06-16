@@ -1,7 +1,8 @@
 .register {
   width: 100%;
   margin: 0 auto;
-  height: 100vh;
+  background: #e7e7ea;
+  min-height: 100vh;
 
   &__wrapper {
     display: flex;
@@ -10,16 +11,15 @@
   }
 
   &__glass {
+    margin-top: 100px;
     width: 45%;
-    min-width: max-content;
-    padding: 3em 7px 20px 7px;
+    padding: 1em 7px 40px 7px;
     background: rgba(255, 255, 255, 0.55);
     border-radius: 16px;
     box-shadow: 0 4px 30px #4747470b;
     backdrop-filter: blur(7.1px);
     border: 4px solid #f9fafb;
     flex-shrink: 0;
-    height: 75%;
   }
 
   &__head {
@@ -29,70 +29,99 @@
   }
 
   &__title {
-    font-size: 3.75rem;
-    font-weight: bold;
+    font-size: 2.3rem;
+    font-weight: 600;
   }
 
   &__subtitle {
-    width: 66.6667%;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    font-size: 1.25rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    font-size: 1rem;
     text-align: center;
     color: #888888;
   }
 }
 
 .form {
-  padding-top: 0.25rem;
+  padding-top: 0.15rem;
   padding-bottom: 0.25rem;
 
   &__profile {
     display: flex;
     justify-content: center;
-    padding-top: 1rem;
+    padding-top: 0.9rem;
   }
 
   &__img {
     border-width: 4px;
     border-color: #f3f3f3;
-    width: 135px;
+    width: 120px;
     border-radius: 50%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     cursor: pointer;
+    transition: .1s ease-out;
 
     &:hover{
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
       border-color: #e5e5e5;
     }
   }
 
-  &__input{
-      border-width: 0;
-      padding: 1rem 1.25rem;
-      border-radius: 0.75rem;
-      width: 75%;
-      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      font-size: 1.125rem;
+  &__upload{
+    display: none;
+  }
 
+  &__fields{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__input{
+    margin: 10px 0;
+    border-width: 0;
+    padding: .6rem 1.25rem;
+    border-radius: 0.5rem;
+    width: 75%;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    font-size: 1rem;
     &:focus{
       outline: none;
     }
   }
 
   &__button{
+    margin-top: 10px;
     border: 1px solid #ccc;
-    background-color: #3f51b5;
+    background-color: #4e62cc;
     width: 75%;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: .6rem;
+    padding-bottom: .6rem;
     border-radius: 0.5rem;
     color: #fff;
-    font-size: 1.25rem;
+    font-size: 1rem;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     text-align: center;
 
     &:hover{
       background-color: #ff6a6a
     }
+  }
+
+
+  &__exist{
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  &__question{
+    color: #808080;
+    font-weight: 500;
+  }
+
+  &__link{
+    color: #EF4444;
   }
 }
