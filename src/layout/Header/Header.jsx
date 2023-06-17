@@ -187,7 +187,7 @@ const Header = () => {
                                                                 <li className="mega__item mega__item-width"><a
                                                                     className="mega__link" href="">Hurley</a></li>
                                                             </ul>
-                                                            <a className="mega__view-all" href="">View all brands <i className="ri-arrow-right-line"></i></a>
+                                                            <a className="view-all mega__view-all" href="">View all brands <i className="ri-arrow-right-line"></i></a>
                                                         </div>
                                                     </div>
                                                     <div className="flexcol products mega__products">

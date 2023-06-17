@@ -226,6 +226,16 @@
     margin-bottom: 1.5em;
     z-index: 1;
   }
+
+  &__link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    transition: var(--trans-color);
+    &:hover {
+      color: var(--light-text-color);
+    }
+  }
 }
 
 
@@ -254,8 +264,16 @@
   }
 }
 
+.view-all {
+  font-size: var(--font-small);
+  display: flex;
+  gap: 1em;
+  transition: var(--trans-color);
 
-
+  &:hover {
+    color: var(--light-text-color);
+  }
+}
 
 @media screen and (min-width: 993px) {
   .desktop-hide {
