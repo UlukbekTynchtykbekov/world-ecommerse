@@ -1,6 +1,6 @@
-.header{
+.header {
 
-  &__wrapper{
+  &__wrapper {
     display: flex;
     font-family: "Rubik", sans-serif;
     font-size: var(--font-small);
@@ -9,15 +9,19 @@
     line-height: 42px;
   }
 
-  &__right{
+  &__right {
     position: relative;
     margin-left: auto;
   }
+
+  &__nav {
+    border-bottom: 1px solid var(--border-color);
+  }
 }
 
-.left{
+.left {
 
-  &__main-links{
+  &__main-links {
     gap: 2rem;
   }
 
@@ -27,24 +31,24 @@
     line-height: inherit;
     transition: var(--trans-color);
 
-    &:hover{
+    &:hover {
       color: var(--secondary-color);
     }
   }
 
-  &__item{
+  &__item {
     position: relative;
   }
 }
 
-.right{
+.right {
 
-  &__main-links{
+  &__main-links {
     display: flex;
     gap: 2rem;
   }
 
-  &__item{
+  &__item {
     position: relative;
   }
 
@@ -53,7 +57,7 @@
     position: relative;
     line-height: inherit;
 
-    &:hover{
+    &:hover {
       color: var(--secondary-color);
     }
   }
@@ -65,7 +69,7 @@
 }
 
 .currency {
-  &:hover &__list{
+  &:hover &__list {
     display: block;
   }
 
@@ -79,7 +83,7 @@
     display: none;
   }
 
-  &__link{
+  &__link {
     padding: 0.40em 1em;
 
     &.current {
@@ -88,7 +92,7 @@
   }
 }
 
-.trigger{
+.trigger {
   font-family: "Rubik", sans-serif;
   font-size: 1.5em;
   display: flex;
@@ -117,7 +121,7 @@
     background-color: var(--light-bg-color);
     z-index: -1;
 
-    &::before{
+    &::before {
       content: "";
       position: absolute;
       width: 28px;
@@ -143,7 +147,7 @@
     display: flex;
     align-items: center;
 
-    &:hover{
+    &:hover {
       color: var(--light-text-color);
     }
   }
@@ -169,14 +173,14 @@
 }
 
 .wishlist {
-   display: flex;
+  display: flex;
   align-items: center;
 
-  &__icon{
+  &__icon {
     position: relative;
   }
 
-  &__fly-item{
+  &__fly-item {
     top: 0;
     left: 20px;
     width: 16px;
@@ -194,11 +198,11 @@
     align-items: center;
   }
 
-  &__icon{
+  &__icon {
     position: relative;
   }
 
-  &__fly-item{
+  &__fly-item {
     top: 0;
     right: 12px;
     width: 16px;
@@ -213,12 +217,42 @@
   }
 }
 
+.mega {
+
+  &__col {
+    flex: 1;
+    min-width: 180px;
+    padding-right: 2.5em;
+    margin-bottom: 1.5em;
+    z-index: 1;
+  }
+}
 
 
+.mobile-hide {
+  display: none;
+}
+
+.cover {
+
+  &__img {
+    position: absolute;
+    object-fit: cover;
+    width: var(--percent100);
+    height: var(--percent100);
+    display: block;
+  }
+}
 
 
+.products {
 
-
+  &__media {
+    position: relative;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+}
 
 
 
@@ -226,5 +260,109 @@
 @media screen and (min-width: 993px) {
   .desktop-hide {
     display: none;
+  }
+
+  .mobile-hide {
+    display: block;
+  }
+
+  .logo {
+
+    &__link {
+      margin-right: 2em;
+    }
+  }
+
+  header {
+
+    &__nav {
+      padding: 0;
+      margin: 0;
+      border-bottom: 0;
+    }
+  }
+
+  .mega {
+    position: absolute;
+    width: var(--percent100);
+    height: auto;
+    top: auto;
+    left: 0;
+    right: 0;
+    padding: 2.5em;
+    line-height: 2em;
+    background-color: var(--light-bg-color);
+    box-shadow: rgb(0 0 0 /20%) 0 30px 20px -30px;
+    z-index: 100;
+
+    &__wrapper {
+      display: flex;
+    }
+
+    &__title {
+      font-size: 0.8em;
+      text-transform: uppercase;
+    }
+
+    &__list {
+      font-size: var(--font-small);
+
+      &-brands {
+        display: flex;
+        flex-wrap: wrap;
+        min-width: 180px;
+      }
+    }
+
+    &__item-width {
+      min-width: 80px;
+    }
+
+    &__view-all {
+      margin-top: 1em;
+    }
+
+    &__products {
+      flex: 2;
+      padding: 0;
+      align-items: center;
+      position: relative;
+    }
+  }
+
+  .products {
+    flex: 1;
+    min-width: 180px;
+    padding-right: 2.5em;
+    margin-bottom: 1.5em;
+    z-index: 1;
+
+    &__row{
+      width: var(--percent100);
+    }
+
+    &__media{
+      height: 400px;
+    }
+
+    &__text-content{
+      line-height: initial;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5em;
+      margin-top: 0.5em;
+      position: absolute;
+      left: -15px;
+      bottom: 3em;
+      width: var(--percent100);
+    }
+
+    &__pop{
+      font-size: 2em;
+      font-weight: var(--fw8);
+      text-align: center;
+      color: var(--secondary-dark-color);
+    }
   }
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import apparel4 from "../../assets/products/apparel4.jpg"
 import "./header.scss";
 
 const Header = () => {
@@ -74,16 +75,31 @@ const Header = () => {
                                                         <div className="row">
                                                             <h4 className="mega__title">Women's Clothing</h4>
                                                             <ul className="mega__list">
-                                                                <li className="mega__item"><a className="mega__link" href="">Dresses</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Top & Tees</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Jackets & Coats</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Pants & Capris</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Sweaters</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Costumers</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Hodies & Sweatshirts</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Pajamas & Robes</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Shorts</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Swimwear</a></li>
+                                                                <li className="mega__item"><a className="mega__link"
+                                                                                              href="">Dresses</a></li>
+                                                                <li className="mega__item"><a className="mega__link"
+                                                                                              href="">Top & Tees</a>
+                                                                </li>
+                                                                <li className="mega__item"><a className="mega__link"
+                                                                                              href="">Jackets &
+                                                                    Coats</a></li>
+                                                                <li className="mega__item"><a className="mega__link"
+                                                                                              href="">Pants & Capris</a>
+                                                                </li>
+                                                                <li className="mega__item"><a className="mega__link"
+                                                                                              href="">Sweaters</a></li>
+                                                                <li className="mega__item"><a className="mega__link"
+                                                                                              href="">Costumers</a></li>
+                                                                <li className="mega__item"><a className="mega__link"
+                                                                                              href="">Hodies &
+                                                                    Sweatshirts</a></li>
+                                                                <li className="mega__item"><a className="mega__link"
+                                                                                              href="">Pajamas &
+                                                                    Robes</a></li>
+                                                                <li className="mega__item"><a className="mega__link"
+                                                                                              href="">Shorts</a></li>
+                                                                <li className="mega__item"><a className="mega__link"
+                                                                                              href="">Swimwear</a></li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -91,13 +107,23 @@ const Header = () => {
                                                         <div className="row">
                                                             <h4 className="mega__title">Jewelry</h4>
                                                             <ul className="mega__list">
-                                                                <li className="mega__item"><a className="mega__link" href="">Accessories</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Bags & Purses</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Necklaces</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Rings</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Earrings</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Bracelets</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Body Jewelry</a></li>
+                                                                <li className="mega__item"><a className="mega__link"
+                                                                                              href="">Accessories</a>
+                                                                </li>
+                                                                <li className="mega__item"><a className="mega__link"
+                                                                                              href="">Bags & Purses</a>
+                                                                </li>
+                                                                <li className="mega__item"><a className="mega__link"
+                                                                                              href="">Necklaces</a></li>
+                                                                <li className="mega__item"><a className="mega__link"
+                                                                                              href="">Rings</a></li>
+                                                                <li className="mega__item"><a className="mega__link"
+                                                                                              href="">Earrings</a></li>
+                                                                <li className="mega__item"><a className="mega__link"
+                                                                                              href="">Bracelets</a></li>
+                                                                <li className="mega__item"><a className="mega__link"
+                                                                                              href="">Body Jewelry</a>
+                                                                </li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -105,33 +131,78 @@ const Header = () => {
                                                         <div className="row">
                                                             <h4 className="mega__title">Beauty</h4>
                                                             <ul className="mega__list">
-                                                                <li className="mega__item"><a className="mega__link" href="">Bath Accessories</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Makeup & Cosmetics</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Skin Care</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Hair Care</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Essential Oils</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Fragrances</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Soaps & Bath Bombs</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Face Masks & Coverings</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Spa Kits & Gifts</a></li>
+                                                                <li className="mega__item"><a className="mega__link"
+                                                                                              href="">Bath
+                                                                    Accessories</a></li>
+                                                                <li className="mega__item"><a className="mega__link"
+                                                                                              href="">Makeup &
+                                                                    Cosmetics</a></li>
+                                                                <li className="mega__item"><a className="mega__link"
+                                                                                              href="">Skin Care</a></li>
+                                                                <li className="mega__item"><a className="mega__link"
+                                                                                              href="">Hair Care</a></li>
+                                                                <li className="mega__item"><a className="mega__link"
+                                                                                              href="">Essential Oils</a>
+                                                                </li>
+                                                                <li className="mega__item"><a className="mega__link"
+                                                                                              href="">Fragrances</a>
+                                                                </li>
+                                                                <li className="mega__item"><a className="mega__link"
+                                                                                              href="">Soaps & Bath
+                                                                    Bombs</a></li>
+                                                                <li className="mega__item"><a className="mega__link"
+                                                                                              href="">Face Masks &
+                                                                    Coverings</a></li>
+                                                                <li className="mega__item"><a className="mega__link"
+                                                                                              href="">Spa Kits &
+                                                                    Gifts</a></li>
                                                             </ul>
                                                         </div>
                                                     </div>
                                                     <div className="flexcol mega__col">
                                                         <div className="row">
+                                                            <h4 className="mega__title">Top Brands</h4>
                                                             <ul className="mega__list mega__list-brands">
-                                                                <li className="mega__item"><a className="mega__link" href="">Nike</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Louis Vuitton</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Hermes</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Gucci</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Zalando</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Tiffany</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Zara</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">H&M</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Cartier</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Chanel</a></li>
-                                                                <li className="mega__item"><a className="mega__link" href="">Hurley</a></li>
+                                                                <li className="mega__item mega__item-width"><a
+                                                                    className="mega__link" href="">Nike</a></li>
+                                                                <li className="mega__item mega__item-width"><a
+                                                                    className="mega__link" href="">Louis Vuitton</a>
+                                                                </li>
+                                                                <li className="mega__item mega__item-width"><a
+                                                                    className="mega__link" href="">Hermes</a></li>
+                                                                <li className="mega__item mega__item-width"><a
+                                                                    className="mega__link" href="">Gucci</a></li>
+                                                                <li className="mega__item mega__item-width"><a
+                                                                    className="mega__link" href="">Zalando</a></li>
+                                                                <li className="mega__item mega__item-width"><a
+                                                                    className="mega__link" href="">Tiffany</a></li>
+                                                                <li className="mega__item mega__item-width"><a
+                                                                    className="mega__link" href="">Zara</a></li>
+                                                                <li className="mega__item mega__item-width"><a
+                                                                    className="mega__link" href="">H&M</a></li>
+                                                                <li className="mega__item mega__item-width"><a
+                                                                    className="mega__link" href="">Cartier</a></li>
+                                                                <li className="mega__item mega__item-width"><a
+                                                                    className="mega__link" href="">Chanel</a></li>
+                                                                <li className="mega__item mega__item-width"><a
+                                                                    className="mega__link" href="">Hurley</a></li>
                                                             </ul>
+                                                            <a className="mega__view-all" href="">View all brands <i className="ri-arrow-right-line"></i></a>
+                                                        </div>
+                                                    </div>
+                                                    <div className="flexcol products mega__products">
+                                                        <div className="products__row">
+                                                            <div className="products__media">
+                                                                <div className="products__thumbnail cover">
+                                                                    <a className="products__image-cover" href="">
+                                                                        <img className="cover__img" src={apparel4} alt="apparel4"/>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div className="products__text-content">
+                                                                <h4 className="products__pop">Most Wanted!</h4>
+                                                                <a className="primary-button products__button" href="">Order Now</a>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -152,7 +223,7 @@ const Header = () => {
                         <div className="right header__right">
                             <ul className="wishlist right__second-links">
                                 <li className="wishlist__item">
-                                    <a className="wishlist__link" href="">
+                                    <a className="wishlist__link mobile-hide" href="">
                                         <span className="wishlist__icon icon-lg">
                                             <i className="ri-heart-line"></i>
                                         </span>
