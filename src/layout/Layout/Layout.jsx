@@ -1,10 +1,14 @@
 import React from 'react';
 import Routers from "../../routers/Routers";
+import Header from "../Header";
 
 const Layout = () => {
     return (
         <>
-          <Routers />
+            <Header />
+            <main>
+                <Routers />
+            </main>
         </>
     );
 };
