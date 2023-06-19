@@ -80,11 +80,12 @@ h4{
   display: flex;
   flex-direction: column;
   gap: 1em;
+  z-index: 111;
 }
 
 .icon-sm{
   font-size: 1.25rem;
-  margin: auto;
+  margin-left: auto;
 }
 
 .icon-lg{
@@ -127,6 +128,11 @@ h4{
     background-color: var(--secondary-dark-color);
     color: var(--white-color);
   }
+}
+
+.mini-text {
+  font-style: var(--font-smaller);
+  color: var(--light-text-color);
 }
 
 @media screen and (min-width: 993px) {
