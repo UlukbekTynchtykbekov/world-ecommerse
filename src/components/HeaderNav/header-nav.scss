@@ -154,7 +154,7 @@
   align-items: center;
 
   &__link {
-    display: flex;
+    display: none;
     align-items: center;
   }
 
@@ -180,15 +180,24 @@
 
 
 
-
-                                      //MEDIA
-
-
 @media screen and (min-width: 993px) {
+
+  .navigations {
+    padding: 0;
+    margin: 0;
+    border-bottom: 0;
+  }
 
   .nav {
     &__trigger {
       display: none;
+    }
+  }
+
+  .logo {
+
+    &__link {
+      margin-right: 2em;
     }
   }
 
@@ -274,6 +283,13 @@
       font-weight: var(--fw8);
       text-align: center;
       color: var(--secondary-dark-color);
+    }
+  }
+
+  .package {
+
+    &__link {
+      display: flex;
     }
   }
 }

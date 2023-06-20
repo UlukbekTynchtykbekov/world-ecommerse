@@ -181,7 +181,7 @@ const HeaderNav = () => {
                     <div className="right nav__right">
                         <ul className="package">
                             <li className="package__item">
-                                <a className="package__link mobile-hide" href="">
+                                <a className="package__link" href="">
                                         <span className="package__icon icon-lg">
                                             <i className="ri-heart-line"></i>
                                         </span>
