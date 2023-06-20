@@ -5,113 +5,9 @@
    }
 }
 
-.right {
-
-  &__main-links {
-    display: flex;
-    gap: 2rem;
-  }
-
-  &__item {
-    position: relative;
-  }
-
-  &__link {
-    display: flex;
-    position: relative;
-    line-height: inherit;
-
-    &:hover {
-      color: var(--secondary-color);
-    }
-  }
-
-  &__icon {
-    font-size: 1.25rem;
-    margin: auto;
-  }
-}
-
 .mobile-hide {
   display: none;
 }
-
-.cover {
-
-  &__img {
-    position: absolute;
-    object-fit: cover;
-    width: var(--percent100);
-    height: var(--percent100);
-    display: block;
-  }
-}
-
-.search {
-
-  &__form {
-    position: relative;
-
-    & :where(span,button) {
-      position: absolute;
-      top: 0;
-      padding: 0.55em 1.5em;
-      font-size: 1em;
-      color: var(--light-text-color);
-      height: var(--percent100);
-    }
-  }
-
-  &__input {
-    line-height: 3.25em;
-    padding: 0 7em 0 4.5em;
-    border: 0;
-    outline: 0;
-    width: var(--percent100);
-    border-radius: 7px;
-    font-size: 0.9em;
-    font-weight: var(--fw3);
-  }
-
-  &__icon {
-    font-size: 1.50em !important;
-    top: 5px;
-    left: 20px;
-  }
-
-  &__btn {
-    right: 0;
-    border: 0;
-    outline: 0;
-    font-size: 0.875em;
-    font-weight: var(--fw6);
-    background-color: var(--primary-color);
-    color: var(--white-color);
-    border-radius: 0 7px 7px 0;
-    cursor: pointer;
-    transition: var(--trans-background);
-
-    &:hover {
-      background-color: var(--dark-color);
-    }
-  }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 @media screen and (min-width: 993px) {
@@ -127,37 +23,5 @@
     &__main {
       display: block !important;
     }
-  }
-
-
-  /* Department Menu */
-
-
-  .child-fashion {
-    &__child {
-      background-image: url("../../assets/menu/menu_bg2.jpg");
-    }
-  }
-
-  .child-electronic {
-    &__child {
-      background-image: url("../../assets/menu/menu_bg3.jpg");
-    }
-  }
-
-  .child-home-kit {
-    & .kit {
-      background-image: url("../../assets/menu/menu_bg4.jpg");
-    }
-  }
-
-  .kit {
-    width: 800px!important;
-    min-width: var(--percent100);
-    justify-content: space-around;
-  }
-
-  .dpt-menu .has-child:hover .kit {
-    display: flex;
   }
 }

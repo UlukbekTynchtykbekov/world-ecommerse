@@ -1,5 +1,8 @@
 import React from 'react';
-import bgImage1 from "../../assets/menu/menu_bg1.jpg"
+import bgImage1 from "../../assets/menu/menu_bg1.jpg";
+import bgImage2 from "../../assets/menu/menu_bg2.jpg";
+import bgImage3 from "../../assets/menu/menu_bg3.jpg";
+import bgImage4 from "../../assets/menu/menu_bg4.jpg";
 import "./header-main.scss"
 
 const HeaderMain = () => {
@@ -33,16 +36,24 @@ const HeaderMain = () => {
                                                 </span>
                                         </a>
                                         <div className="child__item">
-                                            <img src={bgImage1} alt=""/>
+                                            <img className="child__image" src={bgImage1} alt=""/>
                                             <ul className="child__list">
-                                                <li className="child__category"><a className="child__link" href="#">Makeup</a></li>
-                                                <li className="child__category"><a className="child__link" href="#">Skin Care</a></li>
-                                                <li className="child__category"><a className="child__link" href="#">Hare Care</a></li>
-                                                <li className="child__category"><a className="child__link" href="#">Fragrance</a></li>
-                                                <li className="child__category"><a className="child__link" href="#">Foot & Hand Care</a></li>
-                                                <li className="child__category"><a className="child__link" href="#">Tools & Accessories</a></li>
-                                                <li className="child__category"><a className="child__link" href="#">Shave & Hair Removal</a></li>
-                                                <li className="child__category"><a className="child__link" href="#">Personal Care</a></li>
+                                                <li className="child__category"><a className="child__link"
+                                                                                   href="#">Makeup</a></li>
+                                                <li className="child__category"><a className="child__link" href="#">Skin
+                                                    Care</a></li>
+                                                <li className="child__category"><a className="child__link" href="#">Hare
+                                                    Care</a></li>
+                                                <li className="child__category"><a className="child__link"
+                                                                                   href="#">Fragrance</a></li>
+                                                <li className="child__category"><a className="child__link" href="#">Foot
+                                                    & Hand Care</a></li>
+                                                <li className="child__category"><a className="child__link" href="#">Tools
+                                                    & Accessories</a></li>
+                                                <li className="child__category"><a className="child__link" href="#">Shave
+                                                    & Hair Removal</a></li>
+                                                <li className="child__category"><a className="child__link" href="#">Personal
+                                                    Care</a></li>
                                             </ul>
                                         </div>
                                     </li>
@@ -56,17 +67,29 @@ const HeaderMain = () => {
                                                     <i className="ri-arrow-right-s-line"></i>
                                                 </span>
                                         </a>
-                                        {/*<ul className="child-electronic__child">*/}
-                                        {/*    <li className="dtp-menu__list-item"><a href="#">Camera</a></li>*/}
-                                        {/*    <li className="dtp-menu__list-item"><a href="#">Cell Phones</a></li>*/}
-                                        {/*    <li className="dtp-menu__list-item"><a href="#">Computers</a></li>*/}
-                                        {/*    <li className="dtp-menu__list-item"><a href="#">GPS & Navigation</a></li>*/}
-                                        {/*    <li className="dtp-menu__list-item"><a href="#">Headphones</a></li>*/}
-                                        {/*    <li className="dtp-menu__list-item"><a href="#">Home Audio</a></li>*/}
-                                        {/*    <li className="dtp-menu__list-item"><a href="#">Television</a></li>*/}
-                                        {/*    <li className="dtp-menu__list-item"><a href="#">Video Projectors</a></li>*/}
-                                        {/*    <li className="dtp-menu__list-item"><a href="#">Wearable Technology</a></li>*/}
-                                        {/*</ul>*/}
+                                        <div className="child__item">
+                                            <img className="child__image" src={bgImage2} alt=""/>
+                                            <ul className="child__list">
+                                                <li className="child__category"><a className="child__link"
+                                                                                   href="#">Camera</a></li>
+                                                <li className="child__category"><a className="child__link" href="#">Cell
+                                                    Phones</a></li>
+                                                <li className="child__category"><a className="child__link"
+                                                                                   href="#">Computers</a></li>
+                                                <li className="child__category"><a className="child__link" href="#">GPS
+                                                    & Navigation</a></li>
+                                                <li className="child__category"><a className="child__link"
+                                                                                   href="#">Headphones</a></li>
+                                                <li className="child__category"><a className="child__link" href="#">Home
+                                                    Audio</a></li>
+                                                <li className="child__category"><a className="child__link"
+                                                                                   href="#">Television</a></li>
+                                                <li className="child__category"><a className="child__link" href="#">Video
+                                                    Projectors</a></li>
+                                                <li className="child__category"><a className="child__link" href="#">Wearable
+                                                    Technology</a></li>
+                                            </ul>
+                                        </div>
                                     </li>
                                     <li className="menu__item child child-fashion">
                                         <a className="menu__link" href="">
@@ -78,14 +101,23 @@ const HeaderMain = () => {
                                                     <i className="ri-arrow-right-s-line"></i>
                                                 </span>
                                         </a>
-                                        {/*<ul className="child-fashion__child">*/}
-                                        {/*    <li className="dtp-menu__list-item"><a href="#">Clothing</a></li>*/}
-                                        {/*    <li className="dtp-menu__list-item"><a href="#">Shoes</a></li>*/}
-                                        {/*    <li className="dtp-menu__list-item"><a href="#">Jewelry</a></li>*/}
-                                        {/*    <li className="dtp-menu__list-item"><a href="#">Watches</a></li>*/}
-                                        {/*    <li className="dtp-menu__list-item"><a href="#">Handbags</a></li>*/}
-                                        {/*    <li className="dtp-menu__list-item"><a href="#">Accessories</a></li>*/}
-                                        {/*</ul>*/}
+                                        <div className="child__item">
+                                            <img className="child__image" src={bgImage3} alt=""/>
+                                            <ul className="child__list">
+                                                <li className="child__category"><a className="child__link"
+                                                                                   href="#">Clothing</a></li>
+                                                <li className="child__category"><a className="child__link"
+                                                                                   href="#">Shoes</a></li>
+                                                <li className="child__category"><a className="child__link"
+                                                                                   href="#">Jewelry</a></li>
+                                                <li className="child__category"><a className="child__link"
+                                                                                   href="#">Watches</a></li>
+                                                <li className="child__category"><a className="child__link"
+                                                                                   href="#">Handbags</a></li>
+                                                <li className="child__category"><a className="child__link"
+                                                                                   href="#">Accessories</a></li>
+                                            </ul>
+                                        </div>
                                     </li>
                                     <li className="menu__item">
                                         <a className="menu__link" href="">
@@ -129,63 +161,113 @@ const HeaderMain = () => {
                                                     <i className="ri-arrow-right-s-line"></i>
                                                 </span>
                                         </a>
-                                        <div className="kit">
-                                            <div className="flexcol">
-                                                <div className="row">
-                                                    <h4><a href="">Kitchen & Dining</a></h4>
-                                                    <ul className='child-home-kit__child'>
-                                                        <li className="dtp-menu__list-item"><a href="#">Kitchen</a></li>
-                                                        <li className="dtp-menu__list-item"><a href="#">Dining Room</a></li>
-                                                        <li className="dtp-menu__list-item"><a href="#">Pantry</a></li>
-                                                        <li className="dtp-menu__list-item"><a href="#">Great Room</a></li>
-                                                        <li className="dtp-menu__list-item"><a href="#">Breakfast Nook</a></li>
-                                                    </ul>
+                                        <div className="kit child__kit">
+                                            <img className="kit__image" src={bgImage4} alt=""/>
+                                            <div className="kit__wrapper">
+                                                <div className="flexcol">
+                                                    <div className="kit__row">
+                                                        <h4 className="kit__main-title">
+                                                            <a className="kit__main-link" href="">Kitchen & Dining</a>
+                                                        </h4>
+                                                        <ul className='kit__list'>
+                                                            <li className="kit__category"><a className="kit__link"
+                                                                                             href="#">Kitchen</a></li>
+                                                            <li className="kit__category"><a className="kit__link"
+                                                                                             href="#">Dining Room</a>
+                                                            </li>
+                                                            <li className="kit__category"><a className="kit__link"
+                                                                                             href="#">Pantry</a></li>
+                                                            <li className="kit__category"><a className="kit__link"
+                                                                                             href="#">Great Room</a>
+                                                            </li>
+                                                            <li className="kit__category"><a className="kit__link"
+                                                                                             href="#">Breakfast Nook</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div className="kit__row">
+                                                        <h4 className="kit__main-title">
+                                                            <a className="kit__main-link" href="">Living</a>
+                                                        </h4>
+                                                        <ul className="kit__list">
+                                                            <li className="kit__category"><a className="kit__link"
+                                                                                             href="#">Living Room</a>
+                                                            </li>
+                                                            <li className="kit__category"><a className="kit__link"
+                                                                                             href="#">Family Room</a>
+                                                            </li>
+                                                            <li className="kit__category"><a className="kit__link"
+                                                                                             href="#">Sunroom</a></li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
-                                                <div className="row">
-                                                    <h4><a href="">Living</a></h4>
-                                                    <ul>
-                                                        <li className="dtp-menu__list-item"><a href="#">Living Room</a></li>
-                                                        <li className="dtp-menu__list-item"><a href="#">Family Room</a></li>
-                                                        <li className="dtp-menu__list-item"><a href="#">Sunroom</a></li>
-                                                    </ul>
+                                                <div className="flexcol">
+                                                    <div className="kit__row">
+                                                        <h4 className="kit__main-title">
+                                                            <a className="kit__main-link" href="">Bed & Bath</a>
+                                                        </h4>
+                                                        <ul className="kit__list">
+                                                            <li className="kit__category"><a className="kit__link"
+                                                                                             href="#">Bathroom</a></li>
+                                                            <li className="kit__category"><a className="kit__link"
+                                                                                             href="#">Powder Room</a>
+                                                            </li>
+                                                            <li className="kit__category"><a className="kit__link"
+                                                                                             href="#">Bedroom</a></li>
+                                                            <li className="kit__category"><a className="kit__link"
+                                                                                             href="#">Storage &
+                                                                Closet</a></li>
+                                                            <li className="kit__category"><a className="kit__link"
+                                                                                             href="#">Baby & Kids</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div className="kit__row">
+                                                        <h4 className="kit__main-title">
+                                                            <a className="kit__main-link" href="">Utility</a>
+                                                        </h4>
+                                                        <ul className="kit__list">
+                                                            <li className="kit__category"><a className="kit__link"
+                                                                                             href="#">Laundry</a></li>
+                                                            <li className="kit__category"><a className="kit__link"
+                                                                                             href="#">Garage</a></li>
+                                                            <li className="kit__category"><a className="kit__link"
+                                                                                             href="#">Mudroom</a></li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div className="flexcol">
-                                                <div className="row">
-                                                    <h4><a href="">Bed & Bath</a></h4>
-                                                    <ul>
-                                                        <li className="dtp-menu__list-item"><a href="#">Bathroom</a></li>
-                                                        <li className="dtp-menu__list-item"><a href="#">Powder Room</a></li>
-                                                        <li className="dtp-menu__list-item"><a href="#">Bedroom</a></li>
-                                                        <li className="dtp-menu__list-item"><a href="#">Storage &  Closet</a></li>
-                                                        <li className="dtp-menu__list-item"><a href="#">Baby & Kids</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div className="row">
-                                                    <h4><a href="">Utility</a></h4>
-                                                    <ul>
-                                                        <li className="dtp-menu__list-item"><a href="#">Laundry</a></li>
-                                                        <li className="dtp-menu__list-item"><a href="#">Garage</a></li>
-                                                        <li className="dtp-menu__list-item"><a href="#">Mudroom</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div className="flexcol">
-                                                <div className="row">
-                                                    <h4><a href="">Outdoor</a></h4>
-                                                    <ul>
-                                                        <li><a href="#">Landscape</a></li>
-                                                        <li><a href="#">Patio</a></li>
-                                                        <li><a href="#">Deck</a></li>
-                                                        <li><a href="#">Pool</a></li>
-                                                        <li><a href="#">Backyard</a></li>
-                                                        <li><a href="#">Porch</a></li>
-                                                        <li><a href="#">Exterior</a></li>
-                                                        <li><a href="#">Outdoor Kitchen</a></li>
-                                                        <li><a href="#">Front Yard</a></li>
-                                                        <li><a href="#">Driveway</a></li>
-                                                        <li><a href="#">Poolhouse</a></li>
-                                                    </ul>
+                                                <div className="flexcol">
+                                                    <div className="kit__row">
+                                                        <h4 className="kit__main-title">
+                                                            <a className="kit__main-link" href="">Outdoor</a>
+                                                        </h4>
+                                                        <ul className="kit__list">
+                                                            <li className="kit__category"><a className="kit__link"
+                                                                                             href="#">Landscape</a></li>
+                                                            <li className="kit__category"><a className="kit__link"
+                                                                                             href="#">Patio</a></li>
+                                                            <li className="kit__category"><a className="kit__link"
+                                                                                             href="#">Deck</a></li>
+                                                            <li className="kit__category"><a className="kit__link"
+                                                                                             href="#">Pool</a></li>
+                                                            <li className="kit__category"><a className="kit__link"
+                                                                                             href="#">Backyard</a></li>
+                                                            <li className="kit__category"><a className="kit__link"
+                                                                                             href="#">Porch</a></li>
+                                                            <li className="kit__category"><a className="kit__link"
+                                                                                             href="#">Exterior</a></li>
+                                                            <li className="kit__category"><a className="kit__link"
+                                                                                             href="#">Outdoor
+                                                                Kitchen</a></li>
+                                                            <li className="kit__category"><a className="kit__link"
+                                                                                             href="#">Front Yard</a>
+                                                            </li>
+                                                            <li className="kit__category"><a className="kit__link"
+                                                                                             href="#">Driveway</a></li>
+                                                            <li className="kit__category"><a className="kit__link"
+                                                                                             href="#">Poolhouse</a></li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -221,7 +303,7 @@ const HeaderMain = () => {
                     <div className="right categories__right">
                         <div className="search">
                             <form className="search__form">
-                                <span className="icon-lg search__icon"><i className="ri-search-line"></i></span>
+                                <span className="search__icon icon-lg "><i className="ri-search-line"></i></span>
                                 <input className="search__input" type="search" placeholder="Search for products"/>
                                 <button className="search__btn" type="submit">Search</button>
                             </form>

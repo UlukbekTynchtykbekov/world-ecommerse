@@ -151,9 +151,9 @@ const HeaderNav = () => {
                                                 <div className="products mega__products">
                                                     <div className="products__row">
                                                         <div className="products__media">
-                                                            <div className="products__thumbnail cover">
+                                                            <div className="products__thumbnail">
                                                                 <a className="products__image-cover" href="">
-                                                                    <img className="cover__img" src={apparel4} alt="apparel4"/>
+                                                                    <img className="products__img" src={apparel4} alt="apparel4"/>
                                                                 </a>
                                                             </div>
                                                         </div>

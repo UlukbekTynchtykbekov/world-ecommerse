@@ -147,6 +147,14 @@
     flex-shrink: 0;
     overflow: hidden;
   }
+
+  &__img {
+    position: absolute;
+    object-fit: cover;
+    width: var(--percent100);
+    height: var(--percent100);
+    display: block;
+  }
 }
 
 .package {
