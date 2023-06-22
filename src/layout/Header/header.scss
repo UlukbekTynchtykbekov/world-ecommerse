@@ -1,0 +1,27 @@
+.header {
+   &__main {
+     margin-bottom: 2em;
+     display: none;
+   }
+}
+
+.mobile-hide {
+  display: none;
+}
+
+
+@media screen and (min-width: 993px) {
+  .desktop-hide {
+    display: none;
+  }
+
+  .mobile-hide {
+    display: block;
+  }
+
+  .header {
+    &__main {
+      display: block !important;
+    }
+  }
+}

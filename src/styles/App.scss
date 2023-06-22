@@ -1,8 +1,147 @@
-html {
-  scroll-behavior: smooth;
+a{
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
 }
+
+img {
+  max-width: var(--percent100);
+  vertical-align: middle;
+}
+
+strong {
+  font-weight: var(--fw8);
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input::placeholder {
+  font: inherit;
+}
+
+h1,h2,h3,h4 {
+  font-family: "Poppins", sans-serif;
+}
+
+h1{
+  font-size: calc(1.3em + 1vw);
+  font-weight: var(--fw8);
+  line-height: 1;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3{
+  font-size: 1.2rem;
+  font-weight: var(--fw7);
+}
+
+h4{
+  font-size: 1em;
+  font-weight: var(--fw6);
+}
+
 .container{
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 10px;
+  padding: 0 0.938em;
+}
+
+.column {
+  margin-left: -0.938em;
+  margin-right: -0.938em;
+}
+
+.column .row {
+  padding: 0 0.938em;
+}
+
+.flexwrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flexcenter{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flexitem {
+  display: flex;
+  align-items: center;
+}
+
+.flexcol {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  z-index: 111;
+}
+
+.icon-sm{
+  font-size: 1.25rem;
+  margin-left: auto;
+}
+
+.icon-lg{
+  font-size: 1.75rem;
+  padding: 0 0.75em 0 0;
+}
+
+.trigger {
+  font-family: "Rubik", sans-serif;
+  font-size: 1.5em;
+}
+
+.primary-button, .secondary-button, .light-button {
+  font-size: var(--font-small);
+  padding: 0.9em 2em;
+  height: auto;
+  width: fit-content;
+  border-radius: 2em;
+  transition: var(--trans-background-color);
+}
+
+.primary-button {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+
+  &:hover {
+    background-color: var(--dark-color);
+  }
+}
+
+.secondary-button {
+  background-color: var(--secondary-dark-color);
+  color: var(--white-color);
+
+  &:hover {
+    background-color: var(--light-bg-color);
+    color: var(--secondary-dark-color);
+  }
+}
+
+.secondary-button {
+  background-color: var(--light-bg-color);
+
+  &:hover {
+    background-color: var(--secondary-dark-color);
+    color: var(--white-color);
+  }
+}
+
+.mini-text {
+  font-style: var(--font-smaller);
+  color: var(--light-text-color);
+}
+
+@media screen and (min-width: 993px) {
+  .container {
+    padding: 0 2rem;
+  }
 }
