@@ -91,6 +91,12 @@
   &:hover &__kit {
     display: flex;
   }
+
+  &__link {
+     &:hover {
+       text-decoration: underline;
+     }
+  }
 }
 
 .kit {
@@ -111,6 +117,12 @@
 
     &:hover {
       color: var(--light-text-color);
+    }
+  }
+
+  &__link {
+    &:hover {
+      text-decoration: underline;
     }
   }
 }
