@@ -6,6 +6,10 @@
 .categories {
   display: flex;
   align-items: center;
+
+  &__right {
+    flex: 1;
+  }
 }
 
 .category {
@@ -93,9 +97,9 @@
   }
 
   &__link {
-     &:hover {
-       text-decoration: underline;
-     }
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
@@ -129,6 +133,19 @@
 
 .search {
 
+  &__form {
+    position: relative;
+
+    & :where(.search__icon, .search__btn) {
+      position: absolute;
+      top: 0;
+      padding: 0.55em 1.5em;
+      font-size: 1em;
+      color: var(--light-text-color);
+      height: var(--percent100);
+    }
+  }
+
   &__input {
     line-height: 3.25em;
     padding: 0 7em 0 4.5em;
@@ -138,19 +155,6 @@
     border-radius: 7px;
     font-size: 0.9em;
     font-weight: var(--fw3);
-  }
-
-  &__form {
-    position: relative;
-
-    & :where(span,button) {
-      position: absolute;
-      top: 0;
-      padding: 0.55em 1.5em;
-      font-size: 1em;
-      color: var(--light-text-color);
-      height: var(--percent100);
-    }
   }
 
   &__icon {
@@ -284,7 +288,6 @@
   .categories {
 
     &__right {
-      width: 600px;
       max-width: 600px;
       margin-left: auto;
     }

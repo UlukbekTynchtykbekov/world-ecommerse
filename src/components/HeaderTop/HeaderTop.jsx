@@ -6,7 +6,9 @@ const HeaderTop = () => {
 
     return (
         <div className="top">
-            <TopNavigations />
+            <div className="container">
+                <TopNavigations />
+            </div>
         </div>
     );
 };
