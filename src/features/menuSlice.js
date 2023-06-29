@@ -1,25 +1,19 @@
 import { createSlice }  from"@reduxjs/toolkit"
 
 const initialState = {
-    copiedMenu: "",
-    copyNav: "",
-    copyTopNav: "",
+    showMenu: false,
 }
 
 const menuSlice = createSlice({
     name: "menu",
     initialState,
     reducers: {
-        copyMenu: (state, action) => {
-            state.copyMenu = action.payload
+        showMenu: (state, action) => {
+            state.showMenu = true
         },
 
-        copyNav: (state, action) => {
-            state.copyNav = action.payload
-        },
-
-        copyTopNav: (state, action) => {
-            state.copyTopNav = action.payload
+        closeMenu: (state, action) => {
+            state.showMenu = false
         },
     }
 });

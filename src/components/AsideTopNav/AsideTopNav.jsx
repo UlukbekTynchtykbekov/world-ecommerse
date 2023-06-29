@@ -19,7 +19,7 @@ const AsideTopNav = () => {
                         <li className="top__item"><Link className="top__link" to="/">My Account</Link></li>
                         <li className="top__item"><Link className="top__link" to="/">Order Tracking</Link></li>
                         <li className="currency top__item">
-                            <Link className="top__link" to="/">
+                            <Link className="top__link top__link--display" to="/">
                                 USD
                                 <span className="top__icon icon-sm">
                                                 <i className="ri-arrow-down-s-line"></i>

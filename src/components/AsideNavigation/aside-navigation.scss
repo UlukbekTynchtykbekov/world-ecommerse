@@ -2,7 +2,6 @@
 
   &.navigations {
     display: block;
-
   }
 
   & .navigations__links {
@@ -11,13 +10,25 @@
     gap: 0;
   }
 
+  & .navigations__item {
+    position: relative;
+  }
+
   & .navigations__link {
     display: flex;
   }
 
   & .navigations__fly-item {
-    top: auto;
-    right: 223px;
+    bottom: 100px;
+    right: 200px;
+  }
+
+  &__mega {
+    padding: 0;
+  }
+
+  & .products {
+    display: none;
   }
 
   & .child {
@@ -27,6 +38,11 @@
       font-weight: var(--fw3);
       line-height: 28px;
       padding-left: 2em;
+
+      height: auto;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s cubic-bezier(0.215, 0.610, 0.355, 1);
     }
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import "./aside-departments.scss"
 
-const AsideDepartments = () => {
+const AsideDepartments = ({sidebarRef, toggleSidebar}) => {
     return (
         <div className="departments category">
             <div className="category__cat">
@@ -18,8 +18,8 @@ const AsideDepartments = () => {
                 </div>
                 <div className="menu departments__menu">
                     <ul className="menu__list">
-                        <li className="menu__item child">
-                            <a className="menu__link" href="">
+                        <li  ref={sidebarRef} className="menu__item child">
+                            <div className="menu__link">
                                                 <span className="menu__icon  icon-lg">
                                                     <i className="ri-bear-smile-line"></i>
                                                 </span>
@@ -27,7 +27,7 @@ const AsideDepartments = () => {
                                 <span className="menu__icon icon-sm">
                                                     <i className="ri-arrow-right-s-line"></i>
                                                 </span>
-                            </a>
+                            </div>
                             <div className="child__item">
                                 <ul className="child__list">
                                     <li className="child__category"><a className="child__link"
@@ -49,8 +49,8 @@ const AsideDepartments = () => {
                                 </ul>
                             </div>
                         </li>
-                        <li className="menu__item child child-electronic">
-                            <a className="menu__link" href="">
+                        <li  ref={sidebarRef} className="menu__item child child-electronic">
+                            <div className="menu__link">
                                                 <span className="menu__icon  icon-lg">
                                                     <i className="ri-bluetooth-connect-line"></i>
                                                 </span>
@@ -58,7 +58,7 @@ const AsideDepartments = () => {
                                 <span className="menu__icon  icon-sm">
                                                     <i className="ri-arrow-right-s-line"></i>
                                                 </span>
-                            </a>
+                            </div>
                             <div className="child__item">
                                 <ul className="child__list">
                                     <li className="child__category"><a className="child__link"
@@ -82,8 +82,8 @@ const AsideDepartments = () => {
                                 </ul>
                             </div>
                         </li>
-                        <li className="menu__item child child-fashion">
-                            <a className="menu__link" href="">
+                        <li  ref={sidebarRef} className="menu__item child child-fashion">
+                            <div className="menu__link">
                                                 <span className="menu__icon icon-lg">
                                                     <i className="ri-t-shirt-air-line"></i>
                                                 </span>
@@ -91,7 +91,7 @@ const AsideDepartments = () => {
                                 <span className="menu__icon icon-sm">
                                                     <i className="ri-arrow-right-s-line"></i>
                                                 </span>
-                            </a>
+                            </div>
                             <div className="child__item">
                                 <ul className="child__list">
                                     <li className="child__category"><a className="child__link"
@@ -109,48 +109,48 @@ const AsideDepartments = () => {
                                 </ul>
                             </div>
                         </li>
-                        <li className="menu__item">
-                            <a className="menu__link" href="">
+                        <li  ref={sidebarRef} className="menu__item">
+                            <div className="menu__link">
                                                 <span className="menu__icon  icon-lg">
                                                     <i className="ri-shirt-line"></i>
                                                 </span>
                                 Men's Fashion
-                            </a>
+                            </div>
                         </li>
-                        <li className="menu__item">
-                            <a className="menu__link" href="">
+                        <li  ref={sidebarRef} className="menu__item">
+                            <div className="menu__link">
                                                 <span className="menu__icon  icon-lg">
                                                     <i className="ri-user-5-line"></i>
                                                 </span>
                                 Girl's Fashion
-                            </a>
+                            </div>
                         </li>
-                        <li className="menu__item">
-                            <a className="menu__link" href="">
+                        <li  ref={sidebarRef} className="menu__item">
+                            <div className="menu__link">
                                                 <span className="menu__icon  icon-lg">
                                                     <i className="ri-user-6-line"></i>
                                                 </span>
                                 Boy's Fashion
-                            </a>
+                            </div>
                         </li>
-                        <li className="menu__item">
-                            <a className="menu__link" href="">
+                        <li  ref={sidebarRef} className="menu__item">
+                            <div className="menu__link">
                                                 <span className="menu__icon  icon-lg">
                                                     <i className="ri-heart-pulse-line"></i>
                                                 </span>
                                 Health & Household
-                            </a>
+                            </div>
                         </li>
-                        <li className="menu__item child child-home-kit">
-                            <a className="menu__link" href="">
+                        <li  ref={sidebarRef} className="menu__item child">
+                            <div className="menu__link">
                                                 <span className="menu__icon icon-lg">
                                                     <i className="ri-home-8-line"></i>
                                                 </span>
                                 Home & Kitchen
-                                <span className="menu__icon icon-sm">
+                                <span onClick={toggleSidebar} className="menu__icon icon-sm">
                                                     <i className="ri-arrow-right-s-line"></i>
                                                 </span>
-                            </a>
+                            </div>
                             <div className="kit child__kit">
                                 <div className="kit__wrapper">
                                     <div className="flexcol">
@@ -262,28 +262,28 @@ const AsideDepartments = () => {
                             </div>
                         </li>
                         <li className="menu__item">
-                            <a className="dpt-menu__item" href="">
-                                                <span className="dpt-menu__icon  icon-lg">
+                            <div className="menu__item">
+                                                <span className="menu__icon  icon-lg">
                                                     <i className="ri-android-line"></i>
                                                 </span>
                                 Pets & Supplies
-                            </a>
+                            </div>
                         </li>
                         <li className="menu__item">
-                            <a className="dpt-menu__item" href="">
-                                                <span className="dpt-menu__icon  icon-lg">
+                            <div className="menu__item">
+                                                <span className="menu__icon  icon-lg">
                                                     <i className="ri-basketball-line"></i>
                                                 </span>
                                 Sports
-                            </a>
+                            </div>
                         </li>
                         <li className="menu__item">
-                            <a className="dpt-menu__item" href="">
-                                                <span className="dpt-menu__icon  icon-lg">
+                            <div className="menu__item">
+                                                <span className="menu__icon  icon-lg">
                                                     <i className="ri-shield-star-line"></i>
                                                 </span>
                                 Best Seller
-                            </a>
+                            </div>
                         </li>
                     </ul>
                 </div>

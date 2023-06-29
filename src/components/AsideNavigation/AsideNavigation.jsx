@@ -14,7 +14,7 @@ const AsideNavigation = () => {
                                                 <i className="ri-arrow-down-s-line"></i>
                                             </span>
                     </a>
-                    <div className="mega">
+                    <div className="mega canvas-nav__mega">
                         <div className="container">
                             <div className="mega__wrapper">
                                 <div className="mega__col">

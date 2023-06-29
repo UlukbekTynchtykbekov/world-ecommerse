@@ -1,14 +1,21 @@
 import React from 'react';
 import apparel4 from "../../assets/products/apparel4.jpg";
 import "./header-nav.scss"
+import {useDispatch, useSelector} from "react-redux";
+import {menuActions} from "../../features/menuSlice";
 
 const HeaderNav = () => {
+
+    const dispatch = useDispatch()
+    function openMenu () {
+        dispatch(menuActions.showMenu())
+    }
 
     return (
         <div className="nav">
             <div className="container">
                 <div className="nav__inner">
-                    <a className="trigger nav__trigger" href="#"><span
+                    <a onClick={openMenu} className="trigger nav__trigger" href="#"><span
                         className="trigger__icon icon-lg ri-menu-2-line"></span>
                     </a>
                     <div className="nav__left">
