@@ -92,10 +92,6 @@
     display: block;
   }
 
-  &:hover &__kit {
-    display: flex;
-  }
-
   &__link {
     &:hover {
       text-decoration: underline;
@@ -252,6 +248,10 @@
       padding: 1.5em;
       font-size: var(--font-small);
       line-height: 2.5em;
+    }
+
+    &:hover &__kit {
+      display: flex;
     }
   }
 

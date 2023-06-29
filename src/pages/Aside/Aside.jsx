@@ -1,7 +1,7 @@
 import React from 'react';
-import Categories from "../../components/Categories/Categories";
-import TopNavigations from "../../components/TopNavigations/TopNavigations";
-import Navigation from "../../components/Navigation/Navigation";
+import AsideNavigation from "../../components/AsideNavigation/AsideNavigation";
+import AsideTopNav from "../../components/AsideTopNav/AsideTopNav";
+import AsideDepartments from "../../components/AsideDepartments/AsideDepartments";
 import "../../styles/aside.scss"
 
 const Aside = () => {
@@ -17,15 +17,9 @@ const Aside = () => {
                     </div>
                     <a className="close canvas__close" href="#"><i className="ri-close-line"></i></a>
                 </div>
-                <div className="canvas__departments category">
-                    <Categories />
-                </div>
-                <nav className="canvas__nav">
-                    <Navigation />
-                </nav>
-                <div className="canvas__nav-top">
-                    <TopNavigations />
-                </div>
+                <AsideDepartments />
+                <AsideNavigation />
+                <AsideTopNav />
             </div>
         </aside>
     );
