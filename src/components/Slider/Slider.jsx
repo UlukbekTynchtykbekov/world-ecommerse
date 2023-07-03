@@ -5,7 +5,7 @@ import Image0 from "../../assets/slider/slider0.jpg"
 import Image1 from "../../assets/slider/slider1.jpg"
 import Image2 from "../../assets/slider/slider2.jpg"
 import Image3 from "../../assets/slider/slider3.jpg"
-import "../../styles/slider.scss"
+import "./slider.scss"
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -34,7 +34,7 @@ const Slider = () => {
                                                     <br/>
                                                     <span className="slider__advert">Brand New Shoes</span>
                                                 </h2>
-                                                <a className="primary-button" href="">Shop Now</a>
+                                                <a className="primary-button" href="src/components/Slider">Shop Now</a>
                                             </div>
                                         </div>
                                     </div>
@@ -56,7 +56,7 @@ const Slider = () => {
                                                     <br/>
                                                     <span className="slider__advert">With Luxury Items</span>
                                                 </h2>
-                                                <a className="primary-button" href="">Shop Now</a>
+                                                <a className="primary-button" href="src/components/Slider">Shop Now</a>
                                             </div>
                                         </div>
                                     </div>
@@ -78,7 +78,7 @@ const Slider = () => {
                                                     <br/>
                                                     <span className="slider__advert">Extra 50% off</span>
                                                 </h2>
-                                                <a className="primary-button" href="">Shop Now</a>
+                                                <a className="primary-button" href="src/components/Slider">Shop Now</a>
                                             </div>
                                         </div>
                                     </div>
@@ -100,7 +100,7 @@ const Slider = () => {
                                                     <br/>
                                                     <span className="slider__advert">Push The Limit</span>
                                                 </h2>
-                                                <a className="primary-button" href="">Shop Now</a>
+                                                <a className="primary-button" href="src/components/Slider">Shop Now</a>
                                             </div>
                                         </div>
                                     </div>
