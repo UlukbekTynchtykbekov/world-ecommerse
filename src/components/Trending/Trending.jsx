@@ -1,5 +1,7 @@
 import React from 'react';
 import Trending1 from "../../assets/products/apparel4.jpg"
+import Shoe1 from "../../assets/products/shoe1.jpg"
+import Trending2 from "../../assets/products/apparel3.jpg"
 import "./trending.scss";
 
 const Trending = () => {
@@ -7,43 +9,43 @@ const Trending = () => {
         <div className="trending">
             <div className="container">
                 <div className="trending__wrapper">
-                    <div className="trending__secTop">
-                        <h2 className="circle">
-                            <span className="circle__item"></span>
-                            <span className="circle__title">Trending Products</span>
+                    <div className="trending__secTop secTop">
+                        <h2 className="secTop__inner">
+                            <span className="secTop__circle circle"></span>
+                            <span className="secTop__title">Trending Products</span>
                         </h2>
                     </div>
                     <div className="trending__column">
                         <div className="trending__inner flexwrap">
-                            <div className="trending__row product big">
-                                <div className="trending__item">
-                                    <div className="trending__offer">
-                                        <p className="trending__end">Offer ends at</p>
-                                        <ul className="trending__timeList flexcenter">
-                                            <li className="trending__time">1</li>
-                                            <li className="trending__time">15</li>
-                                            <li className="trending__time">27</li>
-                                            <li className="trending__time">60</li>
+                            <div className="trending__products products big">
+                                <div className="products__item big__item">
+                                    <div className="products__offer">
+                                        <p className="products__end">Offer ends at</p>
+                                        <ul className="products__timeList">
+                                            <li className="products__time">1</li>
+                                            <li className="products__time">15</li>
+                                            <li className="products__time">27</li>
+                                            <li className="products__time">60</li>
                                         </ul>
                                     </div>
-                                    <div className="media">
-                                        <div className="media__image">
+                                    <div className=" products__media media big__media">
+                                        <div className="media__image image">
                                             <a className="media__link" href="">
                                                 <img className="media__img" src={Trending1} alt=""/>
                                             </a>
                                         </div>
-                                        <div className="trending__hover-able">
-                                            <ul className="trending__hover-list">
-                                                <li className="trending__hover-item">
-                                                    <a className="trending__hover-link" href=""><i className="ri-heart-line"></i>
+                                        <div className="products__hover-able">
+                                            <ul className="products__hover-list">
+                                                <li className="products__hover-item">
+                                                    <a className="products__hover-link" href=""><i className="ri-heart-line"></i>
                                                     </a>
                                                 </li>
-                                                <li className="trending__hover-item">
-                                                    <a className="trending__hover-link" href=""><i className="ri-eye-line"></i>
+                                                <li className="products__hover-item">
+                                                    <a className="products__hover-link" href=""><i className="ri-eye-line"></i>
                                                     </a>
                                                 </li>
-                                                <li className="trending__hover-item">
-                                                    <a className="trending__hover-link" href=""><i className="ri-shuffle-line"></i>
+                                                <li className="products__hover-item">
+                                                    <a className="products__hover-link" href=""><i className="ri-shuffle-line"></i>
                                                     </a>
                                                 </li>
                                             </ul>
@@ -78,16 +80,121 @@ const Trending = () => {
                                                 <span className="qty__span">Sold: <strong className="qty__sold">3,459</strong></span>
                                             </div>
                                             <div className="stock__bar bar">
-                                                <div className="bar__available">
-
-                                                </div>
+                                                <div className="bar__available"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className="trending__row product mini"></div>
-                            <div className="trending__row product mini"></div>
+                            <div className="trending__products products mini">
+                                <div className="products__item">
+                                    <div className="products__media media">
+                                        <div className="media__image thumbnail">
+                                            <a className="media__link" href=""><img className="media__img" src={Shoe1} alt=""/>
+                                            </a>
+                                        </div>
+                                        <div className="products__hover-able">
+                                            <ul className="products__hover-list">
+                                                <li className="products__hover-item">
+                                                    <a className="products__hover-link" href=""><i className="ri-heart-line"></i>
+                                                    </a>
+                                                </li>
+                                                <li className="products__hover-item">
+                                                    <a className="products__hover-link" href=""><i className="ri-eye-line"></i>
+                                                    </a>
+                                                </li>
+                                                <li className="products__hover-item">
+                                                    <a className="products__hover-link" href=""><i className="ri-shuffle-line"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div className="trending__circle discount flexcenter">
+                                            <span className="discount__percentage">
+                                                32%
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div className="content">
+                                        <h3 className="content__main-links">
+                                            <a className="content__link" href="">Men Slip On Shoes Casual with Arch Support Insoles</a>
+                                        </h3>
+                                        <div className="content__rating">
+                                            <div className="content__stars"></div>
+                                            <span className="content__text mini-text">
+                                                (2,548)
+                                            </span>
+                                        </div>
+                                        <div className="content__price price">
+                                            <span className="price__current">
+                                                $129.99
+                                            </span>
+                                            <span className="price__old mini-text">
+                                                $189.98
+                                            </span>
+                                        </div>
+                                        <div className="content__info info mini-text">
+                                            <p className="info__sold">2975 sold</p>
+                                            <p className="info__shipping">Free Shipping</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="trending__products products mini">
+                                <div className="products__item">
+                                    <div className="products__media media">
+                                        <div className="media__image thumbnail">
+                                            <a className="media__link" href="">
+                                                <img className="media__img" src={Trending2} alt=""/>
+                                            </a>
+                                        </div>
+                                        <div className="products__hover-able">
+                                            <ul className="products__hover-list">
+                                                <li className="products__hover-item">
+                                                    <a className="products__hover-link" href=""><i className="ri-heart-line"></i>
+                                                    </a>
+                                                </li>
+                                                <li className="products__hover-item">
+                                                    <a className="products__hover-link" href=""><i className="ri-eye-line"></i>
+                                                    </a>
+                                                </li>
+                                                <li className="products__hover-item">
+                                                    <a className="products__hover-link" href=""><i className="ri-shuffle-line"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div className="trending__circle discount flexcenter">
+                                            <span className="discount__percentage">
+                                                32%
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div className="content">
+                                        <h3 className="content__main-links">
+                                            <a className="content__link" href="">Black Women's Coat Dress</a>
+                                        </h3>
+                                        <div className="content__rating">
+                                            <div className="content__stars"></div>
+                                            <span className="content__text mini-text">
+                                                (2,548)
+                                            </span>
+                                        </div>
+                                        <div className="content__price price">
+                                            <span className="price__current">
+                                                $129.99
+                                            </span>
+                                            <span className="price__old mini-text">
+                                                $189.98
+                                            </span>
+                                        </div>
+                                        <div className="content__info info mini-text">
+                                            <p className="info__sold">2975 sold</p>
+                                            <p className="info__shipping">Free Shipping</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
