@@ -28,35 +28,38 @@ const Trending = () => {
                                             <li className="products__time">60</li>
                                         </ul>
                                     </div>
-                                    <div className=" products__media media big__media">
+                                    <div className=" products__media big__media">
                                         <div className="media__image image">
-                                            <a className="media__link" href="">
-                                                <img className="media__img" src={Trending1} alt=""/>
+                                            <a className="products__link" href="">
+                                                <img className="products__img" src={Trending1} alt=""/>
                                             </a>
                                         </div>
                                         <div className="products__hover-able">
                                             <ul className="products__hover-list">
-                                                <li className="products__hover-item">
-                                                    <a className="products__hover-link" href=""><i className="ri-heart-line"></i>
+                                                <li className="products__hover-item active">
+                                                    <a className="products__hover-link" href=""><i
+                                                        className="ri-heart-line"></i>
                                                     </a>
                                                 </li>
                                                 <li className="products__hover-item">
-                                                    <a className="products__hover-link" href=""><i className="ri-eye-line"></i>
+                                                    <a className="products__hover-link" href=""><i
+                                                        className="ri-eye-line"></i>
                                                     </a>
                                                 </li>
                                                 <li className="products__hover-item">
-                                                    <a className="products__hover-link" href=""><i className="ri-shuffle-line"></i>
+                                                    <a className="products__hover-link" href=""><i
+                                                        className="ri-shuffle-line"></i>
                                                     </a>
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div className="trending__circle discount flexcenter">
-                                            <span className="discount__percentage">
+                                        <div className="products__discount circle">
+                                            <span className="products__percentage">
                                                 31%
                                             </span>
                                         </div>
                                     </div>
-                                    <div className="content">
+                                    <div className="products__content content">
                                         <div className="content__rating">
                                             <div className="content__stars"></div>
                                             <span className="content__text mini-text">
@@ -64,7 +67,8 @@ const Trending = () => {
                                             </span>
                                         </div>
                                         <h3 className="content__main-links">
-                                            <a className="content__link" href="">Happy Sailed Women's Summer Boho Floral</a>
+                                            <a className="content__link" href="">Happy Sailed Women's Summer Boho
+                                                Floral</a>
                                         </h3>
                                         <div className="content__price price">
                                             <span className="price__current">
@@ -76,8 +80,10 @@ const Trending = () => {
                                         </div>
                                         <div className="content__stock stock mini-text">
                                             <div className="stock__qty qty">
-                                                <span className="qty__span">Stock: <strong className="qty__available">107</strong></span>
-                                                <span className="qty__span">Sold: <strong className="qty__sold">3,459</strong></span>
+                                                <span className="qty__span">Stock: <strong
+                                                    className="qty__available">107</strong></span>
+                                                <span className="qty__span">Sold: <strong
+                                                    className="qty__sold">3,459</strong></span>
                                             </div>
                                             <div className="stock__bar bar">
                                                 <div className="bar__available"></div>
@@ -88,36 +94,41 @@ const Trending = () => {
                             </div>
                             <div className="trending__products products mini">
                                 <div className="products__item">
-                                    <div className="products__media media">
-                                        <div className="media__image thumbnail">
-                                            <a className="media__link" href=""><img className="media__img" src={Shoe1} alt=""/>
+                                    <div className="products__media">
+                                        <div className="thumbnail">
+                                            <a className="products__link" href=""><img className="products__img"
+                                                                                       src={Shoe1} alt=""/>
                                             </a>
                                         </div>
                                         <div className="products__hover-able">
                                             <ul className="products__hover-list">
-                                                <li className="products__hover-item">
-                                                    <a className="products__hover-link" href=""><i className="ri-heart-line"></i>
+                                                <li className="products__hover-item active">
+                                                    <a className="products__hover-link" href=""><i
+                                                        className="ri-heart-line"></i>
                                                     </a>
                                                 </li>
                                                 <li className="products__hover-item">
-                                                    <a className="products__hover-link" href=""><i className="ri-eye-line"></i>
+                                                    <a className="products__hover-link" href=""><i
+                                                        className="ri-eye-line"></i>
                                                     </a>
                                                 </li>
                                                 <li className="products__hover-item">
-                                                    <a className="products__hover-link" href=""><i className="ri-shuffle-line"></i>
+                                                    <a className="products__hover-link" href=""><i
+                                                        className="ri-shuffle-line"></i>
                                                     </a>
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div className="trending__circle discount flexcenter">
-                                            <span className="discount__percentage">
+                                        <div className="products__discount circle">
+                                            <span className="products__percentage">
                                                 32%
                                             </span>
                                         </div>
                                     </div>
-                                    <div className="content">
+                                    <div className="products__content content">
                                         <h3 className="content__main-links">
-                                            <a className="content__link" href="">Men Slip On Shoes Casual with Arch Support Insoles</a>
+                                            <a className="content__link" href="">Men Slip On Shoes Casual with Arch
+                                                Support Insoles</a>
                                         </h3>
                                         <div className="content__rating">
                                             <div className="content__stars"></div>
@@ -142,35 +153,37 @@ const Trending = () => {
                             </div>
                             <div className="trending__products products mini">
                                 <div className="products__item">
-                                    <div className="products__media media">
-                                        <div className="media__image thumbnail">
-                                            <a className="media__link" href="">
-                                                <img className="media__img" src={Trending2} alt=""/>
+                                    <div className="products__media">
+                                        <div className="thumbnail">
+                                            <a className="products__link" href=""><img className="products__img" src={Trending2} alt=""/>
                                             </a>
                                         </div>
                                         <div className="products__hover-able">
                                             <ul className="products__hover-list">
-                                                <li className="products__hover-item">
-                                                    <a className="products__hover-link" href=""><i className="ri-heart-line"></i>
+                                                <li className="products__hover-item active">
+                                                    <a className="products__hover-link" href=""><i
+                                                        className="ri-heart-line"></i>
                                                     </a>
                                                 </li>
                                                 <li className="products__hover-item">
-                                                    <a className="products__hover-link" href=""><i className="ri-eye-line"></i>
+                                                    <a className="products__hover-link" href=""><i
+                                                        className="ri-eye-line"></i>
                                                     </a>
                                                 </li>
                                                 <li className="products__hover-item">
-                                                    <a className="products__hover-link" href=""><i className="ri-shuffle-line"></i>
+                                                    <a className="products__hover-link" href=""><i
+                                                        className="ri-shuffle-line"></i>
                                                     </a>
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div className="trending__circle discount flexcenter">
-                                            <span className="discount__percentage">
+                                        <div className="products__discount circle">
+                                            <span className="products__percentage">
                                                 32%
                                             </span>
                                         </div>
                                     </div>
-                                    <div className="content">
+                                    <div className="products__content content">
                                         <h3 className="content__main-links">
                                             <a className="content__link" href="">Black Women's Coat Dress</a>
                                         </h3>
