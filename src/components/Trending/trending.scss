@@ -19,7 +19,21 @@
   }
 }
 
+.trending {
+
+  &__products {
+    flex: 0 0 100%;
+    width: 100%;
+    margin-bottom: 2em;
+  }
+}
+
 .products {
+
+  &__item {
+    display: flex;
+    position: relative;
+  }
 
   &__offer {
     text-align: center;
@@ -56,11 +70,16 @@
     }
   }
 
-  & :where(.image, .thumbnail) &__img {
+  & :where(.image, .thumbnail) &__image {
+    position: absolute;
+    object-fit: cover;
+    width: var(--percent100);
+    height: var(--percent100);
+    display: block;
     transition: transform .3s;
   }
 
-  & :where(.image, .thumbnail):hover &__img {
+  & :where(.image, .thumbnail):hover &__image {
     transform: scale(1.05);
   }
 
@@ -148,6 +167,26 @@
     gap: 1em;
     margin-top: 1.25em;
   }
+
+  &__mini-item {
+    margin-bottom: 2em;
+  }
+
+  &__media-mini {
+    width: 130px;
+    height: 160px!important;
+    margin-right: 1.25em;
+  }
+
+  &__mini-item .content__main-links,
+  &__main .content__main-links {
+    font-weight: 400;
+  }
+
+  &__mini-item .content {
+    margin: 0;
+    gap: 0.75em;
+  }
 }
 
 .content {
@@ -190,6 +229,34 @@
      color: var(--primary-color);
      margin-right: 0.25em;
    }
+
+  &__old {
+    color: var(--light-text-color);
+    text-decoration: line-through;
+  }
+}
+
+.stock {
+
+  &__qty {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__bar {
+    height: 3px;
+    margin-top: 1em;
+    background-color: var(--border-color);
+    overflow: hidden;
+  }
+}
+
+.bar {
+   &__available {
+     height: 3px;
+     width: 21%;
+     background-color: var(--secondary-color);
+   }
 }
 
 .big {
@@ -204,18 +271,30 @@
   }
 }
 
-@media screen and (min-width: 760px) {
+.info {
+
+  &__stock-danger {
+    color: var(--primary-color);
+  }
+}
+
+@media screen and (min-width: 768px) {
   .price {
     &__current {
       font-size: 1.25em;
     }
   }
+
+  .products {
+    &.mini {
+      flex: 0 0 50%;
+    }
+  }
 }
 
 @media screen and (min-width: 993px) {
-  .trending {
-
-    &__products {
+  .products {
+    &.mini {
       flex: 0 0 33.3333%;
     }
   }
@@ -223,6 +302,16 @@
   .big {
     &__media {
       max-height: 373px;
+    }
+  }
+}
+
+@media screen and (max-width: 993px) {
+
+  .products {
+
+    & :where(.image) &__image {
+      position: relative;
     }
   }
 }
