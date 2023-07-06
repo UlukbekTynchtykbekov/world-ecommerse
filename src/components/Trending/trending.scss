@@ -145,7 +145,7 @@
     flex-direction: column;
   }
 
-  &:where(.big,.main-one) .content {
+  &:where(.big,.pro, .one) .content {
     gap: 1em;
     margin-top: 1.25em;
   }
@@ -310,6 +310,13 @@
     flex: 0 0 33.3333%;
     &.mini {
       flex: 0 0 25%;
+    }
+
+    &.pro {
+
+      & .item {
+        flex: 0 0 25%;
+      }
     }
   }
 

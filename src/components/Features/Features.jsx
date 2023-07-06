@@ -5,6 +5,7 @@ import Shoe1 from "../../assets/products/shoe1.jpg";
 import Trending1 from "../../assets/products/apparel4.jpg";
 import Trending2 from "../../assets/products/apparel3.jpg";
 import Trending3 from "../../assets/products/apparel2.jpg";
+import Trending5 from "../../assets/products/shoe2.jpg";
 
 const Features = () => {
     return (
@@ -288,7 +289,111 @@ const Features = () => {
                                 <div className="products__media media">
                                     <div className="products__thumbnail thumbnail">
                                         <a className="products__link" href="">
-                                            <img className="products__image" src={Trending1} alt=""/>
+                                            <img className="products__image" src={Trending5} alt=""/>
+                                        </a>
+                                    </div>
+                                    <div className="products__hover-able">
+                                        <ul className="products__hover-list">
+                                            <li className="products__hover-item active">
+                                                <a className="products__hover-link" href=""><i
+                                                    className="ri-heart-line"></i>
+                                                </a>
+                                            </li>
+                                            <li className="products__hover-item">
+                                                <a className="products__hover-link" href=""><i
+                                                    className="ri-eye-line"></i>
+                                                </a>
+                                            </li>
+                                            <li className="products__hover-item">
+                                                <a className="products__hover-link" href=""><i
+                                                    className="ri-shuffle-line"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div className="products__discount circle">
+                                            <span className="products__percentage">
+                                                25%
+                                            </span>
+                                    </div>
+                                </div>
+                                <div className="products__content content">
+                                    <div className="content__rating">
+                                        <div className="content__stars"></div>
+                                        <span className="content__text mini-text">
+                                                (2,548)
+                                            </span>
+                                    </div>
+                                    <h3 className="content__main-links">
+                                        <a className="content__link" href="">Under Armour Men's Tech</a>
+                                    </h3>
+                                    <div className="content__price price">
+                                            <span className="price__current">
+                                                $129.99
+                                            </span>
+                                        <span className="price__old mini-text">
+                                                $189.98
+                                            </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="products__item item">
+                                <div className="products__media media">
+                                    <div className="products__thumbnail thumbnail">
+                                        <a className="products__link" href="">
+                                            <img className="products__image" src={Trending5} alt=""/>
+                                        </a>
+                                    </div>
+                                    <div className="products__hover-able">
+                                        <ul className="products__hover-list">
+                                            <li className="products__hover-item active">
+                                                <a className="products__hover-link" href=""><i
+                                                    className="ri-heart-line"></i>
+                                                </a>
+                                            </li>
+                                            <li className="products__hover-item">
+                                                <a className="products__hover-link" href=""><i
+                                                    className="ri-eye-line"></i>
+                                                </a>
+                                            </li>
+                                            <li className="products__hover-item">
+                                                <a className="products__hover-link" href=""><i
+                                                    className="ri-shuffle-line"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div className="products__discount circle">
+                                            <span className="products__percentage">
+                                                25%
+                                            </span>
+                                    </div>
+                                </div>
+                                <div className="products__content content">
+                                    <div className="content__rating">
+                                        <div className="content__stars"></div>
+                                        <span className="content__text mini-text">
+                                                (2,548)
+                                            </span>
+                                    </div>
+                                    <h3 className="content__main-links">
+                                        <a className="content__link" href="">Under Armour Men's Tech</a>
+                                    </h3>
+                                    <div className="content__price price">
+                                            <span className="price__current">
+                                                $129.99
+                                            </span>
+                                        <span className="price__old mini-text">
+                                                $189.98
+                                            </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="products__item item">
+                                <div className="products__media media">
+                                    <div className="products__thumbnail thumbnail">
+                                        <a className="products__link" href="">
+                                            <img className="products__image" src={Trending5} alt=""/>
                                         </a>
                                     </div>
                                     <div className="products__hover-able">
