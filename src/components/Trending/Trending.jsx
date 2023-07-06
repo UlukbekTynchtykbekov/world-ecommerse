@@ -1,4 +1,5 @@
 import React from 'react';
+import SecTop from "../SecTop/SecTop";
 import Trending1 from "../../assets/products/apparel4.jpg";
 import Shoe1 from "../../assets/products/shoe1.jpg";
 import Trending2 from "../../assets/products/apparel3.jpg";
@@ -15,15 +16,10 @@ const Trending = () => {
         <div className="trending">
             <div className="container">
                 <div className="trending__wrapper">
-                    <div className="trending__secTop secTop">
-                        <h2 className="secTop__inner">
-                            <span className="secTop__circle circle"></span>
-                            <span className="secTop__title">Trending Products</span>
-                        </h2>
-                    </div>
+                    <SecTop title="Trending Products"/>
                     <div className="trending__column">
                         <div className="trending__inner flexwrap">
-                            <div className="trending__products products big">
+                            <div className="products big">
                                 <div className="products__item big__item">
                                     <div className="products__offer">
                                         <p className="products__end">Offer ends at</p>
@@ -98,7 +94,7 @@ const Trending = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="trending__products products mini">
+                            <div className="products mini">
                                 <div className="products__item products__mini-item">
                                     <div className="products__media products__media-mini">
                                         <div className="thumbnail">
@@ -325,7 +321,7 @@ const Trending = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="trending__products products mini">
+                            <div className="products mini">
                                 <div className="products__item products__mini-item">
                                     <div className="products__media products__media-mini">
                                         <div className="thumbnail">
