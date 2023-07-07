@@ -23,7 +23,7 @@ const HeaderMain = () => {
                                     <i className="ri-menu-3-line ri-xl"></i>
                                 </a>
                             </div>
-                            <div className="menu category__menu">
+                            <div className="menu">
                                 <ul className="menu__list">
                                     <li className="menu__item child">
                                         <a className="menu__link" href="">

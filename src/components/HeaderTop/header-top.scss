@@ -1,5 +1,5 @@
 .top {
-
+  display: none;
   &__wrapper {
     display: flex;
     font-family: "Rubik", sans-serif;
@@ -74,4 +74,7 @@
 
 @media screen and (min-width: 993px) {
 
+  .top{
+    display: block;
+  }
 }

@@ -136,8 +136,48 @@ h4{
 }
 
 .mini-text {
-  font-style: var(--font-smaller);
+  font-size: var(--font-smaller);
   color: var(--light-text-color);
+}
+
+.circle {
+  position: absolute;
+  top: -15px;
+  left: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--percent50);
+  background-color: var(--light-bg-color);
+  z-index: -1;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border-radius: var(--percent50);
+    background-color: var(--secondary-color);
+    bottom: 5px;
+    right: 5px;
+    opacity: .4;
+  }
+}
+
+.row {
+  flex: 0 0 100%;
+  width: 100%;
+  margin-bottom: 2em;
+}
+
+.view-all {
+  font-size: var(--font-small);
+  display: flex;
+  gap: 1em;
+  transition: var(--trans-color);
+
+  &:hover {
+    color: var(--light-text-color);
+  }
 }
 
 @media screen and (min-width: 993px) {
