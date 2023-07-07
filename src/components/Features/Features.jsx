@@ -6,6 +6,8 @@ import Trending1 from "../../assets/products/apparel4.jpg";
 import Trending2 from "../../assets/products/apparel3.jpg";
 import Trending3 from "../../assets/products/apparel2.jpg";
 import Trending5 from "../../assets/products/shoe2.jpg";
+import Trending6 from "../../assets/products/shoe3.jpg";
+import Trending7 from "../../assets/products/shoe4.jpg";
 
 const Features = () => {
     return (
@@ -321,18 +323,18 @@ const Features = () => {
                                     <div className="content__rating">
                                         <div className="content__stars"></div>
                                         <span className="content__text mini-text">
-                                                (2,548)
+                                                (1,237)
                                             </span>
                                     </div>
                                     <h3 className="content__main-links">
-                                        <a className="content__link" href="">Under Armour Men's Tech</a>
+                                        <a className="content__link" href="">Skechers Women's Go Joy Walking Shoe Sneaker</a>
                                     </h3>
                                     <div className="content__price price">
                                             <span className="price__current">
-                                                $129.99
+                                                $45.95
                                             </span>
                                         <span className="price__old mini-text">
-                                                $189.98
+                                                $64.95
                                             </span>
                                     </div>
                                 </div>
@@ -341,7 +343,7 @@ const Features = () => {
                                 <div className="products__media media">
                                     <div className="products__thumbnail thumbnail">
                                         <a className="products__link" href="">
-                                            <img className="products__image" src={Trending5} alt=""/>
+                                            <img className="products__image" src={Trending6} alt=""/>
                                         </a>
                                     </div>
                                     <div className="products__hover-able">
@@ -373,15 +375,15 @@ const Features = () => {
                                     <div className="content__rating">
                                         <div className="content__stars"></div>
                                         <span className="content__text mini-text">
-                                                (2,548)
+                                                (106)
                                             </span>
                                     </div>
                                     <h3 className="content__main-links">
-                                        <a className="content__link" href="">Under Armour Men's Tech</a>
+                                        <a className="content__link" href="">Walking Shoe Sneaker Womens</a>
                                     </h3>
                                     <div className="content__price price">
                                             <span className="price__current">
-                                                $129.99
+                                                $139.99
                                             </span>
                                         <span className="price__old mini-text">
                                                 $189.98
@@ -393,7 +395,7 @@ const Features = () => {
                                 <div className="products__media media">
                                     <div className="products__thumbnail thumbnail">
                                         <a className="products__link" href="">
-                                            <img className="products__image" src={Trending5} alt=""/>
+                                            <img className="products__image" src={Trending7} alt=""/>
                                         </a>
                                     </div>
                                     <div className="products__hover-able">
@@ -425,18 +427,18 @@ const Features = () => {
                                     <div className="content__rating">
                                         <div className="content__stars"></div>
                                         <span className="content__text mini-text">
-                                                (2,548)
+                                                (25)
                                             </span>
                                     </div>
                                     <h3 className="content__main-links">
-                                        <a className="content__link" href="">Under Armour Men's Tech</a>
+                                        <a className="content__link" href="">Womens Summer Tosca Shoe</a>
                                     </h3>
                                     <div className="content__price price">
                                             <span className="price__current">
-                                                $129.99
+                                                $104.90
                                             </span>
                                         <span className="price__old mini-text">
-                                                $189.98
+                                                $189.90
                                             </span>
                                     </div>
                                 </div>
