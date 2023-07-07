@@ -1,11 +1,13 @@
 import React from 'react';
-import "Footer.scss";
+import NewsLetter from "../../components/NewsLetter/NewsLetter";
+import Widgets from "../../components/Widgets/Widgets";
 
 const Footer = () => {
     return (
-        <div>
-
-        </div>
+        <>
+            <NewsLetter />
+            <Widgets />
+        </>
     );
 };
 
