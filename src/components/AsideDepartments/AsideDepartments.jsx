@@ -153,7 +153,7 @@ const AsideDepartments = ({sidebarRef, toggleSidebar}) => {
                             </div>
                             <div className="kit child__kit">
                                 <div className="kit__wrapper">
-                                    <div className="flexcol">
+                                    <div className="kit__inner flexcol">
                                         <div className="kit__row">
                                             <h4 className="kit__main-title">
                                                 <a className="kit__main-link" href="">Kitchen & Dining</a>
@@ -190,7 +190,7 @@ const AsideDepartments = ({sidebarRef, toggleSidebar}) => {
                                             </ul>
                                         </div>
                                     </div>
-                                    <div className="flexcol">
+                                    <div className="kit__inner flexcol">
                                         <div className="kit__row">
                                             <h4 className="kit__main-title">
                                                 <a className="kit__main-link" href="">Bed & Bath</a>
@@ -225,7 +225,7 @@ const AsideDepartments = ({sidebarRef, toggleSidebar}) => {
                                             </ul>
                                         </div>
                                     </div>
-                                    <div className="flexcol">
+                                    <div className="kit__inner flexcol">
                                         <div className="kit__row">
                                             <h4 className="kit__main-title">
                                                 <a className="kit__main-link" href="">Outdoor</a>

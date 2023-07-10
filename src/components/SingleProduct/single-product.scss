@@ -1,0 +1,110 @@
+.one {
+
+  &__item {
+    flex-direction: column;
+  }
+
+  &__discount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    font-weight: var(--fw7);
+    line-height: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: auto;
+    padding: 1em;
+    z-index: 2;
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    border-radius: var(--percent50);
+    margin: 0.5em;
+  }
+
+  & :where(&__big-image,&__small-image) {
+    overflow: hidden;
+  }
+
+  &__big-image {
+    position: relative;
+    margin-bottom: 1em;
+
+    &:hover .mySwiper2 .swiper-button-next {
+      transform: translateX(10px);
+    }
+
+    &:hover .mySwiper2 .swiper-button-prev {
+      transform: translateX(-10px);
+    }
+
+    &:hover :is( .mySwiper2 .swiper-button-prev, .mySwiper2 .swiper-button-next) {
+      background-color: var(--light-bg-color);
+    }
+  }
+
+  & :where(&__big-image,&__small-image) .img {
+    object-fit: cover;
+    width: var(--percent100);
+    height: var(--percent100);
+    display: block;
+  }
+}
+
+.small-image {
+
+  &__show {
+    position: relative;
+    width: 130px;
+    height: 110px;
+    overflow: hidden;
+    margin: 0 2em 2em 0;
+  }
+}
+
+.mySwiper2 {
+
+  & :is(.swiper-button-next, .swiper-button-prev) {
+    outline: 0;
+    color: var(--secondary-dark-color);
+    transition: var(--trans-background), transform .3s;
+  }
+
+  & :is(.swiper-button-next, .swiper-button-prev)::after {
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (min-width: 481px) {
+  .one {
+
+    &__big-image {
+      margin-bottom: 2em;
+    }
+  }
+
+  .big-image {
+
+    &__show {
+      height: 680px;
+    }
+  }
+
+  .small-image {
+
+    &__show {
+      height: 160px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .one {
+
+    &__row {
+      flex: 0 0 50%!important;
+      width: 50% !important;
+    }
+  }
+}
