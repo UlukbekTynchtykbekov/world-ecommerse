@@ -42,6 +42,7 @@
     &:hover :is( .mySwiper2 .swiper-button-prev, .mySwiper2 .swiper-button-next) {
       background-color: var(--light-bg-color);
     }
+
   }
 
   & :where(&__big-image,&__small-image) .img {
@@ -49,6 +50,29 @@
     width: var(--percent100);
     height: var(--percent100);
     display: block;
+  }
+
+  &__rating {
+    margin: 1em 0;
+  }
+
+  &__stock-squ {
+    margin: 1em 0;
+  }
+
+  &__add-review {
+    color: var(--dark-color)!important;
+  }
+
+  &__price {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__current {
+    font-size: 2.5em;
   }
 }
 
@@ -73,6 +97,101 @@
 
   & :is(.swiper-button-next, .swiper-button-prev)::after {
     font-size: 1.5em;
+  }
+}
+
+.stock-squ {
+
+  &__available {
+    font-size: var(--font-small);
+    font-weight: var(--fw5);
+    padding: 0.5em;
+    margin-right: 1em;
+    color: #10ac84;
+    background-color: var(--light-bg-color);
+  }
+}
+
+.colors {
+
+  &__form {
+    display: flex;
+    margin-top: 0.5em;
+  }
+
+  &__variant {
+    position: relative;
+    margin: 0 0.5em 0.5em;
+  }
+
+  &__circle {
+    display: block!important;
+    position: static!important;
+    top: 0!important;
+    margin: 0!important;
+    cursor: pointer!important;
+    z-index: 1!important;
+
+    &:before {
+      opacity: 1!important;
+    }
+
+    &[for="cogrey"]::before {
+      background-color: #536574;
+    }
+
+    &[for="coblue"]::before {
+      background-color: #45a0ff;
+    }
+
+    &[for="cogreen"]::before {
+      background-color: #1dd1a1;
+    }
+  }
+
+  &__input {
+    clip: rect(0,0,0,0);
+    overflow: hidden;
+    position: absolute;
+    height: 0;
+    width: 0;
+  }:checked + &__circle {
+       background-color: transparent;
+       border: 2px solid var(--dark-color);
+     }
+}
+
+.sizes {
+
+  &__form {
+    display: flex;
+    margin-top: 0.5em;
+  }
+
+  &__variant {
+    position: relative;
+    margin: 0 0.5em  0.5em;
+  }
+
+  &__circle {
+    display: block!important;
+    position: static!important;
+    top: 0!important;
+    margin: 0!important;
+    cursor: pointer!important;
+    z-index: 1!important;
+
+    &:before {
+      opacity: 1!important;
+    }
+  }
+
+  &__input {
+    clip: rect(0,0,0,0);
+    overflow: hidden;
+    position: absolute;
+    height: 0;
+    width: 0;
   }
 }
 

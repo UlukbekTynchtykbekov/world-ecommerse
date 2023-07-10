@@ -141,10 +141,10 @@ const SingleProduct = () => {
                                                 Men Slip On Shoes Casual with Arch Support Insoles
                                             </h1>
                                             <div className="one__content content">
-                                                <div className="content__rating">
-                                                    <div className="content__stars"></div>
-                                                    <a className="content__num-review mini-text" href="">2,251</a>
-                                                    <a href="" className="content__add-review mini-text">Add Your Review</a>
+                                                <div className="content__rating one__rating">
+                                                    <div className="content__stars one__stars"></div>
+                                                    <a className="one__num-review mini-text" href="">2,251</a>
+                                                    <a href="" className="one__add-review mini-text">Add Your Review</a>
                                                 </div>
                                                 <div className="one__stock-squ stock-squ">
                                                     <span className="stock-squ__available">In Stock </span>
@@ -152,8 +152,8 @@ const SingleProduct = () => {
                                                         SQU-881
                                                     </span>
                                                 </div>
-                                                <div className="price">
-                                                    <span className="price__current">
+                                                <div className="price one__price">
+                                                    <span className="price__current one__current">
                                                         $80.90
                                                     </span>
                                                     <span className="price__old">
@@ -162,17 +162,17 @@ const SingleProduct = () => {
                                                 </div>
                                                 <div className="colors">
                                                     <p className="colors__title">Color</p>
-                                                    <div className="colors__variant">
-                                                        <form action="">
-                                                            <p>
+                                                    <div className="colors__variants">
+                                                        <form className="colors__form" action="">
+                                                            <p className="colors__variant">
                                                                 <input className="colors__input" type="radio" name="color" id="cogrey"/>
                                                                 <label htmlFor="cogrey" className="colors__circle circle"></label>
                                                             </p>
-                                                            <p>
-                                                                <input className="colors__input" type="radio" name="color" id="cogblue"/>
-                                                                <label htmlFor="cogblue" className="colors__circle circle"></label>
+                                                            <p className="colors__variant">
+                                                                <input className="colors__input" type="radio" name="color" id="coblue"/>
+                                                                <label htmlFor="coblue" className="colors__circle circle"></label>
                                                             </p>
-                                                            <p>
+                                                            <p className="colors__variant">
                                                                 <input className="colors__input" type="radio" name="color" id="cogreen"/>
                                                                 <label htmlFor="cogreen" className="colors__circle circle"></label>
                                                             </p>
@@ -181,21 +181,21 @@ const SingleProduct = () => {
                                                 </div>
                                                 <div className="sizes">
                                                     <p className="sizes__title">Color</p>
-                                                    <div className="sizes__variant">
-                                                        <form action="">
-                                                            <p>
+                                                    <div className="sizes__variants">
+                                                        <form className="sizes__form" action="">
+                                                            <p className="sizes__variant">
                                                                 <input className="sizes__input" type="radio" name="size" id="size-41"/>
                                                                 <label htmlFor="size-41" className="sizes__circle circle">41</label>
                                                             </p>
-                                                            <p>
+                                                            <p className="sizes__variant">
                                                                 <input className="colors__input" type="radio" name="size" id="size-42"/>
                                                                 <label htmlFor="size-42" className="sizes__circle circle">42</label>
                                                             </p>
-                                                            <p>
+                                                            <p className="sizes__variant">
                                                                 <input className="colors__input" type="radio" name="size" id="size-43"/>
                                                                 <label htmlFor="size-43" className="sizes__circle circle">43</label>
                                                             </p>
-                                                            <p>
+                                                            <p className="sizes__variant">
                                                                 <input className="colors__input" type="radio" name="size" id="size-44"/>
                                                                 <label htmlFor="size-44" className="sizes__circle circle">44</label>
                                                             </p>
@@ -209,15 +209,27 @@ const SingleProduct = () => {
                                                         <button className="actions__plus circle">+</button>
                                                     </div>
                                                     <div className="actions__button-cart">
-                                                        <div className="actions__wish-share">
-                                                            <ul className="flexitem actions__second-links">
-                                                                <li className="actions__link-list">
-                                                                    <a href="">
-
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
+                                                        <button className="actions__btn">
+                                                            Add to cart
+                                                        </button>
+                                                    </div>
+                                                    <div className="actions__wish-share">
+                                                        <ul className="flexitem actions__second-links">
+                                                            <li className="actions__link-list">
+                                                                <a className="actions__link" href="">
+                                                                        <span className="icon-lg">
+                                                                            <i className="ri-heart-line"></i>
+                                                                        </span>
+                                                                </a>
+                                                            </li>
+                                                            <li className="actions__link-list">
+                                                                <a className="actions__link" href="">
+                                                                        <span className="icon-lg">
+                                                                            <i className="ri-share-line"></i>
+                                                                        </span>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
                                                     </div>
                                                 </div>
                                             </div>
