@@ -158,6 +158,7 @@
   }:checked + &__circle {
        background-color: transparent;
        border: 2px solid var(--dark-color);
+       color: var(--white-color);
      }
 }
 
@@ -182,8 +183,21 @@
     z-index: 1!important;
 
     &:before {
+      background-color: var(--white-color) !important;
       opacity: 1!important;
     }
+  }
+
+  &__number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--percent100);
+    height: var(--percent100);
+    font-size: 0.85em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &__input {
@@ -192,6 +206,95 @@
     position: absolute;
     height: 0;
     width: 0;
+  }:checked + &__circle::before {
+     background-color: var(--dark-color) !important;
+       border: 2px solid var(--dark-color) !important;
+       opacity: 1!important;
+   }
+  :checked + &__circle {
+    background-color: transparent !important;
+    border: 2px solid var(--dark-color) !important;
+    color: var(--white-color);
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2em;
+
+  &__qty-control {
+    width: fit-content;
+    padding: 0.5em;
+    border: 1px solid var(--border-color);
+    margin: 0 2em 2em 0;
+  }
+
+  &__minus,
+  &__plus {
+    display: block!important;
+    position: static!important;
+    top: 0!important;
+    margin: 0!important;
+    cursor: pointer!important;
+    z-index: 1!important;
+
+    &::before {
+      display: none;
+      background-color: transparent!important;
+    }
+  }
+
+  &__minus,
+  &__input,
+  &__plus,
+  &__btn {
+    font-size: 1.25em;
+    outline: 0;
+    border: 0;
+  }
+
+  &__input {
+    width: 50px;
+    text-align: center;
+  }
+
+  &__button-cart {
+    flex: 1;
+    min-width: 280px;
+  }
+
+  &__btn {
+   width: var(--percent100)!important;
+    cursor: pointer;
+  }
+}
+
+.wish-share {
+
+  &__link {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: var(--fw7);
+    margin: 1em 2em 1em 0;
+    tarnsition: var(--trans-color);
+  }
+}
+
+.description {
+
+  &__item {
+    margin: 20px 0;
+    padding: 1em 0;
+    border-top: 1px solid var(--border-color);
+  }
+
+  &__link {
+    position: relative;
+    font-weight: var(--fw7);
+    text-transform: uppercase;
+    padding: 1em 1.25em;
   }
 }
 

@@ -180,24 +180,24 @@ const SingleProduct = () => {
                                                     </div>
                                                 </div>
                                                 <div className="sizes">
-                                                    <p className="sizes__title">Color</p>
+                                                    <p className="sizes__title">Size</p>
                                                     <div className="sizes__variants">
                                                         <form className="sizes__form" action="">
                                                             <p className="sizes__variant">
                                                                 <input className="sizes__input" type="radio" name="size" id="size-41"/>
-                                                                <label htmlFor="size-41" className="sizes__circle circle">41</label>
+                                                                <label htmlFor="size-41" className="sizes__circle circle"><span className="sizes__number">41</span></label>
                                                             </p>
                                                             <p className="sizes__variant">
                                                                 <input className="colors__input" type="radio" name="size" id="size-42"/>
-                                                                <label htmlFor="size-42" className="sizes__circle circle">42</label>
+                                                                <label htmlFor="size-42" className="sizes__circle circle"><span className="sizes__number">42</span></label>
                                                             </p>
                                                             <p className="sizes__variant">
                                                                 <input className="colors__input" type="radio" name="size" id="size-43"/>
-                                                                <label htmlFor="size-43" className="sizes__circle circle">43</label>
+                                                                <label htmlFor="size-43" className="sizes__circle circle"><span className="sizes__number">43</span></label>
                                                             </p>
                                                             <p className="sizes__variant">
                                                                 <input className="colors__input" type="radio" name="size" id="size-44"/>
-                                                                <label htmlFor="size-44" className="sizes__circle circle">44</label>
+                                                                <label htmlFor="size-44" className="sizes__circle circle"><span className="sizes__number">44</span></label>
                                                             </p>
                                                         </form>
                                                     </div>
@@ -209,28 +209,62 @@ const SingleProduct = () => {
                                                         <button className="actions__plus circle">+</button>
                                                     </div>
                                                     <div className="actions__button-cart">
-                                                        <button className="actions__btn">
+                                                        <button className="actions__btn primary-button">
                                                             Add to cart
                                                         </button>
                                                     </div>
-                                                    <div className="actions__wish-share">
-                                                        <ul className="flexitem actions__second-links">
-                                                            <li className="actions__link-list">
-                                                                <a className="actions__link" href="">
+                                                    <div className="wish-share">
+                                                        <ul className="flexitem wish-share__second-links">
+                                                            <li className="wish-share__link-list">
+                                                                <a className="wish-share__link" href="">
                                                                         <span className="icon-lg">
                                                                             <i className="ri-heart-line"></i>
                                                                         </span>
+                                                                    <span>Wishlist</span>
                                                                 </a>
                                                             </li>
-                                                            <li className="actions__link-list">
-                                                                <a className="actions__link" href="">
+                                                            <li className="wish-share__link-list">
+                                                                <a className="wish-share__link" href="">
                                                                         <span className="icon-lg">
                                                                             <i className="ri-share-line"></i>
                                                                         </span>
+                                                                    <span>Share</span>
                                                                 </a>
                                                             </li>
                                                         </ul>
                                                     </div>
+                                                </div>
+                                                <div className="description collapse">
+                                                    <ul className="description__list">
+                                                        <li className="description__item child">
+                                                            <a href="" className="description__link">Information</a>
+                                                            <ul className="content description__content">
+                                                                <li className="description__brand">
+                                                                    <span className="description__brand-title">Brands</span>
+                                                                    <span className="description__brand-name">Nike</span>
+                                                                </li>
+                                                                <li className="description__brand">
+                                                                    <span className="description__brand-title">Activity</span>
+                                                                    <span className="description__brand-name">Running</span>
+                                                                </li>
+                                                                <li className="description__brand">
+                                                                    <span className="description__brand-title">Material</span>
+                                                                    <span className="description__brand-name">Fleece</span>
+                                                                </li>
+                                                                <li className="description__brand">
+                                                                    <span className="description__brand-title">Gender</span>
+                                                                    <span className="description__brand-name">Men</span>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li className="description__item child">
+                                                            <a href="" className="description__link">Details</a>
+                                                            <div className="content description__content">
+                                                                <p className="description__desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab enim itaque minus mollitia non vel.</p>
+                                                                <p className="description__desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid consectetur, cupiditate iusto molestias nobis omnis pariatur sit tenetur? Alias animi, beatae deleniti nulla quod voluptates?</p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
                                                 </div>
                                             </div>
                                         </div>
