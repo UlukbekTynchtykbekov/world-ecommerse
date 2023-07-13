@@ -284,10 +284,13 @@
 
 .description {
 
-  &__item {
-    margin: 20px 0;
+  &__item, {
     padding: 1em 0;
     border-top: 1px solid var(--border-color);
+  }
+
+  &__item:first-child, {
+    margin-top: 20px;
   }
 
   &__link {
@@ -295,6 +298,90 @@
     font-weight: var(--fw7);
     text-transform: uppercase;
     padding: 1em 1.25em;
+    cursor: pointer;
+
+    &::before {
+      content: "+";
+      position: absolute;
+      left: 0;
+    }
+
+    &-minus {
+
+      &::before {
+        content: "-";
+        position: absolute;
+        left: 0;
+      }
+    }
+  }
+  &__content {
+    display: none;
+    margin: 0 0 1.5em 2em;
+    font-size: var(--font-small);
+
+    &-display {
+      display: block;
+    }
+  }
+
+  &__brand {
+    margin: 10px 0;
+  }
+
+  &__brand-title {
+    min-width: 100px;
+    display: inline-flex;
+    font-weight: var(--fw7);
+    text-transform: uppercase;
+  }
+
+  &__desc {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+  }
+}
+
+.reviews {
+
+  &__main-title {
+    font-size: 2em;
+    color: var(--light-text-color);
+    padding-top: 1em;
+    margin: 1em 0 0.5em;
+    border-top: 1px solid var(--border-color);
+  }
+
+  &__block {
+    color: initial;
+  }
+
+  &__btn {
+    display: block;
+    font-size: 1.25em;
+    width: var(--percent100)!important;
+    margin-top: 1em!important;
+    text-align: center;
+  }
+
+  &__rate {
+    position: relative;
+    font-size: 4em;
+    font-weight: var(--fw7);
+    padding-right: 0.5em;
+
+    &::before {
+
+      content: "";
+      width: 2px;
+      height: 50px;
+      display: block;
+      position: absolute;
+      top: 13px;
+      right: 13px;
+      transform: rotate(22deg);
+      background-color: var(--light-bg-color);
+    }
   }
 }
 

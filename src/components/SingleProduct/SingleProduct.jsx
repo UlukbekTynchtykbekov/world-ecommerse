@@ -15,6 +15,7 @@ import 'swiper/css/thumbs';
 
 const SingleProduct = () => {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
+    const [expand, setExpand] = useState("info");
 
     return (
         <>
@@ -234,11 +235,11 @@ const SingleProduct = () => {
                                                         </ul>
                                                     </div>
                                                 </div>
-                                                <div className="description collapse">
+                                                <div className="description">
                                                     <ul className="description__list">
                                                         <li className="description__item child">
-                                                            <a href="" className="description__link">Information</a>
-                                                            <ul className="content description__content">
+                                                            <div className={expand === "info" ? "description__link description__link-minus" : "description__link"} onClick={expand === "info" ? () => setExpand("") : () => setExpand("info")}>Information</div>
+                                                            <ul className={expand === "info" ? "content description__content description__content-display" : "content description__content"}>
                                                                 <li className="description__brand">
                                                                     <span className="description__brand-title">Brands</span>
                                                                     <span className="description__brand-name">Nike</span>
@@ -258,10 +259,54 @@ const SingleProduct = () => {
                                                             </ul>
                                                         </li>
                                                         <li className="description__item child">
-                                                            <a href="" className="description__link">Details</a>
-                                                            <div className="content description__content">
+                                                            <div className={expand === "detail" ? "description__link description__link-minus" : "description__link"} onClick={expand === "detail" ? () => setExpand("") : () => setExpand("detail")}>Details</div>
+                                                            <div className={expand === "detail" ? "content description__content description__content-display" : "content description__content"}>
                                                                 <p className="description__desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab enim itaque minus mollitia non vel.</p>
                                                                 <p className="description__desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid consectetur, cupiditate iusto molestias nobis omnis pariatur sit tenetur? Alias animi, beatae deleniti nulla quod voluptates?</p>
+                                                            </div>
+                                                        </li>
+                                                        <li className="description__item reviews">
+                                                            <a href="" className="reviews__title icon-sm">
+                                                                Reviews
+                                                                <span className="reviews__number mini-text">
+                                                                    2.2k
+                                                                </span>
+                                                            </a>
+                                                            <div className="content">
+                                                                <div className="reviews__review">
+                                                                    <h4 className="reviews__main-title">
+                                                                        Customer Reviews
+                                                                    </h4>
+                                                                    <div className="reviews__block">
+                                                                        <div className="reviews__head">
+                                                                            <div className="flexitem">
+                                                                                <span className="reviews__rate">4.9</span>
+                                                                                <span className="reviews__sum">2,251 Reviews</span>
+                                                                            </div>
+                                                                            <a href="#reviews-form" className="reviews__btn secondary-button">Write review</a>
+                                                                        </div>
+                                                                        <div className="reviews__body">
+                                                                            <ul className="reviews__info">
+                                                                                <li className="reviews__item">
+                                                                                    <div className="reviews__form">
+                                                                                        <p className="reviews__owner">Review by Sarah</p>
+                                                                                        <p className="reviews__date">On 7/7/22</p>
+                                                                                    </div>
+                                                                                    <div className="reviews__rating content__rating">
+                                                                                        <div className="content__stars">
+
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div className="reviews__text">
+                                                                                        <p className="reviews__subtext">
+                                                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquid, dignissimos fugiat iure mollitia nihil similique veniam! Eaque, iure, maxime.
+                                                                                        </p>
+                                                                                    </div>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </li>
                                                     </ul>
