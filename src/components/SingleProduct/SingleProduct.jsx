@@ -356,7 +356,7 @@ const SingleProduct = () => {
                                                                             <form action="" className="reviews-form__form">
                                                                                 <p className="reviews-form__item">
                                                                                     <label htmlFor="" className="reviews-form__label">Review</label>
-                                                                                    <textarea cols="30" rows="10" className="reviews-form__input"/>
+                                                                                    <textarea cols="30" rows="10" className="reviews-form__textarea"/>
                                                                                 </p>
                                                                                 <p className="reviews-form__item">
                                                                                     <a href="" className="primary-button">Submit Review</a>
