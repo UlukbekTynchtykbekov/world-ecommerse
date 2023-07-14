@@ -9,7 +9,7 @@ import Trending5 from "../../assets/products/shoe2.jpg";
 import Trending6 from "../../assets/products/shoe3.jpg";
 import Trending7 from "../../assets/products/shoe4.jpg";
 
-const Features = () => {
+const Features = ({title}) => {
     return (
         <div className="features">
             <div className="container">
@@ -18,7 +18,7 @@ const Features = () => {
                         <div className="secTop flexitem">
                             <h2 className="secTop__inner">
                                 <span className="secTop__circle circle"></span>
-                                <span className="secTop__title">Features Products</span>
+                                <span className="secTop__title">{title}</span>
                             </h2>
                             <div className="secTop__second-links">
                                 <a className="view-all" href="#">View all <i className="ri-arrow-right-line"></i></a>

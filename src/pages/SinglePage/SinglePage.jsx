@@ -9,7 +9,7 @@ const SinglePage = () => {
     return (
         <Helmet title="Single-Page">
             <SingleProduct />
-            {/*<Features />*/}
+            <Features title="Related Products"/>
             <Banners />
         </Helmet>
     );

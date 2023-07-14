@@ -5,12 +5,14 @@ import Otp from "../pages/Otp";
 import Login from "../pages/Login";
 import Home from "../pages/Home";
 import SinglePage from "../pages/SinglePage";
+import OfferPage from "../pages/OfferPage";
 
 const Routers = () => {
     return (
         <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/single-page" element={<SinglePage/>}/>
+            <Route path="/offer-page" element={<OfferPage/>}/>
             <Route path="/register" element={<Register/>}/>
             <Route path="/otp" element={<Otp/>}/>
             <Route path="/login" element={<Login/>}/>
