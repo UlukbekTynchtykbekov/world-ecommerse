@@ -74,6 +74,18 @@
   &__current {
     font-size: 2.5em;
   }
+
+  &__stock {
+    margin: 2em 0;
+  }
+
+  &__bar {
+    height: 10px;
+  }
+
+  &__offer {
+    margin-top: 1em;
+  }
 }
 
 .small-image {

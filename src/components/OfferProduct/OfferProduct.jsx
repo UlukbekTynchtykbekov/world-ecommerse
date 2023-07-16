@@ -6,6 +6,7 @@ import {FreeMode, Navigation, Thumbs} from "swiper";
 import image1 from "../../assets/products/apparel4.jpg";
 import image2 from "../../assets/products/apparel5.jpg";
 import image3 from "../../assets/products/apparel6.jpg";
+import "./offer-product.scss"
 
 const OfferProduct = () => {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -116,7 +117,7 @@ const OfferProduct = () => {
                                     <div className="one__row row">
                                         <div className="one__item">
                                             <h1 className="one__name">
-                                                Men Slip On Shoes Casual with Arch Support Insoles
+                                                Happy Sailed Women's Summer Boho Floral
                                             </h1>
                                             <div className="one__content content">
                                                 <div className="content__rating one__rating">
@@ -138,24 +139,25 @@ const OfferProduct = () => {
                                                         $119.90
                                                     </span>
                                                 </div>
-                                                <div className="colors">
-                                                    <p className="colors__title">Color</p>
-                                                    <div className="colors__variants">
-                                                        <form className="colors__form" action="">
-                                                            <p className="colors__variant">
-                                                                <input className="colors__input" type="radio" name="color" id="cogrey"/>
-                                                                <label htmlFor="cogrey" className="colors__circle circle"></label>
-                                                            </p>
-                                                            <p className="colors__variant">
-                                                                <input className="colors__input" type="radio" name="color" id="coblue"/>
-                                                                <label htmlFor="coblue" className="colors__circle circle"></label>
-                                                            </p>
-                                                            <p className="colors__variant">
-                                                                <input className="colors__input" type="radio" name="color" id="cogreen"/>
-                                                                <label htmlFor="cogreen" className="colors__circle circle"></label>
-                                                            </p>
-                                                        </form>
+                                                <div className="one__stock stock mini-text">
+                                                    <div className="stock__qty">
+                                                <span className="qty__span">Stock: <strong
+                                                    className="qty__available">107</strong></span>
+                                                        <span className="qty__span qty__span-color">Sold: <strong
+                                                            className="qty__sold">3,459</strong></span>
                                                     </div>
+                                                    <div className="stock__bar one__bar">
+                                                        <div className="bar__available bar__available-offer"></div>
+                                                    </div>
+                                                </div>
+                                                <div className="offer one__offer">
+                                                    <p className="offer__end">Offer ends at</p>
+                                                    <ul className="offer__timeList">
+                                                        <li className="offer__time">1</li>
+                                                        <li className="offer__time">15</li>
+                                                        <li className="offer__time">27</li>
+                                                        <li className="offer__time">60</li>
+                                                    </ul>
                                                 </div>
                                                 <div className="sizes">
                                                     <p className="sizes__title">Size</p>
