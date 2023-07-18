@@ -8,8 +8,8 @@ const SingleCategory = () => {
             <div className="container">
                 <div className="single-category__wrapper">
                     <div className="column single-category__column">
-                        <div className="holder">
-                            <div className="row sidebar">
+                        <div className="single-category__holder">
+                            <div className="row single-category__sidebar">
                                 <div className="filter">
                                     <div className="filter__block">
                                         <h4 className="filter__title">Category</h4>
@@ -205,14 +205,85 @@ const SingleCategory = () => {
                                         <h4 className="filter__title">Price</h4>
                                         <div className="filter__byprice byprice">
                                             <div className="byprice__range-track">
-                                                <input type="range" value="25000" min="0" max="100000" className="byprice__input"/>
+                                                <input type="range" min="0" max="100000" className="byprice__input"/>
+                                            </div>
+                                            <div className="byprice__price-range">
+                                                <span className="byprice__form">$50</span>
+                                                <span className="byprice__to">$500</span>
                                             </div>
                                         </div>
-                                        <div className="price-range">
-                                            <span className="price-range__form">$50</span>
-                                            <span className="price-range__to">$500</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="section single-category__section">
+                                <div className="row section__row">
+                                    <div className="section__head">
+                                        <div className="breadcrumb">
+                                            <ul className="breadcrumb__list flexitem">
+                                                <li className="breadcrumb__item">
+                                                    <a className="breadcrumb__link" href="#">Home</a>
+                                                </li>
+                                                <li className="breadcrumb__item">
+                                                    <a className="breadcrumb__link" href="#">Women</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div className="section__page">
+                                            <h1 className="section__title">
+                                                Women
+                                            </h1>
+                                        </div>
+                                        <div className="section__description">
+                                            <p className="section__description-text">
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam deserunt dolorum necessitatibus quibusdam, reprehenderit sint sunt totam! Accusantium ad alias aperiam at corporis cumque doloribus dolorum earum illo ipsa iusto laboriosam porro quibusdam ratione reprehenderit sed soluta, tempore. Adipisci animi, culpa cupiditate dicta et inventore itaque laboriosam odit optio quam quia quo ullam vero! Consequuntur dicta dignissimos earum excepturi fuga inventore magni perferendis tenetur. Alias corporis ea est nemo obcaecati quos ratione! A, fugiat pariatur!
+                                            </p>
+                                        </div>
+                                        <div className="section__navigation flexitem">
+                                            <div className="section__filter desktop-hide">
+                                                <a href="" className="section__filter-trigger label">
+                                                    <i className="ri-name-2-line ri-2x"></i>
+                                                    <span className="section__filter-title">filter</span>
+                                                </a>
+                                            </div>
+                                            <div className="section__sort sort">
+                                                <div className="label">
+                                                    <span className="mobile-hide">Sort by default</span>
+                                                    <div className="desktop-hide">Default</div>
+                                                    <i className="ri-arrow-down-s-line"></i>
+                                                </div>
+                                                <ul className="sort__list">
+                                                    <li className="sort__item">Default</li>
+                                                    <li className="sort__item">Product Name</li>
+                                                    <li className="sort__item">Price</li>
+                                                    <li className="sort__item">Brand</li>
+                                                </ul>
+                                            </div>
+                                            <div className="section__perpage perpage mobile-hide">
+                                                <div className="label">
+                                                    Items 10 perpage
+                                                </div>
+                                                <div className="desktop-hide">10</div>
+                                                <i className="ri-arrow-down-s-line"></i>
+                                            </div>
+                                            <div className="section__options options">
+                                                <div className="label">
+                                                    <span className="mobile-hide">Show 10 perpage</span>
+                                                    <div className="desktop-hide">10</div>
+                                                    <i className="ri-arrow-down-s-line"></i>
+                                                </div>
+                                                <ul className="options__list">
+                                                    <li className="options__item">10</li>
+                                                    <li className="options__item">20</li>
+                                                    <li className="options__item">30</li>
+                                                    <li className="options__item">All</li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div className="products pro flexwrap"></div>
+                                <div className="load-more">
+                                    <a href="" className="secondary-button">Load more</a>
                                 </div>
                             </div>
                         </div>

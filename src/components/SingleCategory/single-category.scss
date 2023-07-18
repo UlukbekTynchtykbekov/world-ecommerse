@@ -1,3 +1,16 @@
+.single-category {
+
+  &__holder {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__sidebar,
+  &__section {
+    flex: 1 0 100% !important;
+  }
+}
+
 .filter {
 
   &__block {
@@ -59,5 +72,60 @@
   &__count {
     margin-left: auto;
     color: var(--light-text-color);
+  }
+}
+
+.byprice {
+
+  &__input {
+    -webkit-appearance: none;
+    width: var(--percent100);
+
+    &:focus {
+      outline: 0;
+    }
+
+    &::-webkit-slider-runnable-track {
+      width: var(--percent100);
+      height: 5px;
+      background-color: var(--border-color);
+      box-shadow: none;
+      border: 0;
+    }
+
+    &::-webkit-slider-thumb {
+      z-index: 2;
+      position: relative;
+      height: 18px;
+      width: 18px;
+      background-color: var(--primary-color);
+      -webkit-appearance: none;
+      margin-top: -7px;
+    }
+  }
+
+  &__price-range {
+    display: flex;
+    justify-content: space-between;
+    color: var(--light-text-color);
+    margin-top: 0.5em;
+  }
+}
+
+@media screen and (min-width: 993px) {
+
+  .single-category {
+
+    &__holder {
+      flex-direction: row;
+    }
+
+    &__sidebar {
+      flex: 1 0 25% !important;
+    }
+
+    &__section {
+      flex: 1 0 75% !important;
+    }
   }
 }

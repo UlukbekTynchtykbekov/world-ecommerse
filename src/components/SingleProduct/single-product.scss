@@ -159,6 +159,14 @@
     &[for="cogreen"]::before {
       background-color: #1dd1a1;
     }
+
+    &[for="cored"]::before {
+      background-color: var(--primary-color);
+    }
+
+    &[for="colight"]::before {
+      background-color: var(--border-color);
+    }
   }
 
   &__input {

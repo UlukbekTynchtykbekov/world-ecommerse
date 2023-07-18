@@ -92,6 +92,14 @@ h4{
   padding: 0 0.75em 0 0;
 }
 
+.mobile-hide {
+  display: none;
+}
+
+.desktop-hide {
+  display: block;
+}
+
 .trigger {
   font-family: "Rubik", sans-serif;
   font-size: 1.5em;
@@ -201,5 +209,13 @@ h4{
 @media screen and (min-width: 993px) {
   .container {
     padding: 0 2rem;
+  }
+
+  .desktop-hide {
+    display: none;
+  }
+
+  .mobile-hide {
+    display: block;
   }
 }
