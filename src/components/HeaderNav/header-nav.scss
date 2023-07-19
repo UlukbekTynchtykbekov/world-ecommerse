@@ -156,6 +156,13 @@
 
   &__item {
     display: block;
+
+    &.iscart {
+      &:hover .mini-cart {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
   }
 
   &__link {
@@ -165,7 +172,7 @@
 
   &__fly-item {
     top: 0;
-    right: 64px;
+    left: 0;
     width: 16px;
     background-color: var(--secondary-dark-color);
     border-radius: var(--percent50);
