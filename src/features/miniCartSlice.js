@@ -4,19 +4,19 @@ const initialState = {
     showCart: false,
 }
 
-const menuSlice = createSlice({
+const cartSlice = createSlice({
     name: "miniCart",
     initialState,
     reducers: {
-        showMenu: (state, action) => {
+        showCart: (state, action) => {
             state.showCart = true
         },
 
-        closeMenu: (state, action) => {
+        closeCart: (state, action) => {
             state.showCart = false
         },
     }
 });
 
-export default menuSlice.reducer;
-export const menuActions = menuSlice.actions;
+export default cartSlice.reducer;
+export const cartActions = cartSlice.actions;

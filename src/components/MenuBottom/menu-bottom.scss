@@ -19,6 +19,7 @@
     padding: 0.5em 0;
     color: var(--light-text-color);
     transition: var(--trans-color);
+    cursor: pointer;
 
     &:hover {
       color: var(--dark-color);

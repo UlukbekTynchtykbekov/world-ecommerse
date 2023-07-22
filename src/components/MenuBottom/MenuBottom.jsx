@@ -1,7 +1,20 @@
 import React from 'react';
 import "./menu-bottom.scss"
+import {cartActions} from "../../features/miniCartSlice";
+import {useDispatch, useSelector} from "react-redux";
 
 const MenuBottom = ({setShowSearchBottom}) => {
+
+    const dispatch = useDispatch();
+    const {showCart} = useSelector(state => state.showCart);
+
+    function openCart () {
+        setTimeout(() => {
+            dispatch(cartActions.showCart())
+        }, 250);
+
+    }
+
     return (
         <div className="menu-bottom desktop-hide">
             <div className="container">
@@ -33,7 +46,7 @@ const MenuBottom = ({setShowSearchBottom}) => {
                                 </div>
                             </li>
                             <li className="menu-bottom__item">
-                                <a href="" className="menu-bottom__link">
+                                <div onClick={openCart} className="menu-bottom__link">
                                     <i className="ri-shopping-cart-line"></i>
                                     <span className="menu-bottom__span">Cart</span>
                                     <div className="fly-item menu-bottom__fly-item">
@@ -41,7 +54,7 @@ const MenuBottom = ({setShowSearchBottom}) => {
                                                 0
                                             </span>
                                     </div>
-                                </a>
+                                </div>
                             </li>
                         </ul>
                     </nav>

@@ -1,7 +1,7 @@
 import React from 'react';
 import apparel4 from "../../assets/products/apparel4.jpg";
 import "./header-nav.scss"
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {menuActions} from "../../features/menuSlice";
 import MiniCart from "../MiniCart/MiniCart";
 
@@ -202,7 +202,7 @@ const HeaderNav = () => {
                                 </a>
                             </li>
                             <li className="package__item iscart">
-                                <a className="package__link" href="">
+                                <div className="package__link">
                                         <div className="package__icon icon-lg">
                                             <i className="ri-shopping-cart-line"></i>
                                             <span className="fly-item package__fly-item">
@@ -215,7 +215,7 @@ const HeaderNav = () => {
                                             <span className="package__total">Total</span>
                                             <span className="package__total-number">$1.622</span>
                                         </span>
-                                </a>
+                                </div>
                                 <MiniCart />
                             </li>
                         </ul>

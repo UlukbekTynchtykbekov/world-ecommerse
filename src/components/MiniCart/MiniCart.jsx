@@ -1,14 +1,35 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import "./mini-cart.scss"
 import product1 from "../../assets/products/home1.jpg";
 import product2 from "../../assets/products/home2.jpg";
 import product3 from "../../assets/products/home3.jpg";
 import product4 from "../../assets/products/home4.jpg";
 import product5 from "../../assets/products/home5.jpg";
+import {useDispatch, useSelector} from "react-redux";
+import {cartActions} from "../../features/miniCartSlice";
 
 const MiniCart = () => {
+    const showRef = useRef(null)
+
+    const dispatch = useDispatch();
+    const {showCart} = useSelector(state => state.showCart);
+
+    if (showCart) {
+        setTimeout(() => {
+            showRef.current.classList.add("show")
+        }, 250);
+    }else {
+        document.addEventListener("click", (e) => {
+            const isClosest = e.target.closest(".mini-cart");
+            if (!isClosest && showRef.current.classList.contains("show")){
+                dispatch(cartActions.closeCart())
+                showRef.current.classList.remove("show")
+            }
+        })
+    }
+
     return (
-        <div className="mini-cart">
+        <div ref={showRef} className="mini-cart">
             <div className="mini-cart__content">
                 <div className="cart-head mini-cart__head">
                     5 items in cart
