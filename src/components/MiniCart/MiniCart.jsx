@@ -1,5 +1,4 @@
-import React, {useEffect, useRef} from 'react';
-import "./mini-cart.scss"
+import React, {useRef} from 'react';
 import product1 from "../../assets/products/home1.jpg";
 import product2 from "../../assets/products/home2.jpg";
 import product3 from "../../assets/products/home3.jpg";
@@ -7,6 +6,7 @@ import product4 from "../../assets/products/home4.jpg";
 import product5 from "../../assets/products/home5.jpg";
 import {useDispatch, useSelector} from "react-redux";
 import {cartActions} from "../../features/miniCartSlice";
+import "./mini-cart.scss";
 
 const MiniCart = () => {
     const showRef = useRef(null)
