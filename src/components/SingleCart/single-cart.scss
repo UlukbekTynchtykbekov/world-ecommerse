@@ -78,6 +78,131 @@
   &__contents {
     border-bottom: 1px solid var(--border-color);
   }
+
+  &__summary {
+    width: var(--percent100);
+    margin: 2.5em 0 4em;
+  }
+
+  &__shipping-rate {
+    padding: 0 2em 0 1em;
+  }
+}
+
+.summary {
+
+  &__item {
+    background-color: var(--light-bg-color);
+  }
+
+  &__coupon {
+    position: relative;
+  }
+}
+
+.coupon {
+
+  &__input {
+    font-size: 1.1em;
+    outline: 0;
+    width: var(--percent100);
+    padding: 0 1.5em!important;
+    line-height: 50px;
+    background-color: var(--white-color);
+    border: 3px solid var(--dark-color)!important;
+  }
+
+  &__btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
+    outline: 0;
+    font-size: 1em;
+    padding: 0 2.5em;
+    line-height: 56px;
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    cursor: pointer;
+  }
+}
+
+.shipping-rate {
+
+  &__link {
+    font-size: 1em !important;
+    margin: 2em 0 !important;
+    border: 0 !important;
+  }
+}
+
+.styled :where(input, select, textarea) {
+  padding: 0.75em;
+  outline: 0;
+  background-color: var(--white-color);
+  border-width: 0 0 3px 0;
+  border-style: solid;
+  border-color: var(--border-color);
+}
+
+.countries__form,
+.states__form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.rate-options {
+
+  &__circle {
+    position: relative!important;
+    border: 0!important;
+    background-color: var(--white-color)!important;
+    transform: scale(.5)!important;
+    display: block !important;
+    top: 0 !important;
+    margin: 0 !important;
+    cursor: pointer !important;
+    z-index: 1 !important;
+
+    &:before {
+      opacity: 1 !important;
+    }
+  }
+
+  &__input {
+    clip: rect(0, 0, 0, 0);
+    overflow: hidden;
+    position: absolute;
+    height: 0;
+    width: 0;
+  }
+}
+
+.cart-total {
+
+ &__item, {
+   border-bottom: 1px solid var(--border-color);
+   text-align: left;
+   padding-left: 2em;
+ }
+
+  &__title,
+  &__subtitle {
+    padding: 2em 1em;
+    text-align: center;
+  }
+
+  &__title:first-child,
+  &__subtitle:first-child {
+    padding-left: 2em;
+    text-align: left;
+  }
+
+  &__subtitle {
+    margin: 0;
+    padding-left: 0;
+  }
 }
 
 @media screen and (min-width: 993px) {
