@@ -25,7 +25,7 @@ const SingleCart = () => {
                             <form className="cart__form" action="">
                                 <div className="products__item">
                                     <table className="cart__table">
-                                        <thead>
+                                        <thead className="cart__thead">
                                             <tr>
                                                 <th className="cart__list-item">Item</th>
                                                 <th className="cart__list-item">Price</th>
@@ -193,7 +193,7 @@ const SingleCart = () => {
                                                 </div>
                                                 <div className="postal-code">
                                                     <form action="" className="postal-code__form">
-                                                        <label htmlFor="postal">Zip/Postal Code</label>
+                                                        <label htmlFor="postal" className="postal-code__label">Zip/Postal Code</label>
                                                         <input type="number" name="postal" id="postal"/>
                                                     </form>
                                                 </div>
@@ -201,12 +201,12 @@ const SingleCart = () => {
                                                     <form action="" className="rate-options__form">
                                                         <p className="rate-options__item">
                                                             <span className="rate-options__flat">Flat: $10.00</span>
-                                                            <input className="rate-options__input" type="radio" name="flat" id="flat"/>
+                                                            <input className="rate-options__input" type="radio" name="rate-option" id="flat"/>
                                                             <label htmlFor="flat" className="circle rate-options__circle"></label>
                                                         </p>
                                                         <p className="rate-options__item">
                                                             <span className="rate-options__flat">Best: $0.00</span>
-                                                            <input className="rate-options__input" type="radio" name="best" id="best"/>
+                                                            <input className="rate-options__input" type="radio" name="rate-option" id="best"/>
                                                             <label htmlFor="best" className="circle rate-options__circle"></label>
                                                         </p>
                                                     </form>
@@ -231,11 +231,11 @@ const SingleCart = () => {
                                             </tr>
                                             <tr className="cart-total__item">
                                                 <th className="cart-total__title">TOTAL</th>
-                                                <td className="cart-total__subtitle"><strong>$2065.95</strong></td>
+                                                <td className="cart-total__subtitle-grand"><strong>$2065.95</strong></td>
                                             </tr>
                                             </tbody>
                                         </table>
-                                        <a href="/checkout" className="secondary-button">Checkout</a>
+                                        <a href="/checkout" className="secondary-button cart-total__btn">Checkout</a>
                                     </div>
                                 </div>
                             </div>

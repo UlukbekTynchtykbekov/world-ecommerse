@@ -106,10 +106,10 @@
     font-size: 1.1em;
     outline: 0;
     width: var(--percent100);
-    padding: 0 1.5em!important;
+    padding: 0 1.5em !important;
     line-height: 50px;
     background-color: var(--white-color);
-    border: 3px solid var(--dark-color)!important;
+    border: 3px solid var(--dark-color) !important;
   }
 
   &__btn {
@@ -129,10 +129,33 @@
 
 .shipping-rate {
 
+  &__content {
+    padding: 0 2em;
+  }
+
+  &__child {
+    padding: 1em 0;
+    border-top: 1px solid var(--border-color);
+  }
+
   &__link {
     font-size: 1em !important;
     margin: 2em 0 !important;
     border: 0 !important;
+    position: relative;
+    display: flex;
+    font-weight: var(--fw7);
+    text-transform: uppercase;
+    padding: 0 1.25em;
+    cursor: pointer;
+    gap: 1em;
+    align-items: flex-start;
+
+    &::before {
+      content: "-";
+      position: absolute;
+      left: 0;
+    }
   }
 }
 
@@ -152,13 +175,71 @@
   margin-bottom: 1em;
 }
 
+.countries {
+
+  &__label {
+    font-size: 1em !important;
+    margin-bottom: 1em;
+    border: 0 !important;
+    position: relative;
+    display: flex;
+    font-weight: var(--fw7);
+    text-transform: uppercase;
+    cursor: pointer;
+    gap: 1em;
+    align-items: flex-start;
+  }
+}
+
+.states {
+
+  &__label {
+    font-size: 1em !important;
+    margin-bottom: 1em;
+    border: 0 !important;
+    position: relative;
+    display: flex;
+    font-weight: var(--fw7);
+    text-transform: uppercase;
+    cursor: pointer;
+    gap: 1em;
+    align-items: flex-start;
+  }
+}
+
+.postal-code {
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    font-size: 1em !important;
+    margin-bottom: 1em;
+    border: 0 !important;
+    position: relative;
+    display: flex;
+    font-weight: var(--fw7);
+    text-transform: uppercase;
+    cursor: pointer;
+    gap: 1em;
+    align-items: flex-start;
+  }
+}
+
 .rate-options {
+  margin-top: 2em;
+
+  &__item {
+    position: relative;
+  }
 
   &__circle {
-    position: relative!important;
-    border: 0!important;
-    background-color: var(--white-color)!important;
-    transform: scale(.5)!important;
+    position: relative !important;
+    border: 0 !important;
+    background-color: var(--white-color) !important;
+    transform: scale(.5) translateX(-25px) !important;
     display: block !important;
     top: 0 !important;
     margin: 0 !important;
@@ -166,7 +247,7 @@
     z-index: 1 !important;
 
     &:before {
-      opacity: 1 !important;
+      opacity: 1;
     }
   }
 
@@ -177,31 +258,97 @@
     height: 0;
     width: 0;
   }
+
+  :checked + &__circle::before {
+    opacity: 1;
+  }
+
+  &__flat {
+    position: absolute;
+    top: 0;
+    left: 40px;
+    line-height: 3;
+  }
 }
 
 .cart-total {
+  padding: 2em;
+  background-color: var(--border-color);
+  line-height: 2em;
 
- &__item, {
-   border-bottom: 1px solid var(--border-color);
-   text-align: left;
-   padding-left: 2em;
- }
+  &__table {
+    width: var(--percent100);
+  }
+
+  &__item, {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-color);
+    text-align: left;
+  }
 
   &__title,
   &__subtitle {
-    padding: 2em 1em;
     text-align: center;
-  }
-
-  &__title:first-child,
-  &__subtitle:first-child {
-    padding-left: 2em;
-    text-align: left;
   }
 
   &__subtitle {
     margin: 0;
     padding-left: 0;
+
+    &-grand {
+      font-size: 2em;
+      font-family: "Poppins", sans-serif;
+      font-weight: var(--fw8);
+      line-height: 2em;
+      text-align: right;
+    }
+  }
+
+  &__btn {
+    width: var(--percent100) !important;
+    display: block;
+    text-align: center;
+    margin-top: 2em;
+    font-size: 1.25em;
+  }
+}
+
+@media screen and (max-width: 639px) {
+
+  .cart {
+
+    &__thead {
+      display: none;
+    }
+
+    &__contents {
+      display: flex;
+      flex-wrap: wrap;
+      position: relative;
+      align-items: center;
+    }
+
+    &__content-item {
+
+      &:first-child {
+        width: var(--percent100);
+        min-width: var(--percent100);
+        position: relative;
+      }
+
+      &:not(:first-child) {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: var(--percent100);
+      }
+
+      &:last-child {
+       position: absolute;
+        top: 0;
+        right: 0;
+      }
+    }
   }
 }
 
