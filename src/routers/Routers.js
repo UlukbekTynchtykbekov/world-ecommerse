@@ -22,6 +22,7 @@ const Routers = () => {
             <Route path="/checkout-page" element={<Checkout/>}/>
             <Route path="/otp" element={<Otp/>}/>
             <Route path="/login" element={<Login/>}/>
+            <Route path="/register" element={<Register/>}/>
         </Routes>
     )
 };

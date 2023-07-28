@@ -11,7 +11,7 @@ import Trending7 from "../../assets/products/shoe4.jpg";
 
 const Features = ({title}) => {
     return (
-        <div className="features">
+        <div id="features" className="features">
             <div className="container">
                 <div className="features__wrapper">
                     <div className="features__column">

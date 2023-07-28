@@ -4,6 +4,7 @@ import "./header-nav.scss"
 import {useDispatch} from "react-redux";
 import {menuActions} from "../../features/menuSlice";
 import MiniCart from "../MiniCart/MiniCart";
+import {Link} from "react-router-dom";
 
 const HeaderNav = () => {
 
@@ -27,8 +28,12 @@ const HeaderNav = () => {
                         </div>
                         <nav className="navigations">
                             <ul className="navigations__links">
-                                <li className="navigations__item"><a className="navigations__link" href="#">Home</a></li>
-                                <li className="navigations__item"><a className="navigations__link" href="#">Shop</a></li>
+                                <li className="navigations__item">
+                                    <Link to="/" className="navigations__link">Home</Link>
+                                </li>
+                                <li className="navigations__item">
+                                    <Link to="/shop" className="navigations__link">Shop</Link>
+                                </li>
                                 <li className="navigations__item child">
                                     <a className="navigations__link" href="#">Women
                                         <span className="navigations__icon icon-sm">

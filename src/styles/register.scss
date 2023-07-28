@@ -93,12 +93,16 @@
     flex-direction: column;
   }
 
-  &__input{
+  &__field {
     margin: 7px 0;
+    width: 75%;
+  }
+
+  &__input{
     border-width: 0;
     padding: .6rem 1.25rem;
     border-radius: 0.5rem;
-    width: 75%;
+    width: 100%;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     font-size: 1rem;
     &:focus{
@@ -138,5 +142,31 @@
 
   &__link{
     color: #EF4444;
+  }
+}
+
+.back {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 1em;
+  left: 2em;
+  cursor: pointer;
+  background-color: #4e62cc;
+  color: var(--white-color);
+  transition: .1s ease-out;
+
+  &:hover {
+    background-color: #49559a;
+    color: var(--white-color);
+  }
+
+  &__icon {
+    font-size: 1.75rem;
+    text-align: center;
   }
 }
