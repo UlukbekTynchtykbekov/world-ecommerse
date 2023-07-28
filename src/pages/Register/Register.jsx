@@ -1,6 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from "react-router-dom";
-import {useForm} from 'react-hook-form';
 import toast, {Toaster} from 'react-hot-toast';
 import Profile from "../../assets/profile.png"
 import Helmet from "../../layout/Helmet";
@@ -8,27 +7,14 @@ import "../../styles/register.scss"
 
 const Register = () => {
 
-    const {
-        register,
-        handleSubmit,
-        formState: {errors},
-    } = useForm({
-        defaultValues: {
-            firstName: '',
-            lastName: '',
-            email: '',
-            hash_password: '',
-            confirm_password: '',
-            phoneNumber: '',
-            profilePicture: '',
-        },
-        mode: 'onBlur',
-    });
+    const [formData, setFormData] = useState({});
+    const [formErrors, setFormErrors] = useState({});
 
-    const onSubmit = (data) => {
-        console.log(data)
-    }
-
+    const handleInputChange = (event) => {
+        const {name, value} = event.target;
+        setFormData({...formData, [name]: value});
+    };
+    console.log(formData)
     return (
         <Helmet title="Register">
             <Toaster
@@ -57,7 +43,7 @@ const Register = () => {
                                 </span>
                             </div>
 
-                            <form className="form" onClick={handleSubmit(onSubmit)}>
+                            <form className="form">
                                 <div className='form__profile'>
                                     <label htmlFor="profile">
                                         <img className="form__img" src={Profile} alt="avatar"/>
@@ -65,7 +51,10 @@ const Register = () => {
                                     <input
                                         className="form__upload"
                                         type="file"
-                                        id='profile' name='profile'/>
+                                        id='profile' name='profilePicture'
+                                        onChange={(e) => handleInputChange(e)}
+                                    />
+
                                 </div>
 
                                 <div className="form__fields">
@@ -73,70 +62,55 @@ const Register = () => {
                                         <input
                                             className="form__input"
                                             type="text"
+                                            name="email"
                                             placeholder='Email*'
-                                            {...register('firstName', {
-                                                required: 'Email is required',
-                                                pattern: {
-                                                    value: /^\S+@\S+$/i,
-                                                    message: 'Invalid email format',
-                                                },
-                                            })}
+                                            onChange={(e) => handleInputChange(e)}
                                         />
                                     </p>
                                     <p className="form__field">
                                         <input
                                             className="form__input"
                                             type="text"
+                                            name="firstName"
                                             placeholder='First Name*'
-                                            {...register('firstName', {
-                                                required: 'First name is required',
-                                                pattern: {
-                                                    value: /^[A-Za-z]+$/,
-                                                    message: 'First name must be a string',
-                                                },
-                                                minLength: {
-                                                    value: 3,
-                                                    message: "First name must be more than three letters"
-                                                },
-                                                maxLength: {
-                                                    value: 20,
-                                                    message: "First name must be less than three letters"
-                                                },
-                                            })}
+                                            onChange={(e) => handleInputChange(e)}
                                         />
-                                        {errors.firstName && <span>{errors.firstName.message}</span>}
                                     </p>
                                     <p className="form__field">
                                         <input
                                             className="form__input"
                                             type="text"
+                                            name="lastName"
                                             placeholder='Last Name*'
-                                            {...register('lastName', {
-                                                required: 'First name is required',
-                                                pattern: {
-                                                    value: /^[A-Za-z]+$/,
-                                                    message: 'Last name must be a string',
-                                                },
-                                                minLength: {
-                                                    value: 3,
-                                                    message: "Last name must be more than three letters"
-                                                },
-                                                maxLength: {
-                                                    value: 20,
-                                                    message: "Last name must be less than three letters"
-                                                },
-                                            })}
+                                            onChange={(e) => handleInputChange(e)}
                                         />
-                                        {errors.lastName && <span>{errors.lastName.message}</span>}
                                     </p>
                                     <p className="form__field">
-                                        <input className="form__input" type="text" placeholder='Password*'/>
+                                        <input
+                                            className="form__input"
+                                            type="text"
+                                            name="hash_password"
+                                            placeholder='Password*'
+                                            onChange={(e) => handleInputChange(e)}
+                                        />
                                     </p>
                                     <p className="form__field">
-                                        <input className="form__input" type="text" placeholder='Confirm Password*'/>
+                                        <input
+                                            className="form__input"
+                                            type="text"
+                                            name="confirm_password"
+                                            placeholder='Confirm Password*'
+                                            onChange={(e) => handleInputChange(e)}
+                                        />
                                     </p>
                                     <p className="form__field">
-                                        <input className="form__input" type="text" placeholder='Phone Number*'/>
+                                        <input
+                                            className="form__input"
+                                            type="number"
+                                            name="phoneNumber"
+                                            placeholder='Phone Number*'
+                                            onChange={(e) => handleInputChange(e)}
+                                        />
                                     </p>
                                     <button className="form__button" type='submit'>Register</button>
                                 </div>
