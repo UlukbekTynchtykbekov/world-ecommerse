@@ -12,7 +12,7 @@ const Home = () => {
             <Slider />
             <Brands />
             <Trending />
-            <Features />
+            <Features title="Features Products"/>
             <Banners />
         </Helmet>
     );

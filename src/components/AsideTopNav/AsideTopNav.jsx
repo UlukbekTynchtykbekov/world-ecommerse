@@ -15,7 +15,8 @@ const AsideTopNav = () => {
                 </div>
                 <div className="top__right">
                     <ul className="top__links">
-                        <li className="top__item"><Link className="top__link" to="/">Sign Up</Link></li>
+                        <li className="top__item"><Link className="top__link" to="/login">Sign Up</Link></li>
+                        <li className="top__item"><Link className="top__link" to="/register">Sign In</Link></li>
                         <li className="top__item"><Link className="top__link" to="/">My Account</Link></li>
                         <li className="top__item"><Link className="top__link" to="/">Order Tracking</Link></li>
                         <li className="currency top__item">

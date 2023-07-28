@@ -4,6 +4,7 @@ import Widgets from "../../components/Widgets/Widgets";
 import FooterInfo from "../../components/FooterInfo/FooterInfo";
 
 const Footer = () => {
+
     return (
         <>
             <NewsLetter />

@@ -19,6 +19,11 @@ const Login = () => {
             <div className="register">
                 <div className="container">
                     <div className="register__wrapper">
+                        <div className="register__back back">
+                            <span className="back__icon">
+                                <i className="ri-arrow-left-line"></i>
+                            </span>
+                        </div>
                         <div className="register__glass">
                             <div className="register__head">
                                 <h4 className='register__title'>Login</h4>

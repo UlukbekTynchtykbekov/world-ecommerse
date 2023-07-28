@@ -26,7 +26,7 @@
     background-color: var(--primary-color);
     border-radius: 7px 7px 0 0;
     color: var(--white-color);
-    margin-bottom: -26px;
+    margin-bottom: -34px;
   }
 
   &__mini-text {
@@ -42,6 +42,11 @@
     padding: 1.3em;
     height: 60px;
     width: 60px;
+    cursor: pointer;
+
+    &.visible {
+      display: none;
+    }
   }
 }
 
@@ -192,6 +197,10 @@
 
     &__trigger {
       display: block;
+
+      &.visible {
+        display: none;
+      }
     }
   }
 
@@ -208,6 +217,10 @@
       font-weight: var(--fw5);
       padding: 0 1.5em;
       border-bottom: 1px solid var(--border-color);
+    }
+
+    &.show {
+      display: none;
     }
   }
 
@@ -282,6 +295,10 @@
       padding: 1.5em;
       font-size: var(--font-small);
       line-height: 2.5em;
+    }
+
+    &__inner {
+      z-index: 111;
     }
   }
 

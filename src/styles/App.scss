@@ -80,7 +80,6 @@ h4{
   display: flex;
   flex-direction: column;
   gap: 1em;
-  z-index: 111;
 }
 
 .icon-sm{
@@ -91,6 +90,14 @@ h4{
 .icon-lg{
   font-size: 1.75rem;
   padding: 0 0.75em 0 0;
+}
+
+.mobile-hide {
+  display: none;
+}
+
+.desktop-hide {
+  display: block;
 }
 
 .trigger {
@@ -126,7 +133,7 @@ h4{
   }
 }
 
-.secondary-button {
+.light-button {
   background-color: var(--light-bg-color);
 
   &:hover {
@@ -180,8 +187,35 @@ h4{
   }
 }
 
+.t-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25em;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--percent100);
+  background-color: var(--secondary-dark-color);
+  color: var(--white-color);
+  transition: var(--trans-background-color);
+
+  &:hover {
+    background-color: var(--white-color);
+    color: var(--secondary-dark-color);
+    opacity: .75;
+  }
+}
+
 @media screen and (min-width: 993px) {
   .container {
     padding: 0 2rem;
+  }
+
+  .desktop-hide {
+    display: none;
+  }
+
+  .mobile-hide {
+    display: block;
   }
 }

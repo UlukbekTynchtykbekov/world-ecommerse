@@ -29,7 +29,7 @@ const Aside = () => {
                             <span className="logo__circle canvas__circle"></span>.Store
                         </a>
                     </div>
-                    <div onClick={closeMenu} className="close canvas__close" href="#"><i className="ri-close-line"></i></div>
+                    <div onClick={closeMenu} className="close canvas__close" ><i className="ri-close-line"></i></div>
                 </div>
                 <AsideDepartments sidebarRef={sidebarRef} toggleSidebar={toggleSidebar}  />
                 <AsideNavigation />

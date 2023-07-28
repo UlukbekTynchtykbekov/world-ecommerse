@@ -1,11 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import bgImage1 from "../../assets/menu/menu_bg1.jpg";
 import bgImage2 from "../../assets/menu/menu_bg2.jpg";
 import bgImage3 from "../../assets/menu/menu_bg3.jpg";
 import bgImage4 from "../../assets/menu/menu_bg4.jpg";
 import "./header-main.scss"
+import {useLocation} from "react-router-dom";
 
 const HeaderMain = () => {
+    const [showCat, setShowCat] = useState(false);
+    const {pathname} = useLocation();
+
     return (
         <div className="main header__main">
             <div className="container">
@@ -19,11 +23,13 @@ const HeaderMain = () => {
                                 <div className="mini-text category__mini-text">
                                     Total 1059 Products
                                 </div>
-                                <a className="category__trigger" href="#">
-                                    <i className="ri-menu-3-line ri-xl"></i>
-                                </a>
+                                <div onClick={() => setShowCat(!showCat)} className={pathname === '/' ? "category__trigger visible" : "category__trigger"}>
+                                    {showCat ? <i className="ri-close-line ri-xl"></i> :
+                                        <i className="ri-menu-3-line ri-xl"></i>
+                                    }
+                                </div>
                             </div>
-                            <div className="menu">
+                            <div className={pathname !== "/" && showCat === false ? "menu show" : "menu"}>
                                 <ul className="menu__list">
                                     <li className="menu__item child">
                                         <a className="menu__link" href="">
@@ -164,7 +170,7 @@ const HeaderMain = () => {
                                         <div className="kit child__kit">
                                             <img className="kit__image" src={bgImage4} alt=""/>
                                             <div className="kit__wrapper">
-                                                <div className="flexcol">
+                                                <div className="kit__inner flexcol">
                                                     <div className="kit__row">
                                                         <h4 className="kit__main-title">
                                                             <a className="kit__main-link" href="">Kitchen & Dining</a>
@@ -201,7 +207,7 @@ const HeaderMain = () => {
                                                         </ul>
                                                     </div>
                                                 </div>
-                                                <div className="flexcol">
+                                                <div className="kit__inner flexcol">
                                                     <div className="kit__row">
                                                         <h4 className="kit__main-title">
                                                             <a className="kit__main-link" href="">Bed & Bath</a>
@@ -236,7 +242,7 @@ const HeaderMain = () => {
                                                         </ul>
                                                     </div>
                                                 </div>
-                                                <div className="flexcol">
+                                                <div className="kit__inner flexcol">
                                                     <div className="kit__row">
                                                         <h4 className="kit__main-title">
                                                             <a className="kit__main-link" href="">Outdoor</a>

@@ -1,8 +1,10 @@
 import React from 'react';
 import apparel4 from "../../assets/products/apparel4.jpg";
 import "./header-nav.scss"
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {menuActions} from "../../features/menuSlice";
+import MiniCart from "../MiniCart/MiniCart";
+import {Link} from "react-router-dom";
 
 const HeaderNav = () => {
 
@@ -26,8 +28,12 @@ const HeaderNav = () => {
                         </div>
                         <nav className="navigations">
                             <ul className="navigations__links">
-                                <li className="navigations__item"><a className="navigations__link" href="#">Home</a></li>
-                                <li className="navigations__item"><a className="navigations__link" href="#">Shop</a></li>
+                                <li className="navigations__item">
+                                    <Link to="/" className="navigations__link">Home</Link>
+                                </li>
+                                <li className="navigations__item">
+                                    <Link to="/shop" className="navigations__link">Shop</Link>
+                                </li>
                                 <li className="navigations__item child">
                                     <a className="navigations__link" href="#">Women
                                         <span className="navigations__icon icon-sm">
@@ -200,21 +206,22 @@ const HeaderNav = () => {
                                         </span>
                                 </a>
                             </li>
-                            <li className="package__item">
-                                <a className="package__link" href="">
-                                        <span className="package__icon icon-lg">
+                            <li className="package__item iscart">
+                                <div className="package__link">
+                                        <div className="package__icon icon-lg">
                                             <i className="ri-shopping-cart-line"></i>
                                             <span className="fly-item package__fly-item">
                                             <span className="package__number">
-                                                0
+                                                5
                                             </span>
                                         </span>
-                                        </span>
+                                        </div>
                                     <span className="package__text">
                                             <span className="package__total">Total</span>
-                                            <span className="package__total-number">$0.00</span>
+                                            <span className="package__total-number">$1.622</span>
                                         </span>
-                                </a>
+                                </div>
+                                <MiniCart />
                             </li>
                         </ul>
                     </div>

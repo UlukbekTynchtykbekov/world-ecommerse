@@ -5,23 +5,8 @@
    }
 }
 
-.mobile-hide {
-  display: none;
-}
-
-.desktop-hide {
-  display: block;
-}
-
 
 @media screen and (min-width: 993px) {
-  .desktop-hide {
-    display: none;
-  }
-
-  .mobile-hide {
-    display: block;
-  }
 
   .header {
     &__main {

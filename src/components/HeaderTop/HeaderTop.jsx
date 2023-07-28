@@ -10,14 +10,17 @@ const HeaderTop = () => {
                 <div className="top__wrapper">
                     <div className="top__left">
                         <ul className="top__links">
-                            <li className="top__item"><Link className="top__link" to="/">Blog</Link></li>
-                            <li className="top__item"><Link className="top__link" to="/">Featured Products</Link></li>
-                            <li className="top__item"><Link className="top__link" to="/">Wishlist</Link></li>
+                            <li className="top__item"><Link className="top__link" to="/blog">Blog</Link></li>
+                            <li className="top__item">
+                                <Link className="top__link" to="/features">Featured Products</Link>
+                            </li>
+                            <li className="top__item"><Link className="top__link" to="/wishlist">Wishlist</Link></li>
                         </ul>
                     </div>
                     <div className="top__right">
                         <ul className="top__links">
-                            <li className="top__item"><Link className="top__link" to="/">Sign Up</Link></li>
+                            <li className="top__item"><Link className="top__link" to="/login">Sign Up</Link></li>
+                            <li className="top__item"><Link className="top__link" to="/register">Sign In</Link></li>
                             <li className="top__item"><Link className="top__link" to="/">My Account</Link></li>
                             <li className="top__item"><Link className="top__link" to="/">Order Tracking</Link></li>
                             <li className="currency top__item">
