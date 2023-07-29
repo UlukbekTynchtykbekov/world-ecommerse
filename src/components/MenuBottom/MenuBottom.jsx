@@ -6,7 +6,6 @@ import {useDispatch, useSelector} from "react-redux";
 const MenuBottom = ({setShowSearchBottom}) => {
 
     const dispatch = useDispatch();
-    const {showCart} = useSelector(state => state.showCart);
 
     function openCart () {
         setTimeout(() => {

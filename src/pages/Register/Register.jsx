@@ -1,28 +1,105 @@
 import React, {useState} from 'react';
-import {Link} from "react-router-dom";
-import toast, {Toaster} from 'react-hot-toast';
-import Profile from "../../assets/profile.png"
+import {useDispatch, useSelector} from "react-redux";
+import {Link, useNavigate} from "react-router-dom";
+import {fetchUserData} from "../../features/registerSlice";
 import Helmet from "../../layout/Helmet";
-import "../../styles/register.scss"
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faSpinner} from "@fortawesome/free-solid-svg-icons";
+import toast, {Toaster} from 'react-hot-toast';
+import Profile from "../../assets/profile.png";
+import "../../styles/register.scss";
 
 const Register = () => {
-
-    const [formData, setFormData] = useState({});
+    const [formData, setFormData] = useState({
+        profilePicture: "",
+        firstName: "Baimamatov",
+        lastName: "Bektursun",
+        email: "+996220643466",
+        hash_password: "Bekakyrgyz@100599",
+        confirmPassword: "Bekakyrgyz@100599",
+        phoneNumber: 996220643466
+    });
     const [formErrors, setFormErrors] = useState({});
+    const {data, loading, error} = useSelector((state) => state.register);
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleInputChange = (event) => {
         const {name, value} = event.target;
         setFormData({...formData, [name]: value});
     };
-    console.log(formData)
-    return (
-        <Helmet title="Register">
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        const errors = validateForm(formData);
+        setFormErrors(errors);
+        if (Object.keys(errors).length === 0) {
+            if (!formData.profilePicture) {
+                delete formData.profilePicture
+            }
+            delete formData.confirmPassword;
+            dispatch(fetchUserData(formData))
+        }
+    };
+
+    const validateForm = (data) => {
+        const errors = {};
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phoneRegex = /^\+?[0-9-() ]{6,20}$/;
+        const pattern = /^[0-9]+$/;
+
+        if (!data.email) {
+            errors.email = 'Email is required';
+        } else if (!emailRegex.test(data.email.toLowerCase()) && !phoneRegex.test(data.email)) {
+            errors.email = 'Email is not valid';
+        }
+        if (data.firstName.trim().length < 3) {
+            errors.firstName = "First name should be more than 3 characters"
+        }
+        if (data.lastName.trim().length < 3) {
+            errors.lastName = "Last name should be more than 3 characters"
+        }
+        if (!data.hash_password) {
+            errors.hash_password = 'Password is required';
+        } else if (data.hash_password.length < 8) {
+            errors.hash_password = 'Password should be at least 8 characters';
+        } else if (!/^[a-zA-Z0-9!@#$%^&*(),.?":{}|<>]+$/.test(data.hash_password)) {
+            errors.hash_password = "Password can only contain Latin characters, digits, and some special characters";
+        } else if (!/\d/.test(data.hash_password)) {
+            errors.hash_password = "Password should contain at least one numeric character";
+        } else if (/\s/.test(data.hash_password)) {
+            errors.hash_password = "Password cannot contain white spaces";
+        }
+
+        if (data.hash_password !== data.confirmPassword) {
+            errors.confirmPassword = 'Password does not match';
+        }
+        if (!pattern.test(data.phoneNumber)) {
+            errors.phoneNumber = 'Phone number should be only number';
+        }
+
+        return errors
+    };
+
+    if (data) {
+        return navigate("/otp")
+    }
+
+    if (loading) {
+        toast.loading("Please wait, registering...");
+    }
+
+    if (error) {
+        toast.error(error);
+    }
+
+    return (<Helmet title="Register">
             <Toaster
                 position="top-center"
                 reverseOrder={false}
                 toastOptions={{
-                    duration: 2000,
-                    style: {
+                    duration: 2000, style: {
                         height: "40px"
                     }
                 }}
@@ -31,9 +108,11 @@ const Register = () => {
                 <div className="container">
                     <div className="register__wrapper">
                         <div className="back">
-                            <span className="back__icon">
-                                <i className="ri-arrow-left-line"></i>
-                            </span>
+                            <Link to="/">
+                                <span className="back__icon">
+                                    <i className="ri-arrow-left-line"></i>
+                                </span>
+                            </Link>
                         </div>
                         <div className="register__glass">
                             <div className="register__head">
@@ -43,7 +122,7 @@ const Register = () => {
                                 </span>
                             </div>
 
-                            <form className="form">
+                            <form className="form" onSubmit={onSubmit}>
                                 <div className='form__profile'>
                                     <label htmlFor="profile">
                                         <img className="form__img" src={Profile} alt="avatar"/>
@@ -51,81 +130,116 @@ const Register = () => {
                                     <input
                                         className="form__upload"
                                         type="file"
-                                        id='profile' name='profilePicture'
+                                        value={formData.profilePicture}
+                                        id='profile'
+                                        name='profilePicture'
                                         onChange={(e) => handleInputChange(e)}
                                     />
-
                                 </div>
-
+                                {error && <div className="form__errors">
+                                    <span className="error form__error-common">*{error}</span>
+                                </div>}
                                 <div className="form__fields">
                                     <p className="form__field">
-                                        <input
-                                            className="form__input"
-                                            type="text"
-                                            name="email"
-                                            placeholder='Email*'
-                                            onChange={(e) => handleInputChange(e)}
-                                        />
+                                        <label>
+                                            <input
+                                                className={formErrors.email ? "form__input-color" : "form__input"}
+                                                type="text"
+                                                name="email"
+                                                value={formData.email}
+                                                placeholder='Email*'
+                                                onChange={(e) => handleInputChange(e)}
+                                            />
+                                        </label>
+                                        {formErrors.email &&
+                                            <span className="error form__error">*{formErrors.email}</span>}
                                     </p>
                                     <p className="form__field">
-                                        <input
-                                            className="form__input"
-                                            type="text"
-                                            name="firstName"
-                                            placeholder='First Name*'
-                                            onChange={(e) => handleInputChange(e)}
-                                        />
+                                        <label>
+                                            <input
+                                                className={formErrors.firstName ? "form__input-color" : "form__input"}
+                                                type="text"
+                                                name="firstName"
+                                                value={formData.firstName}
+                                                placeholder='First Name*'
+                                                onChange={(e) => handleInputChange(e)}
+                                            />
+                                        </label>
+                                        {formErrors.firstName &&
+                                            <span className="error form__error">*{formErrors.firstName}</span>}
                                     </p>
                                     <p className="form__field">
-                                        <input
-                                            className="form__input"
-                                            type="text"
-                                            name="lastName"
-                                            placeholder='Last Name*'
-                                            onChange={(e) => handleInputChange(e)}
-                                        />
+                                        <label>
+                                            <input
+                                                className={formErrors.lastName ? "form__input-color" : "form__input"}
+                                                type="text"
+                                                name="lastName"
+                                                value={formData.lastName}
+                                                placeholder='Last Name*'
+                                                onChange={(e) => handleInputChange(e)}
+                                            />
+                                        </label>
+                                        {formErrors.lastName &&
+                                            <span className="error form__error">*{formErrors.lastName}</span>}
                                     </p>
                                     <p className="form__field">
-                                        <input
-                                            className="form__input"
-                                            type="text"
-                                            name="hash_password"
-                                            placeholder='Password*'
-                                            onChange={(e) => handleInputChange(e)}
-                                        />
+                                        <label>
+                                            <input
+                                                className={formErrors.hash_password ? "form__input-color" : "form__input"}
+                                                type="password"
+                                                name="hash_password"
+                                                value={formData.hash_password}
+                                                placeholder='Password*'
+                                                onChange={(e) => handleInputChange(e)}
+                                            />
+                                        </label>
+                                        {formErrors.hash_password &&
+                                            <span className="error form__error">*{formErrors.hash_password}</span>}
                                     </p>
                                     <p className="form__field">
-                                        <input
-                                            className="form__input"
-                                            type="text"
-                                            name="confirm_password"
-                                            placeholder='Confirm Password*'
-                                            onChange={(e) => handleInputChange(e)}
-                                        />
+                                        <label>
+                                            <input
+                                                className={formErrors.confirmPassword ? "form__input-color" : "form__input"}
+                                                type="password"
+                                                name="confirmPassword"
+                                                value={formData.confirmPassword}
+                                                placeholder='Confirm Password*'
+                                                onChange={(e) => handleInputChange(e)}
+                                            />
+                                        </label>
+                                        {formErrors.confirmPassword &&
+                                            <span className="error form__error">*{formErrors.confirmPassword}</span>}
                                     </p>
                                     <p className="form__field">
-                                        <input
-                                            className="form__input"
-                                            type="number"
-                                            name="phoneNumber"
-                                            placeholder='Phone Number*'
-                                            onChange={(e) => handleInputChange(e)}
-                                        />
+                                        <label>
+                                            <input
+                                                className={formErrors.phoneNumber ? "form__input-color" : "form__input"}
+                                                type="number"
+                                                name="phoneNumber"
+                                                value={formData.phoneNumber}
+                                                placeholder='Phone Number*'
+                                                onChange={(e) => handleInputChange(e)}
+                                            />
+                                        </label>
+                                        {formErrors.phoneNumber &&
+                                            <span className="error form__error">*{formErrors.phoneNumber}</span>}
                                     </p>
-                                    <button className="form__button" type='submit'>Register</button>
+                                    <button className="form__button" type='submit' disabled={loading}>
+                                        {loading ? <FontAwesomeIcon icon={faSpinner} spinPulse/> : "Register"}
+                                    </button>
                                 </div>
 
                                 <div className="form__exist">
-                                    <span className='form__question'>Already Register? <Link className='form__link'
-                                                                                             to="/login">Login Now</Link></span>
+                                    <span className='form__question'>Already Register?
+                                        <Link className='form__link' to="/login">Login Now</Link>
+                                    </span>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </Helmet>
-    );
+        </Helmet>);
 };
 
 export default Register;

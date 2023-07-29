@@ -3,8 +3,8 @@ import bgImage1 from "../../assets/menu/menu_bg1.jpg";
 import bgImage2 from "../../assets/menu/menu_bg2.jpg";
 import bgImage3 from "../../assets/menu/menu_bg3.jpg";
 import bgImage4 from "../../assets/menu/menu_bg4.jpg";
-import "./header-main.scss"
 import {useLocation} from "react-router-dom";
+import "./header-main.scss"
 
 const HeaderMain = () => {
     const [showCat, setShowCat] = useState(false);

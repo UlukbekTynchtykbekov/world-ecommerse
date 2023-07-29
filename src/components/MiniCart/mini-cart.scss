@@ -10,13 +10,13 @@
   opacity: 0;
 
   &.show {
-    visibility: visible;
-    opacity: 1;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    max-width: 400px;
-    width: 90%;
+    visibility: visible!important;
+    opacity: 1!important;
+    position: fixed!important;
+    top: 0!important;
+    bottom: 0!important;
+    max-width: 400px!important;
+    width: 90%!important;
   }
 
   &__img {

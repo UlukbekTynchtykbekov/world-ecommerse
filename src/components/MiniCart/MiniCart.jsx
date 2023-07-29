@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useEffect, useRef} from 'react';
 import product1 from "../../assets/products/home1.jpg";
 import product2 from "../../assets/products/home2.jpg";
 import product3 from "../../assets/products/home3.jpg";
@@ -9,46 +9,47 @@ import {cartActions} from "../../features/miniCartSlice";
 import "./mini-cart.scss";
 
 const MiniCart = () => {
-    const showRef = useRef(null)
-
+    const showRef = useRef(null);
     const dispatch = useDispatch();
-    const {showCart} = useSelector(state => state.showCart);
+    const {showCart} = useSelector(state => state.showCart)
+    console.log(showCart)
 
-    if (showCart) {
-        setTimeout(() => {
-            showRef.current.classList.add("show")
-        }, 250);
-    }else {
-        document.addEventListener("click", (e) => {
-            const isClosest = e.target.closest(".mini-cart");
-            if (!isClosest && showRef.current.classList.contains("show")){
-                dispatch(cartActions.closeCart())
-                showRef.current.classList.remove("show")
-            }
-        })
-    }
+    const handleOutsideClick = (e) => {
+        if (showRef.current && !showRef.current.contains(e.target)) {
+            dispatch(cartActions.closeCart());
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('click', handleOutsideClick);
+        return () => {
+            document.removeEventListener('click', handleOutsideClick);
+        };
+    }, []);
 
     return (
-        <div ref={showRef} className="mini-cart">
-            <div className="mini-cart__content">
-                <div className="cart-head mini-cart__head">
-                    5 items in cart
-                </div>
-                <div className="cart-body mini-cart__body">
-                    <ul className="products mini">
-                        <li className="products__item mini-cart__item">
-                            <div className="thumbnail">
-                                <a className="products__link" href="">
-                                    <img className="products__image mini-cart__img" src={product1} alt=""/>
-                                </a>
-                            </div>
-                            <div className="item-content">
-                                <p className="item-content__title">
-                                    <a href="" className="item-content__link">
-                                        Dimmable Ceiling Light Modern
-                                    </a>
-                                </p>
-                                <span className="mini-cart__price price">
+        <>
+            {showCart && (
+                <div ref={showRef} className="mini-cart show">
+                    <div className="mini-cart__content">
+                        <div className="cart-head mini-cart__head">
+                            5 items in cart
+                        </div>
+                        <div className="cart-body mini-cart__body">
+                            <ul className="products mini">
+                                <li className="products__item mini-cart__item">
+                                    <div className="thumbnail">
+                                        <a className="products__link" href="">
+                                            <img className="products__image mini-cart__img" src={product1} alt=""/>
+                                        </a>
+                                    </div>
+                                    <div className="item-content">
+                                        <p className="item-content__title">
+                                            <a href="" className="item-content__link">
+                                                Dimmable Ceiling Light Modern
+                                            </a>
+                                        </p>
+                                        <span className="mini-cart__price price">
                                 <span>
                                     $279.99
                                 </span>
@@ -58,22 +59,22 @@ const MiniCart = () => {
                                     </span>
                                 </span>
                             </span>
-                            </div>
-                            <a href="" className="item-remove"><i className="ri-close-line"></i></a>
-                        </li>
-                        <li className="products__item mini-cart__item">
-                            <div className="thumbnail">
-                                <a className="products__link" href="">
-                                    <img className="products__image mini-cart__img" src={product2} alt=""/>
-                                </a>
-                            </div>
-                            <div className="item-content">
-                                <p className="item-content__title">
-                                    <a href="" className="item-content__link">
-                                        Dimmable Ceiling Light Modern
-                                    </a>
-                                </p>
-                                <span className="mini-cart__price price">
+                                    </div>
+                                    <a href="" className="item-remove"><i className="ri-close-line"></i></a>
+                                </li>
+                                <li className="products__item mini-cart__item">
+                                    <div className="thumbnail">
+                                        <a className="products__link" href="">
+                                            <img className="products__image mini-cart__img" src={product2} alt=""/>
+                                        </a>
+                                    </div>
+                                    <div className="item-content">
+                                        <p className="item-content__title">
+                                            <a href="" className="item-content__link">
+                                                Dimmable Ceiling Light Modern
+                                            </a>
+                                        </p>
+                                        <span className="mini-cart__price price">
                                 <span>
                                     $279.99
                                 </span>
@@ -83,22 +84,22 @@ const MiniCart = () => {
                                     </span>
                                 </span>
                             </span>
-                            </div>
-                            <a href="" className="item-remove"><i className="ri-close-line"></i></a>
-                        </li>
-                        <li className="products__item mini-cart__item">
-                            <div className="thumbnail">
-                                <a className="products__link" href="">
-                                    <img className="products__image mini-cart__img" src={product3} alt=""/>
-                                </a>
-                            </div>
-                            <div className="item-content">
-                                <p className="item-content__title">
-                                    <a href="" className="item-content__link">
-                                        Modern Storage Cabinet with Door & 3 Drawers
-                                    </a>
-                                </p>
-                                <span className="mini-cart__price price">
+                                    </div>
+                                    <a href="" className="item-remove"><i className="ri-close-line"></i></a>
+                                </li>
+                                <li className="products__item mini-cart__item">
+                                    <div className="thumbnail">
+                                        <a className="products__link" href="">
+                                            <img className="products__image mini-cart__img" src={product3} alt=""/>
+                                        </a>
+                                    </div>
+                                    <div className="item-content">
+                                        <p className="item-content__title">
+                                            <a href="" className="item-content__link">
+                                                Modern Storage Cabinet with Door & 3 Drawers
+                                            </a>
+                                        </p>
+                                        <span className="mini-cart__price price">
                                 <span>
                                     $129.99
                                 </span>
@@ -108,22 +109,22 @@ const MiniCart = () => {
                                     </span>
                                 </span>
                             </span>
-                            </div>
-                            <a href="" className="item-remove"><i className="ri-close-line"></i></a>
-                        </li>
-                        <li className="products__item mini-cart__item">
-                            <div className="thumbnail">
-                                <a className="products__link" href="">
-                                    <img className="products__image mini-cart__img" src={product4} alt=""/>
-                                </a>
-                            </div>
-                            <div className="item-content">
-                                <p className="item-content__title">
-                                    <a href="" className="item-content__link">
-                                        Vosanda Velvet Sofa Couch
-                                    </a>
-                                </p>
-                                <span className="mini-cart__price price">
+                                    </div>
+                                    <a href="" className="item-remove"><i className="ri-close-line"></i></a>
+                                </li>
+                                <li className="products__item mini-cart__item">
+                                    <div className="thumbnail">
+                                        <a className="products__link" href="">
+                                            <img className="products__image mini-cart__img" src={product4} alt=""/>
+                                        </a>
+                                    </div>
+                                    <div className="item-content">
+                                        <p className="item-content__title">
+                                            <a href="" className="item-content__link">
+                                                Vosanda Velvet Sofa Couch
+                                            </a>
+                                        </p>
+                                        <span className="mini-cart__price price">
                                 <span>
                                     $352.99
                                 </span>
@@ -133,22 +134,22 @@ const MiniCart = () => {
                                     </span>
                                 </span>
                             </span>
-                            </div>
-                            <a href="" className="item-remove"><i className="ri-close-line"></i></a>
-                        </li>
-                        <li className="products__item mini-cart__item">
-                            <div className="thumbnail">
-                                <a className="products__link" href="">
-                                    <img className="products__image mini-cart__img" src={product5} alt=""/>
-                                </a>
-                            </div>
-                            <div className="item-content">
-                                <p className="item-content__title">
-                                    <a href="" className="item-content__link">
-                                        Awesome Bed For a Couple
-                                    </a>
-                                </p>
-                                <span className="mini-cart__price price">
+                                    </div>
+                                    <a href="" className="item-remove"><i className="ri-close-line"></i></a>
+                                </li>
+                                <li className="products__item mini-cart__item">
+                                    <div className="thumbnail">
+                                        <a className="products__link" href="">
+                                            <img className="products__image mini-cart__img" src={product5} alt=""/>
+                                        </a>
+                                    </div>
+                                    <div className="item-content">
+                                        <p className="item-content__title">
+                                            <a href="" className="item-content__link">
+                                                Awesome Bed For a Couple
+                                            </a>
+                                        </p>
+                                        <span className="mini-cart__price price">
                                 <span>
                                     $579.99
                                 </span>
@@ -158,23 +159,25 @@ const MiniCart = () => {
                                     </span>
                                 </span>
                             </span>
+                                    </div>
+                                    <a href="" className="item-remove"><i className="ri-close-line"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="cart-footer">
+                            <div className="cart-footer__subtotal">
+                                <p className="cart-footer__title">Subtotal</p>
+                                <p className="cart-footer__total"><strong>$1.622.05</strong></p>
                             </div>
-                            <a href="" className="item-remove"><i className="ri-close-line"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <div className="cart-footer">
-                    <div className="cart-footer__subtotal">
-                        <p className="cart-footer__title">Subtotal</p>
-                        <p className="cart-footer__total"><strong>$1.622.05</strong></p>
-                    </div>
-                    <div className="cart-footer__actions">
-                        <a href="" className="primary-button cart-footer__btn">Checkout</a>
-                        <a href="" className="secondary-button cart-footer__btn">View Cart</a>
+                            <div className="cart-footer__actions">
+                                <a href="" className="primary-button cart-footer__btn">Checkout</a>
+                                <a href="" className="secondary-button cart-footer__btn">View Cart</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            )}
+        </>
     );
 };
 

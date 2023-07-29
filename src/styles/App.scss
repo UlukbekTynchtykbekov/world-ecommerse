@@ -206,6 +206,12 @@ h4{
   }
 }
 
+.error {
+  color: var(--primary-color);
+  font-weight: 400;
+  font-size: 0.8em;
+}
+
 @media screen and (min-width: 993px) {
   .container {
     padding: 0 2rem;

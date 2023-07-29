@@ -5,6 +5,7 @@ import {useDispatch} from "react-redux";
 import {menuActions} from "../../features/menuSlice";
 import MiniCart from "../MiniCart/MiniCart";
 import {Link} from "react-router-dom";
+import HoverMiniCart from "../HoverMiniCart/HoverMiniCart";
 
 const HeaderNav = () => {
 
@@ -221,6 +222,7 @@ const HeaderNav = () => {
                                             <span className="package__total-number">$1.622</span>
                                         </span>
                                 </div>
+                                <HoverMiniCart />
                                 <MiniCart />
                             </li>
                         </ul>
