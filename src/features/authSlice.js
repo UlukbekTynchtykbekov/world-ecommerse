@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "../utils/axios-utils";
 
-export const fetchUserData = createAsyncThunk(
-    "auth/fetchUserData",
+export const fetchAuth = createAsyncThunk(
+    "auth/fetchAuth",
     async (params, { rejectWithValue }) => {
         try {
-            const { data } = await axios.post("/api/users/register", params);
+            const { data } = await axios.post("/api/login/auth", params);
             return data;
         } catch (error) {
             return rejectWithValue(error.response.data);
@@ -19,22 +19,22 @@ const initialState = {
     error: null,
 };
 
-const registerSlice = createSlice({
-    name: "register",
+const authSlice = createSlice({
+    name: "auth",
     initialState,
     extraReducers: (builder) => {
         builder
-            .addCase(fetchUserData.pending, (state) => {
+            .addCase(fetchAuth.pending, (state) => {
                 state.loading = true;
                 state.data = null;
                 state.error = null;
             })
-            .addCase(fetchUserData.fulfilled, (state, action) => {
+            .addCase(fetchAuth.fulfilled, (state, action) => {
                 state.loading = false;
                 state.data = action.payload;
                 state.error = null;
             })
-            .addCase(fetchUserData.rejected, (state, action) => {
+            .addCase(fetchAuth.rejected, (state, action) => {
                 state.loading = false;
                 state.data = null;
                 state.error = action.payload;
@@ -42,4 +42,4 @@ const registerSlice = createSlice({
     },
 });
 
-export const registerReducer = registerSlice.reducer;
+export const authReducer = authSlice.reducer;

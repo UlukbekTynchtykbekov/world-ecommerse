@@ -123,7 +123,7 @@ const Otp = () => {
                                             {formErrors.otp &&
                                                 <span className="error">*{formErrors.otp}</span>}
                                         </p>
-                                        <button className="form__button" type='submit'>
+                                        <button className="form__button" type='submit' disabled={loading}>
                                             {loading ? <FontAwesomeIcon icon={faSpinner} spinPulse/> : "Send"}
                                         </button>
                                     </div>

@@ -3,6 +3,7 @@ import menuReducer from "../features/menuSlice";
 import cartReducer from "../features/miniCartSlice";
 import {registerReducer} from "../features/registerSlice";
 import {otpReducer} from "../features/otpSlice";
+import {authReducer} from "../features/authSlice";
 
 const store = configureStore({
     reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
         showCart: cartReducer,
         register: registerReducer,
         otp: otpReducer,
+        auth: authReducer,
     }
 })
 

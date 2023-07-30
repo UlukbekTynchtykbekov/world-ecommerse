@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
 import {fetchUserData} from "../../features/registerSlice";
 import Helmet from "../../layout/Helmet";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSpinner} from "@fortawesome/free-solid-svg-icons";
+import axios from "../../utils/axios-utils";
 import toast, {Toaster} from 'react-hot-toast';
 import Profile from "../../assets/profile.png";
 import "../../styles/register.scss";
@@ -20,14 +21,39 @@ const Register = () => {
         phoneNumber: 996220643466
     });
     const [formErrors, setFormErrors] = useState({});
+    const [imageLoading, setImageLoading] = useState(false);
     const {data, loading, error} = useSelector((state) => state.register);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const handleInputChange = (event) => {
-        const {name, value} = event.target;
-        setFormData({...formData, [name]: value});
+    const handleInputChange = async (event) => {
+        const {name, value, files} = event.target;
+        if (name === "profilePicture") {
+            const file = files[0];
+            if (file) {
+                setImageLoading(true);
+                const data = new FormData();
+                data.append("image", file);
+                try {
+                    const response = await axios.post("/api/upload/single-image", data);
+                    const imageData = response?.data?.url;
+                    setFormData((prevState) => ({
+                        ...prevState,
+                        profilePicture: imageData,
+                    }));
+                    setImageLoading(false);
+                } catch (error) {
+                    console.error("Error uploading image:", error);
+                    setImageLoading(false);
+                }
+            }
+        } else {
+            setFormData((prevState) => ({
+                ...prevState,
+                [name]: value,
+            }));
+        }
     };
 
     const onSubmit = (e) => {
@@ -82,9 +108,11 @@ const Register = () => {
         return errors
     };
 
-    if (data) {
-        return navigate("/otp")
-    }
+    useEffect(() => {
+        if (data) {
+            navigate("/otp");
+        }
+    }, [data, navigate]);
 
     if (loading) {
         toast.loading("Please wait, registering...");
@@ -95,151 +123,156 @@ const Register = () => {
     }
 
     return (<Helmet title="Register">
-            <Toaster
-                position="top-center"
-                reverseOrder={false}
-                toastOptions={{
-                    duration: 2000, style: {
-                        height: "40px"
-                    }
-                }}
-            />
-            <div className="register">
-                <div className="container">
-                    <div className="register__wrapper">
-                        <div className="back">
-                            <Link to="/">
+        <Toaster
+            position="top-center"
+            reverseOrder={false}
+            toastOptions={{
+                duration: 2000, style: {
+                    height: "40px"
+                }
+            }}
+        />
+        <div className="register">
+            <div className="container">
+                <div className="register__wrapper">
+                    <div className="back">
+                        <Link to="/">
                                 <span className="back__icon">
                                     <i className="ri-arrow-left-line"></i>
                                 </span>
-                            </Link>
-                        </div>
-                        <div className="register__glass">
-                            <div className="register__head">
-                                <h4 className='register__title'>Register</h4>
-                                <span className='register__subtitle'>
+                        </Link>
+                    </div>
+                    <div className="register__glass">
+                        <div className="register__head">
+                            <h4 className='register__title'>Register</h4>
+                            <span className='register__subtitle'>
                                     Happy to join you!
                                 </span>
+                        </div>
+
+                        <form className="form" onSubmit={onSubmit}>
+                            <div className='form__profile'>
+                                <label htmlFor="profile">
+                                    <img className="form__img"
+                                         src={formData.profilePicture ? formData.profilePicture : Profile}
+                                         alt="avatar"/>
+                                    {imageLoading && <span className="form__loader">
+                                        <FontAwesomeIcon icon={faSpinner} spinPulse/>
+                                    </span>
+                                    }
+                                </label>
+                                <input
+                                    className="form__upload"
+                                    type="file"
+                                    id='profile'
+                                    name='profilePicture'
+                                    onChange={(e) => handleInputChange(e)}
+                                />
+                            </div>
+                            {error && <div className="form__errors">
+                                <span className="error form__error-common">*{error}</span>
+                            </div>}
+                            <div className="form__fields">
+                                <p className="form__field">
+                                    <label>
+                                        <input
+                                            className={formErrors.email ? "form__input-color" : "form__input"}
+                                            type="text"
+                                            name="email"
+                                            value={formData.email}
+                                            placeholder='Email*'
+                                            onChange={(e) => handleInputChange(e)}
+                                        />
+                                    </label>
+                                    {formErrors.email &&
+                                        <span className="error form__error">*{formErrors.email}</span>}
+                                </p>
+                                <p className="form__field">
+                                    <label>
+                                        <input
+                                            className={formErrors.firstName ? "form__input-color" : "form__input"}
+                                            type="text"
+                                            name="firstName"
+                                            value={formData.firstName}
+                                            placeholder='First Name*'
+                                            onChange={(e) => handleInputChange(e)}
+                                        />
+                                    </label>
+                                    {formErrors.firstName &&
+                                        <span className="error form__error">*{formErrors.firstName}</span>}
+                                </p>
+                                <p className="form__field">
+                                    <label>
+                                        <input
+                                            className={formErrors.lastName ? "form__input-color" : "form__input"}
+                                            type="text"
+                                            name="lastName"
+                                            value={formData.lastName}
+                                            placeholder='Last Name*'
+                                            onChange={(e) => handleInputChange(e)}
+                                        />
+                                    </label>
+                                    {formErrors.lastName &&
+                                        <span className="error form__error">*{formErrors.lastName}</span>}
+                                </p>
+                                <p className="form__field">
+                                    <label>
+                                        <input
+                                            className={formErrors.hash_password ? "form__input-color" : "form__input"}
+                                            type="password"
+                                            name="hash_password"
+                                            value={formData.hash_password}
+                                            placeholder='Password*'
+                                            onChange={(e) => handleInputChange(e)}
+                                        />
+                                    </label>
+                                    {formErrors.hash_password &&
+                                        <span className="error form__error">*{formErrors.hash_password}</span>}
+                                </p>
+                                <p className="form__field">
+                                    <label>
+                                        <input
+                                            className={formErrors.confirmPassword ? "form__input-color" : "form__input"}
+                                            type="password"
+                                            name="confirmPassword"
+                                            value={formData.confirmPassword}
+                                            placeholder='Confirm Password*'
+                                            onChange={(e) => handleInputChange(e)}
+                                        />
+                                    </label>
+                                    {formErrors.confirmPassword &&
+                                        <span className="error form__error">*{formErrors.confirmPassword}</span>}
+                                </p>
+                                <p className="form__field">
+                                    <label>
+                                        <input
+                                            className={formErrors.phoneNumber ? "form__input-color" : "form__input"}
+                                            type="number"
+                                            name="phoneNumber"
+                                            value={formData.phoneNumber}
+                                            placeholder='Phone Number*'
+                                            onChange={(e) => handleInputChange(e)}
+                                        />
+                                    </label>
+                                    {formErrors.phoneNumber &&
+                                        <span className="error form__error">*{formErrors.phoneNumber}</span>}
+                                </p>
+                                <button className="form__button" type='submit' disabled={loading}>
+                                    {loading ? <FontAwesomeIcon icon={faSpinner} spinPulse/> : "Register"}
+                                </button>
                             </div>
 
-                            <form className="form" onSubmit={onSubmit}>
-                                <div className='form__profile'>
-                                    <label htmlFor="profile">
-                                        <img className="form__img" src={Profile} alt="avatar"/>
-                                    </label>
-                                    <input
-                                        className="form__upload"
-                                        type="file"
-                                        value={formData.profilePicture}
-                                        id='profile'
-                                        name='profilePicture'
-                                        onChange={(e) => handleInputChange(e)}
-                                    />
-                                </div>
-                                {error && <div className="form__errors">
-                                    <span className="error form__error-common">*{error}</span>
-                                </div>}
-                                <div className="form__fields">
-                                    <p className="form__field">
-                                        <label>
-                                            <input
-                                                className={formErrors.email ? "form__input-color" : "form__input"}
-                                                type="text"
-                                                name="email"
-                                                value={formData.email}
-                                                placeholder='Email*'
-                                                onChange={(e) => handleInputChange(e)}
-                                            />
-                                        </label>
-                                        {formErrors.email &&
-                                            <span className="error form__error">*{formErrors.email}</span>}
-                                    </p>
-                                    <p className="form__field">
-                                        <label>
-                                            <input
-                                                className={formErrors.firstName ? "form__input-color" : "form__input"}
-                                                type="text"
-                                                name="firstName"
-                                                value={formData.firstName}
-                                                placeholder='First Name*'
-                                                onChange={(e) => handleInputChange(e)}
-                                            />
-                                        </label>
-                                        {formErrors.firstName &&
-                                            <span className="error form__error">*{formErrors.firstName}</span>}
-                                    </p>
-                                    <p className="form__field">
-                                        <label>
-                                            <input
-                                                className={formErrors.lastName ? "form__input-color" : "form__input"}
-                                                type="text"
-                                                name="lastName"
-                                                value={formData.lastName}
-                                                placeholder='Last Name*'
-                                                onChange={(e) => handleInputChange(e)}
-                                            />
-                                        </label>
-                                        {formErrors.lastName &&
-                                            <span className="error form__error">*{formErrors.lastName}</span>}
-                                    </p>
-                                    <p className="form__field">
-                                        <label>
-                                            <input
-                                                className={formErrors.hash_password ? "form__input-color" : "form__input"}
-                                                type="password"
-                                                name="hash_password"
-                                                value={formData.hash_password}
-                                                placeholder='Password*'
-                                                onChange={(e) => handleInputChange(e)}
-                                            />
-                                        </label>
-                                        {formErrors.hash_password &&
-                                            <span className="error form__error">*{formErrors.hash_password}</span>}
-                                    </p>
-                                    <p className="form__field">
-                                        <label>
-                                            <input
-                                                className={formErrors.confirmPassword ? "form__input-color" : "form__input"}
-                                                type="password"
-                                                name="confirmPassword"
-                                                value={formData.confirmPassword}
-                                                placeholder='Confirm Password*'
-                                                onChange={(e) => handleInputChange(e)}
-                                            />
-                                        </label>
-                                        {formErrors.confirmPassword &&
-                                            <span className="error form__error">*{formErrors.confirmPassword}</span>}
-                                    </p>
-                                    <p className="form__field">
-                                        <label>
-                                            <input
-                                                className={formErrors.phoneNumber ? "form__input-color" : "form__input"}
-                                                type="number"
-                                                name="phoneNumber"
-                                                value={formData.phoneNumber}
-                                                placeholder='Phone Number*'
-                                                onChange={(e) => handleInputChange(e)}
-                                            />
-                                        </label>
-                                        {formErrors.phoneNumber &&
-                                            <span className="error form__error">*{formErrors.phoneNumber}</span>}
-                                    </p>
-                                    <button className="form__button" type='submit' disabled={loading}>
-                                        {loading ? <FontAwesomeIcon icon={faSpinner} spinPulse/> : "Register"}
-                                    </button>
-                                </div>
-
-                                <div className="form__exist">
+                            <div className="form__exist">
                                     <span className='form__question'>Already Register?
                                         <Link className='form__link' to="/login">Login Now</Link>
                                     </span>
-                                </div>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-        </Helmet>);
+        </div>
+    </Helmet>);
 };
 
 export default Register;
