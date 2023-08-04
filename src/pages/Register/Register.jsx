@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {Link, useNavigate} from "react-router-dom";
+import {Link, Navigate, useNavigate} from "react-router-dom";
 import {fetchUserData} from "../../features/registerSlice";
 import Helmet from "../../layout/Helmet";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -9,6 +9,7 @@ import axios from "../../utils/axios-utils";
 import toast, {Toaster} from 'react-hot-toast';
 import Profile from "../../assets/profile.png";
 import "../../styles/register.scss";
+import {selectIsAuth} from "../../features/authMeSlice";
 
 const Register = () => {
     const [formData, setFormData] = useState({
@@ -22,7 +23,8 @@ const Register = () => {
     });
     const [formErrors, setFormErrors] = useState({});
     const [imageLoading, setImageLoading] = useState(false);
-    const {data, loading, error} = useSelector((state) => state.register);
+    const {loading, error} = useSelector((state) => state.register);
+    const isAuth = useSelector(selectIsAuth);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -56,7 +58,7 @@ const Register = () => {
         }
     };
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
         const errors = validateForm(formData);
         setFormErrors(errors);
@@ -65,7 +67,10 @@ const Register = () => {
                 delete formData.profilePicture
             }
             delete formData.confirmPassword;
-            dispatch(fetchUserData(formData))
+            const data = await dispatch(fetchUserData(formData));
+            if (data?.error !== true) {
+                return navigate("/otp")
+            }
         }
     };
 
@@ -108,21 +113,16 @@ const Register = () => {
         return errors
     };
 
-    useEffect(() => {
-        if (data) {
-            navigate("/otp");
-        }
-    }, [data, navigate]);
+    if (isAuth) {
+        return <Navigate to="/"/>
+    }
 
     if (loading) {
         toast.loading("Please wait, registering...");
     }
 
-    if (error) {
-        toast.error(error);
-    }
-
-    return (<Helmet title="Register">
+    return (
+        <Helmet title="Register">
         <Toaster
             position="top-center"
             reverseOrder={false}

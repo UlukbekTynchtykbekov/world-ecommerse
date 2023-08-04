@@ -42,4 +42,5 @@ const otpSlice = createSlice({
     },
 });
 
+export const selectAuth = (state) => Boolean(state.otp.data)
 export const otpReducer = otpSlice.reducer;

@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
 import Helmet from "../../layout/Helmet";
 import toast, {Toaster} from "react-hot-toast";
-import {Link, useNavigate} from "react-router-dom";
+import {Link, Navigate, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAuth} from "../../features/authSlice";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSpinner} from "@fortawesome/free-solid-svg-icons";
+import {selectIsAuth} from "../../features/authMeSlice";
+import {checkAuth} from "../../features/authSlice";
 
 const Login = () => {
     const [formData, setFormData] = useState({
@@ -13,12 +15,12 @@ const Login = () => {
         password: "Bekakyrgyz@100599",
     });
     const [formErrors, setFormErrors] = useState({});
-    const {data, loading, error} = useSelector(state => state.auth);
-
-    console.log(data, loading)
+    const {loading, error,} = useSelector(state => state.auth);
+    const isAuth = useSelector(selectIsAuth);
+    const checkAuthentication = useSelector(checkAuth);
 
     const dispatch = useDispatch();
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
     const handleInputChange = (event) => {
         const {name, value} = event.target;
@@ -31,7 +33,14 @@ const Login = () => {
         setFormErrors(errors);
         if (Object.keys(errors).length === 0) {
             const data = await dispatch(fetchAuth(formData));
-            console.log(data)
+            if (data?.payload?.token === false) {
+                return navigate("/otp")
+            }else {
+                toast.success("You verified your email successfully");
+                setTimeout(() => {
+                    window.localStorage.setItem("token", data?.payload?.token)
+                },1000)
+            }
         }
     };
 
@@ -60,16 +69,12 @@ const Login = () => {
         return errors
     };
 
-    const handleBack = () => {
-        window.history.back();
+    if (isAuth || checkAuthentication) {
+        return <Navigate to="/"/>
     }
 
     if (loading) {
         toast.loading("Please wait, registering...");
-    }
-
-    if (error) {
-        toast.error(error);
     }
 
     return (
@@ -87,10 +92,12 @@ const Login = () => {
             <div className="register">
                 <div className="container">
                     <div className="register__wrapper">
-                        <div onClick={handleBack} className="register__back back">
-                            <span className="back__icon">
-                                <i className="ri-arrow-left-line"></i>
-                            </span>
+                        <div className="register__back back">
+                            <Link to="/">
+                                <span className="back__icon">
+                                    <i className="ri-arrow-left-line"></i>
+                                </span>
+                            </Link>
                         </div>
                         <div className="register__glass">
                             <div className="register__head">

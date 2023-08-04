@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "../utils/axios-utils";
 
-export const fetchAuth = createAsyncThunk(
-    "auth/fetchAuth",
-    async (params, { rejectWithValue }) => {
+export const fetchAuthMe = createAsyncThunk(
+    "auth/fetchAuthMe",
+    async (_, { rejectWithValue }) => {
         try {
-            const { data } = await axios.post("/api/login/auth", params);
+            const { data } = await axios.get("/api/users/me");
             return data;
         } catch (error) {
             return rejectWithValue(error.response.data);
@@ -19,27 +19,22 @@ const initialState = {
     error: null,
 };
 
-const authSlice = createSlice({
-    name: "auth",
+const authMeSlice = createSlice({
+    name: "authMe",
     initialState,
-    reducers: {
-        logout: (state) => {
-            state.data = null
-        }
-    },
     extraReducers: (builder) => {
         builder
-            .addCase(fetchAuth.pending, (state) => {
+            .addCase(fetchAuthMe.pending, (state) => {
                 state.loading = true;
                 state.data = null;
                 state.error = null;
             })
-            .addCase(fetchAuth.fulfilled, (state, action) => {
+            .addCase(fetchAuthMe.fulfilled, (state, action) => {
                 state.loading = false;
                 state.data = action.payload;
                 state.error = null;
             })
-            .addCase(fetchAuth.rejected, (state, action) => {
+            .addCase(fetchAuthMe.rejected, (state, action) => {
                 state.loading = false;
                 state.data = null;
                 state.error = action.payload;
@@ -47,6 +42,5 @@ const authSlice = createSlice({
     },
 });
 
-export const checkAuth = (state) => Boolean(state?.auth?.data?.token)
-export const authReducer = authSlice.reducer;
-export const { logout }  = authSlice.actions;
+export const selectIsAuth = (state) => Boolean(state.authMe.data)
+export const authMeReducer = authMeSlice.reducer;

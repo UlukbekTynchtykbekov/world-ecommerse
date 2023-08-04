@@ -12,7 +12,6 @@ const MiniCart = () => {
     const showRef = useRef(null);
     const dispatch = useDispatch();
     const {showCart} = useSelector(state => state.showCart)
-    console.log(showCart)
 
     const handleOutsideClick = (e) => {
         if (showRef.current && !showRef.current.contains(e.target)) {

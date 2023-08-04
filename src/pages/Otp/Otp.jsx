@@ -1,11 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import Helmet from "../../layout/Helmet";
-import {useNavigate} from "react-router-dom";
+import {Navigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSpinner} from "@fortawesome/free-solid-svg-icons";
 import {Toaster, toast} from "react-hot-toast";
 import {verifyEmail} from "../../features/otpSlice";
+import {selectIsAuth} from "../../features/authMeSlice";
+import {selectAuth} from "../../features/otpSlice";
 
 const Otp = () => {
 
@@ -14,25 +16,35 @@ const Otp = () => {
     });
     const [formErrors, setFormErrors] = useState({});
 
-    const {data} = useSelector((state) => state.register);
-    const {data: otpData, loading, error} = useSelector((state) => state.otp);
+    const {loading, error} = useSelector((state) => state.otp);
+    const isAuth = useSelector(selectIsAuth);
+    const checkAuth = useSelector(selectAuth);
 
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
     const handleInputChange = (event) => {
         const {name, value} = event.target;
         setFormData({...formData, [name]: value});
     };
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
         const errors = validateForm(formData);
         setFormErrors(errors);
         if (Object.keys(errors).length === 0) {
-            dispatch(verifyEmail(formData))
+            const otp = await dispatch(verifyEmail(formData))
+            if (otp?.payload?.token) {
+                toast.success("You verified your email successfully");
+                setTimeout(() => {
+                    window.localStorage.setItem("token", otp?.payload?.token)
+                }, 1000)
+            }
         }
     };
+
+    const handleBack = () => {
+        window.history.back();
+    }
 
     const validateForm = (data) => {
         const errors = {};
@@ -44,31 +56,13 @@ const Otp = () => {
         return errors
     };
 
-    const handleBack = () => {
-        window.history.back();
-    }
-
-    useEffect(() => {
-        setTimeout(() => {
-            if (data){
-                toast.success(data)
-            }
-        },2000)
-    }, []);
-
-    if (otpData) {
-        toast.success("You verified your email successfully");
-        setTimeout(() => {
-            return navigate("/login")
-        },2000)
-    }
 
     if (loading) {
         toast.loading("Please wait, Verifying...");
     }
 
-    if (error) {
-        toast.error(error);
+    if (isAuth || checkAuth) {
+        return <Navigate to="/"/>
     }
 
     return (
@@ -87,10 +81,10 @@ const Otp = () => {
             <div className="register">
                 <div className="container">
                     <div className="register__wrapper">
-                        <div className="register__back back" onClick={handleBack}>
-                            <span className="back__icon">
-                                <i className="ri-arrow-left-line"></i>
-                            </span>
+                        <div onClick={handleBack} className="register__back back">
+                                <span className="back__icon">
+                                    <i className="ri-arrow-left-line"></i>
+                                </span>
                         </div>
                         <div className="register__glass">
                             <div className="register__head">
@@ -128,7 +122,8 @@ const Otp = () => {
                                         </button>
                                     </div>
                                     <div className="form">
-                                        <span className='form__question'>Already Register? <button className='form__resend'>Resend</button></span>
+                                        <span className='form__question'>Already Register? <button
+                                            className='form__resend'>Resend</button></span>
                                     </div>
                                 </div>
                             </form>

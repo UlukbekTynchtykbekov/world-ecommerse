@@ -4,6 +4,7 @@ import cartReducer from "../features/miniCartSlice";
 import {registerReducer} from "../features/registerSlice";
 import {otpReducer} from "../features/otpSlice";
 import {authReducer} from "../features/authSlice";
+import {authMeReducer} from "../features/authMeSlice";
 
 const store = configureStore({
     reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
         register: registerReducer,
         otp: otpReducer,
         auth: authReducer,
+        authMe: authMeReducer,
     }
 })
 
