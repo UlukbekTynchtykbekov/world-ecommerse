@@ -4,8 +4,12 @@ import axios from "../utils/axios-utils";
 export const verifyEmail = createAsyncThunk(
     "auth/fetchOtp",
     async (params, { rejectWithValue }) => {
+        let keyToDelete = 'userId';
+        let deletedItem = { [keyToDelete]: params[keyToDelete] };
+        delete params[keyToDelete];
+
         try {
-            const { data } = await axios.post("/api/users/verify", params);
+            const { data } = await axios.post(`/api/users/${deletedItem.userId}/verify`, params);
             return data;
         } catch (error) {
             return rejectWithValue(error.response.data);
@@ -42,5 +46,4 @@ const otpSlice = createSlice({
     },
 });
 
-export const selectAuth = (state) => Boolean(state.otp.data)
 export const otpReducer = otpSlice.reducer;

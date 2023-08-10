@@ -6,8 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchAuth} from "../../features/authSlice";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSpinner} from "@fortawesome/free-solid-svg-icons";
-import {selectIsAuth} from "../../features/authMeSlice";
-import {checkAuth} from "../../features/authSlice";
+import {fetchAuthMe} from "../../features/authMeSlice";
 
 const Login = () => {
     const [formData, setFormData] = useState({
@@ -16,11 +15,10 @@ const Login = () => {
     });
     const [formErrors, setFormErrors] = useState({});
     const {loading, error,} = useSelector(state => state.auth);
-    const isAuth = useSelector(selectIsAuth);
-    const checkAuthentication = useSelector(checkAuth);
+    const {isAuthenticated} = useSelector(state => state.authMe);
 
     const dispatch = useDispatch();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const handleInputChange = (event) => {
         const {name, value} = event.target;
@@ -33,13 +31,15 @@ const Login = () => {
         setFormErrors(errors);
         if (Object.keys(errors).length === 0) {
             const data = await dispatch(fetchAuth(formData));
-            if (data?.payload?.token === false) {
-                return navigate("/otp")
-            }else {
+            console.log(data);
+            if (data.payload.hasOwnProperty("token")) {
                 toast.success("You verified your email successfully");
                 setTimeout(() => {
-                    window.localStorage.setItem("token", data?.payload?.token)
-                },1000)
+                    window.localStorage.setItem("token", data?.payload?.token);
+                    dispatch(fetchAuthMe());
+                }, 1000)
+            } else if(data?.payload?.hasOwnProperty("user")) {
+                return navigate(`/${data?.payload?.user?._id}/otp`);
             }
         }
     };
@@ -69,7 +69,7 @@ const Login = () => {
         return errors
     };
 
-    if (isAuth || checkAuthentication) {
+    if (isAuthenticated) {
         return <Navigate to="/"/>
     }
 
@@ -111,7 +111,7 @@ const Login = () => {
                                 {error && (
                                     <div className="form__errors">
                                         <span className="error form__error-common">*{error}</span>
-                                </div>
+                                    </div>
                                 )}
                                 <div className="form__fields">
                                     <p className="form__field">
@@ -148,7 +148,8 @@ const Login = () => {
                                 </div>
 
                                 <div className="form__exist">
-                                    <span className='form__question'>Not a Member? <Link className='form__link' to="/register">Register Now</Link></span>
+                                    <span className='form__question'>Not a Member? <Link className='form__link'
+                                                                                         to="/register">Register Now</Link></span>
                                 </div>
                             </form>
                         </div>

@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "../utils/axios-utils";
 
-export const fetchAuthMe = createAsyncThunk(
-    "auth/fetchAuthMe",
+export const fetchCategories = createAsyncThunk(
+    "auth/fetchCategories",
     async (_, { rejectWithValue }) => {
         try {
-            const { data } = await axios.get("/api/users/me");
+            const { data } = await axios.get("/api/categories");
             return data;
         } catch (error) {
             return rejectWithValue(error.response.data);
@@ -14,34 +14,31 @@ export const fetchAuthMe = createAsyncThunk(
 );
 
 const initialState = {
-    isAuthenticated: false,
-    data: null,
+    data: [],
     loading: false,
     error: null,
 };
 
-const authMeSlice = createSlice({
-    name: "authMe",
+const categoriesSlice = createSlice({
+    name: "categories",
     initialState,
     extraReducers: (builder) => {
         builder
-            .addCase(fetchAuthMe.pending, (state) => {
+            .addCase(fetchCategories.pending, (state) => {
                 state.loading = true;
                 state.data = null;
                 state.error = null;
             })
-            .addCase(fetchAuthMe.fulfilled, (state, action) => {
+            .addCase(fetchCategories.fulfilled, (state, action) => {
                 state.loading = false;
-                state.isAuthenticated = true;
                 state.data = action.payload;
                 state.error = null;
             })
-            .addCase(fetchAuthMe.rejected, (state, action) => {
+            .addCase(fetchCategories.rejected, (state, action) => {
                 state.loading = false;
-                state.isAuthenticated = false;
                 state.data = null;
                 state.error = action.payload;
             });
     },
 });
-export const authMeReducer = authMeSlice.reducer;
+export const categoriesReducer = categoriesSlice.reducer;

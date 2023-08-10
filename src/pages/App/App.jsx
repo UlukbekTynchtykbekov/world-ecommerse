@@ -1,8 +1,8 @@
 import Layout from "../../layout/Layout";
-import '../../styles/App.scss';
 import {useDispatch} from "react-redux";
 import {useEffect} from "react";
 import {fetchAuthMe} from "../../features/authMeSlice";
+import '../../styles/App.scss';
 
 function App() {
 
@@ -10,7 +10,7 @@ function App() {
 
     useEffect( () => {
         dispatch(fetchAuthMe());
-        },[]);
+        },[dispatch]);
 
   return (
     <>

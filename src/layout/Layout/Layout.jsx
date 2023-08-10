@@ -12,20 +12,21 @@ const Layout = () => {
     const [showSearchBottom, setShowSearchBottom] = useState(false);
     const location = useLocation();
     const { pathname } = location;
-    const excludedRoutes = ['/register', '/login', '/otp'];
 
-    const shouldDisplayHeaderFooter = !excludedRoutes.includes(pathname);
+    const shouldDisplayHeaderFooter = (path) => {
+        return !['/register', '/login', '/otp'].some(route => path.includes(route));
+    };
 
     return (
         <>
-            {shouldDisplayHeaderFooter && <>
+            {shouldDisplayHeaderFooter(pathname) && <>
                 <Aside/>
                 <Header />
             </>}
             <main>
                 <Routers />
             </main>
-            {shouldDisplayHeaderFooter && <Footer />}
+            {shouldDisplayHeaderFooter(pathname) && <Footer />}
             <MenuBottom setShowSearchBottom={setShowSearchBottom} />
             <SearchBottom showSearchBottom={showSearchBottom} setShowSearchBottom={setShowSearchBottom} />
             <Overlay />

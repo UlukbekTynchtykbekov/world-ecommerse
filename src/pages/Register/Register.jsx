@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {Link, Navigate, useNavigate} from "react-router-dom";
 import {fetchUserData} from "../../features/registerSlice";
@@ -9,7 +9,6 @@ import axios from "../../utils/axios-utils";
 import toast, {Toaster} from 'react-hot-toast';
 import Profile from "../../assets/profile.png";
 import "../../styles/register.scss";
-import {selectIsAuth} from "../../features/authMeSlice";
 
 const Register = () => {
     const [formData, setFormData] = useState({
@@ -24,7 +23,7 @@ const Register = () => {
     const [formErrors, setFormErrors] = useState({});
     const [imageLoading, setImageLoading] = useState(false);
     const {loading, error} = useSelector((state) => state.register);
-    const isAuth = useSelector(selectIsAuth);
+    const {isAuthenticated} = useSelector(state => state.authMe);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -68,8 +67,9 @@ const Register = () => {
             }
             delete formData.confirmPassword;
             const data = await dispatch(fetchUserData(formData));
-            if (data?.error !== true) {
-                return navigate("/otp")
+
+            if (data?.payload?._id) {
+                return navigate(`/${data?.payload?._id}/otp`)
             }
         }
     };
@@ -113,7 +113,7 @@ const Register = () => {
         return errors
     };
 
-    if (isAuth) {
+    if (isAuthenticated) {
         return <Navigate to="/"/>
     }
 

@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import Helmet from "../../layout/Helmet";
-import {Navigate} from "react-router-dom";
+import {Navigate, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSpinner} from "@fortawesome/free-solid-svg-icons";
 import {Toaster, toast} from "react-hot-toast";
 import {verifyEmail} from "../../features/otpSlice";
-import {selectIsAuth} from "../../features/authMeSlice";
-import {selectAuth} from "../../features/otpSlice";
+import {fetchAuthMe} from "../../features/authMeSlice";
+import {resendOtpNumber} from "../../features/resendOtpSlice";
 
 const Otp = () => {
 
@@ -17,8 +17,8 @@ const Otp = () => {
     const [formErrors, setFormErrors] = useState({});
 
     const {loading, error} = useSelector((state) => state.otp);
-    const isAuth = useSelector(selectIsAuth);
-    const checkAuth = useSelector(selectAuth);
+    const {isAuthenticated} = useSelector(state => state.authMe);
+    const {id: userId} = useParams();
 
     const dispatch = useDispatch();
 
@@ -32,19 +32,16 @@ const Otp = () => {
         const errors = validateForm(formData);
         setFormErrors(errors);
         if (Object.keys(errors).length === 0) {
-            const otp = await dispatch(verifyEmail(formData))
+            const otp = await dispatch(verifyEmail({...formData, userId}))
             if (otp?.payload?.token) {
                 toast.success("You verified your email successfully");
                 setTimeout(() => {
                     window.localStorage.setItem("token", otp?.payload?.token)
+                    dispatch(fetchAuthMe());
                 }, 1000)
             }
         }
     };
-
-    const handleBack = () => {
-        window.history.back();
-    }
 
     const validateForm = (data) => {
         const errors = {};
@@ -56,13 +53,23 @@ const Otp = () => {
         return errors
     };
 
+    const resendOtp = async () => {
+        const resendData = await dispatch(resendOtpNumber({userId}));
+
+        console.log(resendData)
+    }
+
+    const handleBack = () => {
+        window.history.back();
+    }
+
+    if (isAuthenticated) {
+        return <Navigate to="/"/>
+    }
 
     if (loading) {
         toast.loading("Please wait, Verifying...");
-    }
 
-    if (isAuth || checkAuth) {
-        return <Navigate to="/"/>
     }
 
     return (
@@ -121,12 +128,13 @@ const Otp = () => {
                                             {loading ? <FontAwesomeIcon icon={faSpinner} spinPulse/> : "Send"}
                                         </button>
                                     </div>
-                                    <div className="form">
-                                        <span className='form__question'>Already Register? <button
-                                            className='form__resend'>Resend</button></span>
-                                    </div>
                                 </div>
                             </form>
+                            <div className="register__send">
+                                        <span className='register__question'>Already Register?
+                                            <button className='register__resend' onClick={resendOtp}>Resend</button>
+                                        </span>
+                            </div>
                         </div>
                     </div>
                 </div>

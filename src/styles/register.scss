@@ -41,6 +41,25 @@
     text-align: center;
     color: #888888;
   }
+
+  &__resend{
+    margin-top: 20px;
+    color: #EF4444;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  &__question{
+    color: #808080;
+    font-weight: 500;
+  }
+
+  &__send {
+    text-align: center;
+  }
 }
 
 .form {
@@ -85,15 +104,6 @@
   &__wrapper{
     margin-top: 50px;
     text-align: center;
-  }
-
-  &__resend{
-    margin-top: 20px;
-    color: #EF4444;
-    outline: none;
-    border: none;
-    font-weight: 500;
-    font-size: 1rem;
   }
 
   &__errors {
@@ -170,15 +180,9 @@
     padding-bottom: 1rem;
   }
 
-  &__question{
-    color: #808080;
-    font-weight: 500;
-  }
-
   &__link{
     color: #EF4444;
   }
-
 }
 
 .back {
