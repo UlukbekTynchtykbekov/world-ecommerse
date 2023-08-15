@@ -51,6 +51,7 @@
 }
 
 .menu {
+
   &__item {
     width: 100%;
     font-size: var(--font-small);
@@ -208,6 +209,7 @@
     position: absolute;
     top: var(--percent100);
     width: 300px;
+    min-height: 506px;
     background-color: var(--white-color);
     border: 1px solid var(--border-color);
     border-top: 0;
@@ -247,6 +249,7 @@
       left: 0;
       width: var(--percent100);
       height: auto;
+      object-fit: cover;
       min-height: var(--percent100);
       display: block;
     }
@@ -279,6 +282,7 @@
       left: 0;
       width: var(--percent100);
       height: auto;
+      object-fit: cover;
       min-height: var(--percent100);
       display: block;
     }
