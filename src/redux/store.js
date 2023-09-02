@@ -6,6 +6,7 @@ import {otpReducer} from "../features/otpSlice";
 import {authReducer} from "../features/authSlice";
 import {authMeReducer} from "../features/authMeSlice";
 import {categoriesReducer} from "../features/categoriesSlice";
+import {pagesReducer} from "../features/pageSlice";
 import {resendOtpReducer} from "../features/resendOtpSlice";
 
 const store = configureStore({
@@ -17,6 +18,7 @@ const store = configureStore({
         auth: authReducer,
         authMe: authMeReducer,
         categories: categoriesReducer,
+        pages: pagesReducer,
         resendOtp: resendOtpReducer,
     }
 })
