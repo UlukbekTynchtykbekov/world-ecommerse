@@ -4,6 +4,12 @@
     display: block;
   }
 
+  & .expand {
+    & > :where(.mega){
+      max-height: 2000px !important;
+    }
+  }
+
   & .navigations__links {
     display: block;
     line-height: 40px;

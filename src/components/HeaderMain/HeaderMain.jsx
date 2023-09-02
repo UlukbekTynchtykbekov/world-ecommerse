@@ -1,14 +1,11 @@
-import React, {useEffect, useState} from 'react';
-import bgImage1 from "../../assets/menu/menu_bg1.jpg";
-import bgImage4 from "../../assets/menu/menu_bg4.jpg";
+import React, {useState} from 'react';
 import {useLocation} from "react-router-dom";
-import "./header-main.scss"
 import {useSelector} from "react-redux";
+import "./header-main.scss"
 
 const HeaderMain = () => {
     const [showCat, setShowCat] = useState(false);
     const {pathname} = useLocation();
-
     const {data: categories} = useSelector(state => state.categories);
 
     const [categoriesToExclude] = useState(["Shop", "Women", "Men"]);

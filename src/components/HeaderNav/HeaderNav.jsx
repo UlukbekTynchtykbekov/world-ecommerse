@@ -61,7 +61,7 @@ const HeaderNav = () => {
                                                             <div className="mega__wrapper">
                                                                 {category.children.map(subcategory => (
                                                                     subcategory.name === "Top Brands" ?
-                                                                        <div className="mega__col">
+                                                                        <div key={subcategory._id} className="mega__col">
                                                                             <div className="mega__row">
                                                                                 <h4 className="mega__title">{subcategory.name}</h4>
                                                                                 {
@@ -84,7 +84,7 @@ const HeaderNav = () => {
                                                                                         className="ri-arrow-right-line"></i></a>
                                                                             </div>
                                                                         </div> :
-                                                                    <div className="mega__col">
+                                                                    <div key={subcategory._id} className="mega__col">
                                                                         <div className="mega__row">
                                                                             <h4 key={subcategory._id}
                                                                                 className="mega__title">{subcategory.name}</h4>
@@ -133,19 +133,6 @@ const HeaderNav = () => {
                                         </li>
                                     ))
                                 }
-                                {/*<li className="navigations__item">*/}
-                                {/*    <Link to="/shop" className="navigations__link">Shop</Link>*/}
-                                {/*</li>*/}
-                                {/*<li className="navigations__item">*/}
-                                {/*    <a className="navigations__link" href="#">Men</a>*/}
-                                {/*</li>*/}
-                                {/*<li className="navigations__item">*/}
-                                {/*    <a className="navigations__link" href="#">Sports*/}
-                                {/*        <div className="fly-item navigations__fly-item">*/}
-                                {/*            <span className="fly-item__span">New!</span>*/}
-                                {/*        </div>*/}
-                                {/*    </a>*/}
-                                {/*</li>*/}
                             </ul>
                         </nav>
                     </div>

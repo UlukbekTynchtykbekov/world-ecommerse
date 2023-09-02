@@ -7,17 +7,16 @@ import "../../styles/aside.scss"
 import {menuActions} from "../../features/menuSlice";
 
 const Aside = () => {
-    const sidebarRef = useRef(null);
+
+    const [categoryId, setCategoryId] = useState("")
     const {showMenu} = useSelector(state => state.showMenu)
     const dispatch = useDispatch();
 
-    //We have to fix it
-    function toggleSidebar() {
-        sidebarRef.current.classList.toggle("expand")
-    }
-
     function closeMenu () {
         dispatch(menuActions.closeMenu())
+    }
+    function toggleSidebar(id) {
+        setCategoryId(id)
     }
 
     return (
@@ -31,8 +30,8 @@ const Aside = () => {
                     </div>
                     <div onClick={closeMenu} className="close canvas__close" ><i className="ri-close-line"></i></div>
                 </div>
-                <AsideDepartments sidebarRef={sidebarRef} toggleSidebar={toggleSidebar}  />
-                <AsideNavigation />
+                <AsideDepartments categoryId={categoryId} toggleSidebar={toggleSidebar} />
+                <AsideNavigation categoryId={categoryId} toggleSidebar={toggleSidebar} />
                 <AsideTopNav />
             </div>
         </aside>

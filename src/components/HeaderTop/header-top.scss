@@ -30,6 +30,21 @@
     }
   }
 
+  &__account {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: var(--trans-color);
+    cursor: pointer;
+
+    &:hover {
+      background: var(--secondary-color);
+    }
+  }
+
   &__icon {
     &__icon {
       font-size: 1.25rem;
@@ -67,10 +82,26 @@
   }
 }
 
+.account {
 
+  &__image {
+    position: relative;
+    border-width: 4px;
+    border-color: #f3f3f3;
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: .1s ease-out;
 
-
-
+    &:hover{
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      border-color: #e5e5e5;
+    }
+  }
+}
 
 @media screen and (min-width: 993px) {
 
