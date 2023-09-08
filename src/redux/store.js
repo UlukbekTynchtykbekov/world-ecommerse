@@ -8,6 +8,7 @@ import {authMeReducer} from "../features/authMeSlice";
 import {categoriesReducer} from "../features/categoriesSlice";
 import {pagesReducer} from "../features/pageSlice";
 import {resendOtpReducer} from "../features/resendOtpSlice";
+import {brandsReducer} from "../features/brandSlice";
 
 const store = configureStore({
     reducer: {
@@ -20,6 +21,7 @@ const store = configureStore({
         categories: categoriesReducer,
         pages: pagesReducer,
         resendOtp: resendOtpReducer,
+        brands: brandsReducer,
     }
 })
 

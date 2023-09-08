@@ -1,16 +1,12 @@
 import React, {useEffect} from 'react';
+import {Link} from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchPages} from "../../features/pageSlice";
-import Image0 from "../../assets/slider/slider0.jpg"
-import Image1 from "../../assets/slider/slider1.jpg"
-import Image2 from "../../assets/slider/slider2.jpg"
-import Image3 from "../../assets/slider/slider3.jpg"
 import "./slider.scss"
 import "swiper/css";
 import "swiper/css/pagination";
-import {Link} from "react-router-dom";
 
 const Slider = () => {
 
