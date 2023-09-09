@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {fetchBrands} from "../../features/brandSlice";
-import "./brands.scss"
+import "./brands.scss";
 
 const Brands = () => {
 
@@ -22,7 +22,7 @@ const Brands = () => {
                 <div className="brands__wrapper flexitem">
                     {
                         filteredBrands.map(brand => (
-                            <div className="brands__item">
+                            <div key={brand._id} className="brands__item">
                                 <a className="brands__link" href="">
                                     <img className="brands__image" src={brand.brandImage} alt=""/>
                                 </a>
