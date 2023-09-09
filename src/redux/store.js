@@ -10,6 +10,7 @@ import {pagesReducer} from "../features/pageSlice";
 import {resendOtpReducer} from "../features/resendOtpSlice";
 import {brandsReducer} from "../features/brandSlice";
 import {offerReducer} from "../features/offerSlice";
+import {productReducer} from "../features/productsSlice";
 
 const store = configureStore({
     reducer: {
@@ -24,6 +25,7 @@ const store = configureStore({
         resendOtp: resendOtpReducer,
         brands: brandsReducer,
         offers: offerReducer,
+        products: productReducer,
     }
 })
 

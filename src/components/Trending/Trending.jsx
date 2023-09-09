@@ -21,13 +21,10 @@ const Trending = () => {
         dispatch(fetchOffer())
     }, []);
 
-    const sortedOffers = offers ? [...offers].sort((a, b) => b.totalSold - a.totalSold) : [];
+    const sortedOffers = offers ? [...offers].sort((a, b) => b.totalSold - a.totalSold).slice(0,9) : [];
 
     const [bigItem, ...miniItems] = sortedOffers;
-
     const miniChunks = chunkArray(miniItems, Math.ceil(miniItems.length / 2));
-
-    console.log(miniChunks)
 
     return (
         <div className="trending">
