@@ -1,17 +1,29 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import apparel4 from "../../assets/products/apparel4.jpg";
-import "./header-nav.scss"
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {menuActions} from "../../features/menuSlice";
 import MiniCart from "../MiniCart/MiniCart";
 import {Link} from "react-router-dom";
+import HoverMiniCart from "../HoverMiniCart/HoverMiniCart";
+import {fetchCategories} from "../../features/categoriesSlice";
+import "./header-nav.scss"
 
 const HeaderNav = () => {
 
     const dispatch = useDispatch()
-    function openMenu () {
+    const {data: categories} = useSelector(state => state.categories);
+
+    const [categoriesToExclude] = useState(["Shop", "Women", "Men", "Sports"]);
+    const filteredCategories = categories ? categories.filter(category => categoriesToExclude.includes(category.name)).sort((a,b) => categoriesToExclude.indexOf(a.name) - categoriesToExclude.indexOf(b.name)
+    ) : [];
+
+    function openMenu() {
         dispatch(menuActions.showMenu())
     }
+
+    useEffect(() => {
+        dispatch(fetchCategories())
+    }, [dispatch])
 
     return (
         <div className="nav">
@@ -22,173 +34,105 @@ const HeaderNav = () => {
                     </a>
                     <div className="nav__left">
                         <div className="logo">
-                            <a className="logo__link" href="">
+                            <Link to="/" className="logo__link">
                                 <span className="logo__circle"></span>.Store
-                            </a>
+                            </Link>
                         </div>
                         <nav className="navigations">
                             <ul className="navigations__links">
                                 <li className="navigations__item">
                                     <Link to="/" className="navigations__link">Home</Link>
                                 </li>
-                                <li className="navigations__item">
-                                    <Link to="/shop" className="navigations__link">Shop</Link>
-                                </li>
-                                <li className="navigations__item child">
-                                    <a className="navigations__link" href="#">Women
-                                        <span className="navigations__icon icon-sm">
+                                {
+                                    filteredCategories.map(category => (
+                                        <li key={category._id} className="navigations__item child">
+                                            <Link to={`/${category.slug}`} className="navigations__link">{category.name}
+                                                {
+                                                    category.children.length > 0 &&
+                                                    <span className="navigations__icon icon-sm">
                                                 <i className="ri-arrow-down-s-line"></i>
                                             </span>
-                                    </a>
-                                    <div className="mega">
-                                        <div className="container">
-                                            <div className="mega__wrapper">
-                                                <div className="mega__col">
-                                                    <div className="mega__row">
-                                                        <h4 className="mega__title">Women's Clothing</h4>
-                                                        <ul className="mega__list">
-                                                            <li className="mega__item"><a className="mega__link"
-                                                                                          href="">Dresses</a></li>
-                                                            <li className="mega__item"><a className="mega__link"
-                                                                                          href="">Top & Tees</a>
-                                                            </li>
-                                                            <li className="mega__item"><a className="mega__link"
-                                                                                          href="">Jackets &
-                                                                Coats</a></li>
-                                                            <li className="mega__item"><a className="mega__link"
-                                                                                          href="">Pants & Capris</a>
-                                                            </li>
-                                                            <li className="mega__item"><a className="mega__link"
-                                                                                          href="">Sweaters</a></li>
-                                                            <li className="mega__item"><a className="mega__link"
-                                                                                          href="">Costumers</a></li>
-                                                            <li className="mega__item"><a className="mega__link"
-                                                                                          href="">Hodies &
-                                                                Sweatshirts</a></li>
-                                                            <li className="mega__item"><a className="mega__link"
-                                                                                          href="">Pajamas &
-                                                                Robes</a></li>
-                                                            <li className="mega__item"><a className="mega__link"
-                                                                                          href="">Shorts</a></li>
-                                                            <li className="mega__item"><a className="mega__link"
-                                                                                          href="">Swimwear</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div className="mega__col">
-                                                    <div className="mega__row">
-                                                        <h4 className="mega__title">Jewelry</h4>
-                                                        <ul className="mega__list">
-                                                            <li className="mega__item"><a className="mega__link"
-                                                                                          href="">Accessories</a>
-                                                            </li>
-                                                            <li className="mega__item"><a className="mega__link"
-                                                                                          href="">Bags & Purses</a>
-                                                            </li>
-                                                            <li className="mega__item"><a className="mega__link"
-                                                                                          href="">Necklaces</a></li>
-                                                            <li className="mega__item"><a className="mega__link"
-                                                                                          href="">Rings</a></li>
-                                                            <li className="mega__item"><a className="mega__link"
-                                                                                          href="">Earrings</a></li>
-                                                            <li className="mega__item"><a className="mega__link"
-                                                                                          href="">Bracelets</a></li>
-                                                            <li className="mega__item"><a className="mega__link"
-                                                                                          href="">Body Jewelry</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div className="mega__col">
-                                                    <div className="row">
-                                                        <h4 className="mega__title">Beauty</h4>
-                                                        <ul className="mega__list">
-                                                            <li className="mega__item"><a className="mega__link"
-                                                                                          href="">Bath
-                                                                Accessories</a></li>
-                                                            <li className="mega__item"><a className="mega__link"
-                                                                                          href="">Makeup &
-                                                                Cosmetics</a></li>
-                                                            <li className="mega__item"><a className="mega__link"
-                                                                                          href="">Skin Care</a></li>
-                                                            <li className="mega__item"><a className="mega__link"
-                                                                                          href="">Hair Care</a></li>
-                                                            <li className="mega__item"><a className="mega__link"
-                                                                                          href="">Essential Oils</a>
-                                                            </li>
-                                                            <li className="mega__item"><a className="mega__link"
-                                                                                          href="">Fragrances</a>
-                                                            </li>
-                                                            <li className="mega__item"><a className="mega__link"
-                                                                                          href="">Soaps & Bath
-                                                                Bombs</a></li>
-                                                            <li className="mega__item"><a className="mega__link"
-                                                                                          href="">Face Masks &
-                                                                Coverings</a></li>
-                                                            <li className="mega__item"><a className="mega__link"
-                                                                                          href="">Spa Kits &
-                                                                Gifts</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div className="mega__col">
-                                                    <div className="mega__row">
-                                                        <h4 className="mega__title">Top Brands</h4>
-                                                        <ul className="mega__list mega__list-brands">
-                                                            <li className="mega__item mega__item-width"><a
-                                                                className="mega__link" href="">Nike</a></li>
-                                                            <li className="mega__item mega__item-width"><a
-                                                                className="mega__link" href="">Louis Vuitton</a>
-                                                            </li>
-                                                            <li className="mega__item mega__item-width"><a
-                                                                className="mega__link" href="">Hermes</a></li>
-                                                            <li className="mega__item mega__item-width"><a
-                                                                className="mega__link" href="">Gucci</a></li>
-                                                            <li className="mega__item mega__item-width"><a
-                                                                className="mega__link" href="">Zalando</a></li>
-                                                            <li className="mega__item mega__item-width"><a
-                                                                className="mega__link" href="">Tiffany</a></li>
-                                                            <li className="mega__item mega__item-width"><a
-                                                                className="mega__link" href="">Zara</a></li>
-                                                            <li className="mega__item mega__item-width"><a
-                                                                className="mega__link" href="">H&M</a></li>
-                                                            <li className="mega__item mega__item-width"><a
-                                                                className="mega__link" href="">Cartier</a></li>
-                                                            <li className="mega__item mega__item-width"><a
-                                                                className="mega__link" href="">Chanel</a></li>
-                                                            <li className="mega__item mega__item-width"><a
-                                                                className="mega__link" href="">Hurley</a></li>
-                                                        </ul>
-                                                        <a className="mega__view-all" href="">View all brands <i className="ri-arrow-right-line"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div className="products mega__products">
-                                                    <div className="products__row">
-                                                        <div className="products__media">
-                                                            <div className="products__thumbnail">
-                                                                <a className="products__image-cover" href="">
-                                                                    <img className="products__img" src={apparel4} alt="apparel4"/>
-                                                                </a>
+                                                }
+                                            </Link>
+                                            {
+                                                category.children.length > 0 && (
+                                                    <div className="mega">
+                                                        <div className="container">
+                                                            <div className="mega__wrapper">
+                                                                {category.children.map(subcategory => (
+                                                                    subcategory.name === "Top Brands" ?
+                                                                        <div key={subcategory._id} className="mega__col">
+                                                                            <div className="mega__row">
+                                                                                <h4 className="mega__title">{subcategory.name}</h4>
+                                                                                {
+                                                                                    subcategory.children.length > 0 && (
+                                                                                        <ul className="mega__list mega__list-brands">
+                                                                                            {
+                                                                                                subcategory.children.map(subSubcategory => (
+                                                                                                    <li key={subSubcategory._id}
+                                                                                                        className="mega__item mega__item-width">
+                                                                                                        <a className="mega__link"
+                                                                                                           href="">{subSubcategory.name}</a>
+                                                                                                    </li>
+                                                                                                ))
+                                                                                            }
+                                                                                        </ul>
+                                                                                    )
+                                                                                }
+                                                                                <a className="mega__view-all" href="">View all
+                                                                                    brands <i
+                                                                                        className="ri-arrow-right-line"></i></a>
+                                                                            </div>
+                                                                        </div> :
+                                                                    <div key={subcategory._id} className="mega__col">
+                                                                        <div className="mega__row">
+                                                                            <h4 key={subcategory._id}
+                                                                                className="mega__title">{subcategory.name}</h4>
+                                                                            {
+                                                                                subcategory.children.length > 0 && (
+                                                                                    <ul className="mega__list">
+                                                                                        {
+                                                                                            subcategory.children.map(subSubcategory => (
+                                                                                                <li key={subSubcategory._id}
+                                                                                                    className="mega__item">
+                                                                                                    <a className="mega__link"
+                                                                                                       href="">{subSubcategory.name}</a>
+                                                                                                </li>
+                                                                                            ))
+                                                                                        }
+                                                                                    </ul>
+                                                                                )
+                                                                            }
+                                                                        </div>
+                                                                    </div>
+                                                                ))
+                                                                }
+                                                                <div className="products mega__products">
+                                                                    <div className="products__row">
+                                                                        <div className="products__media">
+                                                                            <div className="products__thumbnail">
+                                                                                <a className="products__image-cover"
+                                                                                   href="">
+                                                                                    <img className="products__img"
+                                                                                         src={apparel4} alt="apparel4"/>
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div className="products__text-content">
+                                                                            <h4 className="products__pop">Most Wanted!</h4>
+                                                                            <a className="primary-button products__button"
+                                                                               href="">Order Now</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <div className="products__text-content">
-                                                            <h4 className="products__pop">Most Wanted!</h4>
-                                                            <a className="primary-button products__button" href="">Order Now</a>
-                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="navigations__item"><a className="navigations__link" href="#">Men</a></li>
-                                <li className="navigations__item">
-                                    <a className="navigations__link" href="#">Sports
-                                        <div className="fly-item navigations__fly-item">
-                                            <span className="fly-item__span">New!</span>
-                                        </div>
-                                    </a>
-                                </li>
+                                                )
+                                            }
+                                        </li>
+                                    ))
+                                }
                             </ul>
                         </nav>
                     </div>
@@ -208,20 +152,21 @@ const HeaderNav = () => {
                             </li>
                             <li className="package__item iscart">
                                 <div className="package__link">
-                                        <div className="package__icon icon-lg">
-                                            <i className="ri-shopping-cart-line"></i>
-                                            <span className="fly-item package__fly-item">
+                                    <div className="package__icon icon-lg">
+                                        <i className="ri-shopping-cart-line"></i>
+                                        <span className="fly-item package__fly-item">
                                             <span className="package__number">
                                                 5
                                             </span>
                                         </span>
-                                        </div>
+                                    </div>
                                     <span className="package__text">
                                             <span className="package__total">Total</span>
                                             <span className="package__total-number">$1.622</span>
                                         </span>
                                 </div>
-                                <MiniCart />
+                                <HoverMiniCart/>
+                                <MiniCart/>
                             </li>
                         </ul>
                     </div>

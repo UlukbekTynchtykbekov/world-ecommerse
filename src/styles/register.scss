@@ -41,6 +41,25 @@
     text-align: center;
     color: #888888;
   }
+
+  &__resend{
+    margin-top: 20px;
+    color: #EF4444;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  &__question{
+    color: #808080;
+    font-weight: 500;
+  }
+
+  &__send {
+    text-align: center;
+  }
 }
 
 .form {
@@ -48,15 +67,19 @@
   padding-bottom: 0.2rem;
 
   &__profile {
+    position: relative;
     display: flex;
     justify-content: center;
     padding-top: 0.9rem;
   }
 
   &__img {
+    position: relative;
     border-width: 4px;
     border-color: #f3f3f3;
     width: 120px;
+    height: 120px;
+    object-fit: cover;
     border-radius: 50%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     cursor: pointer;
@@ -68,6 +91,12 @@
     }
   }
 
+  &__loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+
   &__upload{
     display: none;
   }
@@ -77,13 +106,19 @@
     text-align: center;
   }
 
-  &__resend{
-    margin-top: 20px;
-    color: #EF4444;
-    outline: none;
-    border: none;
-    font-weight: 500;
+  &__errors {
+    margin: 1em auto;
+    width: 75%;
+    border-width: 0;
+    padding: .6rem 1.25rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     font-size: 1rem;
+    background: rgba(238, 140, 140, 0.71);
+  }
+
+  &__error-common {
+    color: #e01e1e !important;
   }
 
   &__fields{
@@ -107,6 +142,16 @@
     font-size: 1rem;
     &:focus{
       outline: none;
+    }
+
+    &-color {
+      border-width: 1px;
+      padding: .6rem 1.25rem;
+      border-radius: 0.5rem;
+      width: 100%;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      font-size: 1rem;
+      border-color: var(--primary-color);
     }
   }
 
@@ -133,11 +178,6 @@
     text-align: center;
     padding-top: 1rem;
     padding-bottom: 1rem;
-  }
-
-  &__question{
-    color: #808080;
-    font-weight: 500;
   }
 
   &__link{

@@ -5,6 +5,7 @@ import HeaderMain from "../../components/HeaderMain/HeaderMain";
 import "./header.scss";
 
 const Header = () => {
+
     return (
         <header className="header">
             <HeaderTop />

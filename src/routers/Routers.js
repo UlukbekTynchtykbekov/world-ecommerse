@@ -9,6 +9,7 @@ import OfferPage from "../pages/OfferPage";
 import CategoryPage from "../pages/CategoryPage";
 import Cart from "../pages/Cart";
 import Checkout from "../pages/Checkout";
+import Loader from "../components/Loader/Loader";
 
 const Routers = () => {
     return (
@@ -20,9 +21,10 @@ const Routers = () => {
             <Route path="/offer-page" element={<OfferPage/>}/>
             <Route path="/cart-page" element={<Cart/>}/>
             <Route path="/checkout-page" element={<Checkout/>}/>
-            <Route path="/otp" element={<Otp/>}/>
+            <Route path="/:id/otp" element={<Otp/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/register" element={<Register/>}/>
+            <Route path="/loader" element={<Loader/>}/>
         </Routes>
     )
 };

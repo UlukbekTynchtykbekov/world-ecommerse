@@ -158,9 +158,9 @@
     display: block;
 
     &.iscart {
-      &:hover .mini-cart {
-        visibility: visible;
-        opacity: 1;
+      &:hover .iscart-mini {
+        visibility: visible!important;
+        opacity: 1!important;
       }
     }
   }
