@@ -1,8 +1,9 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import SecTop from "../SecTop/SecTop";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchOffer} from "../../features/offerSlice";
+import {fetchProducts} from "../../features/productsSlice";
 import "./trending.scss";
+import StockBar from "../StockBar";
 
 function chunkArray(array, chunkSize) {
     const chunks = [];
@@ -11,20 +12,44 @@ function chunkArray(array, chunkSize) {
     }
     return chunks;
 }
-
 const Trending = () => {
 
     const dispatch = useDispatch();
-    const {data: offers} = useSelector(state => state.offers);
+    const {data: products} = useSelector(state => state.products);
 
     useEffect(() => {
-        dispatch(fetchOffer())
+        dispatch(fetchProducts())
     }, []);
 
-    const sortedOffers = offers ? [...offers].sort((a, b) => b.totalSold - a.totalSold).slice(0,9) : [];
+    const sortedOffers = products ? [...products].filter(pro => pro.salePercentage > 0).sort((a, b) => b.totalSold - a.totalSold).slice(0,9) : [];
 
     const [bigItem, ...miniItems] = sortedOffers;
     const miniChunks = chunkArray(miniItems, Math.ceil(miniItems.length / 2));
+
+    const calculateTimeRemaining = (startDate, endDate) => {
+        const currentTime = new Date();
+        const endTime = new Date(endDate);
+        const timeRemaining = endTime - currentTime;
+        const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+        return { days, hours, minutes, seconds };
+    };
+
+    const [remainingTime, setRemainingTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+
+    useEffect(() => {
+        const updateRemainingTime = () => {
+            const timeRemaining = calculateTimeRemaining(bigItem?.startDate, bigItem?.endDate);
+            setRemainingTime(timeRemaining);
+        };
+        updateRemainingTime();
+
+        const intervalId = setInterval(updateRemainingTime, 1000);
+
+        return () => clearInterval(intervalId);
+    }, [sortedOffers]);
 
     return (
         <div className="trending">
@@ -40,10 +65,18 @@ const Trending = () => {
                                             <div className="products__offer">
                                                 <p className="products__end">Offer ends at</p>
                                                 <ul className="products__timeList">
-                                                    <li className="products__time">1</li>
-                                                    <li className="products__time">15</li>
-                                                    <li className="products__time">27</li>
-                                                    <li className="products__time">60</li>
+                                                    {
+                                                        <li className="products__time">{remainingTime.days}</li>
+                                                    }
+                                                    {
+                                                        <li className="products__time">{remainingTime.hours}</li>
+                                                    }
+                                                    {
+                                                        <li className="products__time">{remainingTime.minutes}</li>
+                                                    }
+                                                    {
+                                                        <li className="products__time">{remainingTime.seconds}</li>
+                                                    }
                                                 </ul>
                                             </div>
                                             <div className=" products__media big__media">
@@ -99,18 +132,7 @@ const Trending = () => {
                                             </span>
                                                     }
                                                 </div>
-                                                <div className="content__stock stock mini-text">
-                                                    <div className="stock__qty">
-                                                <span className="qty__span">Stock: <strong
-                                                    className="qty__available">{bigItem.totalQuantity}</strong></span>
-                                                        <span className="qty__span">Sold: <strong
-                                                            className="qty__sold">{bigItem.totalSold}</strong>
-                                                            </span>
-                                                    </div>
-                                                    <div className="stock__bar bar">
-                                                        <div className="bar__available"></div>
-                                                    </div>
-                                                </div>
+                                                <StockBar totalQuantity={bigItem.totalQuantity} totalSold={bigItem.totalSold} />
                                             </div>
                                         </div>
                                     </div>
