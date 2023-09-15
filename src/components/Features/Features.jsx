@@ -8,10 +8,6 @@ const Features = ({title}) => {
     const dispatch = useDispatch();
     const {data: products} = useSelector(state => state.products);
 
-    useEffect(() => {
-        dispatch(fetchProducts())
-    }, []);
-
     const sortedProducts = products ? [...products].sort((a, b) => b.totalRating - a.totalRating).slice(0,8) : [];
 
     return (
