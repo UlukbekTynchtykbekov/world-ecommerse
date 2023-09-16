@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchProducts} from "../../features/productsSlice";
 import StockBar from "../StockBar";
 import "./trending.scss";
+import Ratings from "../Ratings/Ratings";
 
 function chunkArray(array, chunkSize) {
     const chunks = [];
@@ -113,9 +114,11 @@ const Trending = () => {
                                             </div>
                                             <div className="products__content content">
                                                 <div className="content__rating">
-                                                    <div className="content__stars"></div>
+                                                    <div className="content__stars">
+                                                        <Ratings rating={bigItem.totalRating}/>
+                                                    </div>
                                                     <span className="content__text mini-text">
-                                                {bigItem.totalRating}
+                                                {bigItem.reviews.length}
                                             </span>
                                                 </div>
                                                 <h3 className="content__main-links">
@@ -182,9 +185,11 @@ const Trending = () => {
                                                             <a className="content__link" href="">{miniProduct?.name}</a>
                                                         </h3>
                                                         <div className="content__rating">
-                                                            <div className="content__stars"></div>
+                                                            <div className="content__stars">
+                                                                <Ratings rating={miniProduct.totalRating}/>
+                                                            </div>
                                                             <span className="content__text mini-text">
-                                                {miniProduct?.totalRating}
+                                                {miniProduct?.reviews.length}
                                             </span>
                                                         </div>
                                                         <div className="content__price price">

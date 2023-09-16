@@ -190,7 +190,13 @@
   &__rating {
     display: flex;
     align-items: center;
-    gap: 0.5em;
+    gap: 0.9em;
+  }
+
+  &__stars {
+    display: flex;
+    align-items: center;
+    column-gap: .2em;
   }
 
   &__main-links {

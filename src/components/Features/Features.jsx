@@ -56,7 +56,9 @@ const Features = ({title}) => {
                                         </div>
                                         <div className="products__content content">
                                             <div className="content__rating">
-                                                <Ratings rating={product.totalRating}/>
+                                                <div className="content__stars">
+                                                    <Ratings rating={product.totalRating}/>
+                                                </div>
                                                 <span className="content__text mini-text">
                                                 {product.reviews.length}
                                             </span>
