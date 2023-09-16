@@ -1,14 +1,13 @@
-import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from "react-redux";
-import {fetchProducts} from "../../features/productsSlice";
-import "./features.scss"
+import React from 'react';
+import {useSelector} from "react-redux";
+import "./features.scss";
+import Ratings from "../Ratings";
 
 const Features = ({title}) => {
 
-    const dispatch = useDispatch();
     const {data: products} = useSelector(state => state.products);
 
-    const sortedProducts = products ? [...products].sort((a, b) => b.totalRating - a.totalRating).slice(0,8) : [];
+    const sortedProducts = products ? [...products].sort((a, b) => b.totalRating - a.totalRating).slice(0, 8) : [];
 
     return (
         <div id="features" className="features">
@@ -31,7 +30,8 @@ const Features = ({title}) => {
                                         <div className="products__media media">
                                             <div className="products__thumbnail thumbnail">
                                                 <a className="products__link" href="">
-                                                    <img className="products__image" src={product.variants[0].images[0].url} alt=""/>
+                                                    <img className="products__image"
+                                                         src={product.variants[0].images[0].url} alt=""/>
                                                 </a>
                                             </div>
                                             <div className="products__hover-able">
@@ -56,7 +56,7 @@ const Features = ({title}) => {
                                         </div>
                                         <div className="products__content content">
                                             <div className="content__rating">
-                                                <div className="content__stars"></div>
+                                                <Ratings rating={product.totalRating}/>
                                                 <span className="content__text mini-text">
                                                 {product.reviews.length}
                                             </span>
@@ -65,9 +65,18 @@ const Features = ({title}) => {
                                                 <a className="content__link" href="">{product.name}</a>
                                             </h3>
                                             <div className="content__price price">
-                                            <span className="price__current">
+                                                {
+                                                    product.variants[0].discountPrice ?
+                                                    <span className="price__current">
+                                                ${product.variants[0].discountPrice}
+                                            </span> : <span className="price__current">
                                                 ${product.variants[0].originalPrice}
                                             </span>
+                                                }
+                                                {product.variants[0].discountPrice &&
+                                                    <span className="price__old mini-text">
+                                                ${product.variants[0].originalPrice}
+                                            </span>}
                                             </div>
                                         </div>
                                     </div>

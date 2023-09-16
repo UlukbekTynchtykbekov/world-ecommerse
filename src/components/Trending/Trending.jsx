@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react';
 import SecTop from "../SecTop/SecTop";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchProducts} from "../../features/productsSlice";
-import "./trending.scss";
 import StockBar from "../StockBar";
+import "./trending.scss";
 
 function chunkArray(array, chunkSize) {
     const chunks = [];
