@@ -13,7 +13,7 @@ const Home = () => {
             <Brands />
             <Trending />
             <Features title="Features Products"/>
-            {/*<Banners />*/}
+            <Banners />
         </Helmet>
     );
 };

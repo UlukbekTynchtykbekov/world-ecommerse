@@ -1,12 +1,18 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useLocation} from "react-router-dom";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchProducts} from "../../features/productsSlice";
+import Loader from "../Loader/Loader";
+import NotFound from "../NotFound/NotFound";
 import "./header-main.scss"
 
 const HeaderMain = () => {
     const [showCat, setShowCat] = useState(false);
     const {pathname} = useLocation();
-    const {data: categories} = useSelector(state => state.categories);
+    const dispatch = useDispatch();
+
+    const {data: categories, loading: catLoad, error: catErr} = useSelector(state => state.categories);
+    const {data: products} = useSelector(state => state.products);
 
     const [categoriesToExclude] = useState(["Shop", "Women", "Men"]);
     const filteredCategories = categories ? categories.filter(category => !categoriesToExclude.includes(category.name)) : [];
@@ -19,6 +25,10 @@ const HeaderMain = () => {
         return chunks;
     }
 
+    useEffect(() => {
+        dispatch(fetchProducts())
+    }, []);
+
     return (
         <div className="main header__main">
             <div className="container">
@@ -30,7 +40,7 @@ const HeaderMain = () => {
                                     All Departments
                                 </div>
                                 <div className="mini-text category__mini-text">
-                                    Total 1059 Products
+                                    Total {products?.length} Products
                                 </div>
                                 <div onClick={() => setShowCat(!showCat)}
                                      className={pathname === '/' ? "category__trigger visible" : "category__trigger"}>
@@ -40,9 +50,20 @@ const HeaderMain = () => {
                                 </div>
                             </div>
                             <div className={pathname !== "/" && showCat === false ? "menu show" : "menu"}>
+                                {
+                                    catLoad && (
+                                        <Loader />
+                                    )
+                                }
+
+                                {
+                                    catErr && (
+                                        <NotFound error={catErr}/>
+                                    )
+                                }
                                 <ul className="menu__list">
                                     {
-                                        filteredCategories.map(category => (
+                                        filteredCategories?.length > 0 && filteredCategories.map(category => (
                                             <li key={category._id} className="menu__item child">
                                                 <a className="menu__link" href="">
                                                 <span className="menu__icon  icon-lg">

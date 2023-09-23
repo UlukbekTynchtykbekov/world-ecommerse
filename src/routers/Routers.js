@@ -10,6 +10,7 @@ import CategoryPage from "../pages/CategoryPage";
 import Cart from "../pages/Cart";
 import Checkout from "../pages/Checkout";
 import Loader from "../components/Loader/Loader";
+import NotFound from "../components/NotFound/NotFound";
 
 const Routers = () => {
     return (
@@ -25,6 +26,7 @@ const Routers = () => {
             <Route path="/login" element={<Login/>}/>
             <Route path="/register" element={<Register/>}/>
             <Route path="/loader" element={<Loader/>}/>
+            <Route path="/error" element={<NotFound/>}/>
         </Routes>
     )
 };

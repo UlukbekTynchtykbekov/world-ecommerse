@@ -8,7 +8,7 @@ export const fetchPages = createAsyncThunk(
             const { data } = await axios.get("/api/pages");
             return data;
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue(error.response);
         }
     }
 );

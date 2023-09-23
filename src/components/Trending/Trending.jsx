@@ -15,13 +15,7 @@ function chunkArray(array, chunkSize) {
 }
 const Trending = () => {
 
-    const dispatch = useDispatch();
     const {data: products} = useSelector(state => state.products);
-
-    useEffect(() => {
-        dispatch(fetchProducts())
-    }, []);
-
     const sortedOffers = products ? [...products].filter(pro => pro.salePercentage > 0).sort((a, b) => b.totalSold - a.totalSold).slice(0,9) : [];
 
     const [bigItem, ...miniItems] = sortedOffers;
@@ -42,15 +36,17 @@ const Trending = () => {
 
     useEffect(() => {
         const updateRemainingTime = () => {
-            const timeRemaining = calculateTimeRemaining(bigItem?.startDate, bigItem?.endDate);
-            setRemainingTime(timeRemaining);
+            if (bigItem) {
+                const timeRemaining = calculateTimeRemaining(bigItem.startDate, bigItem.endDate);
+                setRemainingTime(timeRemaining);
+            }
         };
         updateRemainingTime();
 
         const intervalId = setInterval(updateRemainingTime, 1000);
 
         return () => clearInterval(intervalId);
-    }, [sortedOffers]);
+    }, [bigItem]);
 
     return (
         <div className="trending">
