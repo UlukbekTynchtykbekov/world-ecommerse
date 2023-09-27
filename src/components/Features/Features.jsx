@@ -2,10 +2,12 @@ import React from 'react';
 import {useSelector} from "react-redux";
 import "./features.scss";
 import Ratings from "../Ratings";
+import Loader from "../Loader/Loader";
+import NotFound from "../NotFound/NotFound";
 
 const Features = ({title}) => {
 
-    const {data: products} = useSelector(state => state.products);
+    const {data: products, loading: productsLoad, error:productsErr} = useSelector(state => state.products);
 
     const sortedProducts = products ? [...products].sort((a, b) => b.totalRating - a.totalRating).slice(0, 8) : [];
 
@@ -23,6 +25,20 @@ const Features = ({title}) => {
                                 <a className="view-all" href="#">View all <i className="ri-arrow-right-line"></i></a>
                             </div>
                         </div>
+                        {
+                            productsLoad && (
+                                <div className="trending__loader">
+                                    <Loader />
+                                </div>
+                            )
+                        }
+                        {
+                            productsErr && (
+                                <div className="trending__loader">
+                                    <NotFound error={productsErr} />
+                                </div>
+                            )
+                        }
                         <div className="products pro flexwrap">
                             {
                                 sortedProducts?.map(product => (

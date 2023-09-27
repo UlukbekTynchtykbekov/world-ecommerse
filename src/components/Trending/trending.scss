@@ -1,3 +1,11 @@
+.trending {
+
+  &__loader {
+    position: relative;
+    height: 20rem;
+  }
+}
+
 .products {
   flex: 0 0 100%;
   width: 100%;

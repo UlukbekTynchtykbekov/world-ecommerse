@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
+import {useSelector} from "react-redux";
 import SecTop from "../SecTop/SecTop";
-import {useDispatch, useSelector} from "react-redux";
-import {fetchProducts} from "../../features/productsSlice";
 import StockBar from "../StockBar";
-import "./trending.scss";
 import Ratings from "../Ratings/Ratings";
+import Loader from "../Loader/Loader";
+import NotFound from "../NotFound/NotFound";
+import "./trending.scss";
 
 function chunkArray(array, chunkSize) {
     const chunks = [];
@@ -15,7 +16,7 @@ function chunkArray(array, chunkSize) {
 }
 const Trending = () => {
 
-    const {data: products} = useSelector(state => state.products);
+    const {data: products, loading: productsLoad, error:productsErr} = useSelector(state => state.products);
     const sortedOffers = products ? [...products].filter(pro => pro.salePercentage > 0).sort((a, b) => b.totalSold - a.totalSold).slice(0,9) : [];
 
     const [bigItem, ...miniItems] = sortedOffers;
@@ -54,6 +55,20 @@ const Trending = () => {
                 <div className="trending__wrapper">
                     <SecTop title="Trending Products"/>
                     <div className="trending__column">
+                        {
+                            productsLoad && (
+                                <div className="trending__loader">
+                                    <Loader />
+                                </div>
+                            )
+                        }
+                        {
+                            productsErr && (
+                                <div className="trending__loader">
+                                    <NotFound error={productsErr} />
+                                </div>
+                            )
+                        }
                         <div className="trending__inner flexwrap">
                             {
                                 bigItem && (

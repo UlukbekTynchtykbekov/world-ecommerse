@@ -4,7 +4,6 @@ import Slider from "../../components/Slider";
 import Brands from "../../components/Brands/Brands";
 import Trending from "../../components/Trending/Trending";
 import Features from "../../components/Features/Features";
-import Banners from "../../components/Banners/Banners";
 
 const Home = () => {
     return (
@@ -13,7 +12,6 @@ const Home = () => {
             <Brands />
             <Trending />
             <Features title="Features Products"/>
-            <Banners />
         </Helmet>
     );
 };

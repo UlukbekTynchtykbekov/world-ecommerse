@@ -31,7 +31,6 @@ const Login = () => {
         setFormErrors(errors);
         if (Object.keys(errors).length === 0) {
             const data = await dispatch(fetchAuth(formData));
-            console.log(data);
             if (data.payload.hasOwnProperty("token")) {
                 toast.success("You verified your email successfully");
                 setTimeout(() => {
