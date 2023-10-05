@@ -2,10 +2,9 @@ import React, {useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAccount} from "../../features/accountSlice";
 import toast, {Toaster} from "react-hot-toast";
-import "./news-letter.scss"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSpinner} from "@fortawesome/free-solid-svg-icons";
-import {fetchAuthMe} from "../../features/authMeSlice";
+import "./news-letter.scss";
 
 const NewsLetter = () => {
 
@@ -13,7 +12,7 @@ const NewsLetter = () => {
         email: "bekkgboy2@gmail.com",
     });
     const [formErrors, setFormErrors] = useState({});
-    const {loading, error,} = useSelector(state => state.accounts);
+    const {loading,} = useSelector(state => state.accounts);
 
     const dispatch = useDispatch();
 
