@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchProducts} from "../../features/productsSlice";
 import Loader from "../Loader/Loader";
 import NotFound from "../NotFound/NotFound";
+import Photo from "../../assets/products/apparel2.jpg"
 import "./header-main.scss"
 
 const HeaderMain = () => {
@@ -143,6 +144,22 @@ const HeaderMain = () => {
                                 <input className="search__input" type="search" placeholder="Search for products"/>
                                 <button className="search__btn" type="submit">Search</button>
                             </form>
+                            <div className="panel">
+                                <ul className="panel__products">
+                                    <li className="panel__product">
+                                        <img className="panel__img" src={Photo} alt=""/>
+                                        <p className="panel__title">Happy Sailed Women's Summer Boho Floral Happy Sailed Women's Summer Boho Floral Happy Sailed Women's Summer Boho Floral</p>
+                                    </li>
+                                    <li className="panel__product">
+                                        <img className="panel__img" src={Photo} alt=""/>
+                                        <p className="panel__title">Happy Sailed Women's Summer Boho Floral</p>
+                                    </li>
+                                    <li className="panel__product">
+                                        <img className="panel__img" src={Photo} alt=""/>
+                                        <p className="panel__title">Happy Sailed Women's Summer Boho Floral</p>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
