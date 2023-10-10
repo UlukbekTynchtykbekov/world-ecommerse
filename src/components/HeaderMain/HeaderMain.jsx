@@ -9,6 +9,8 @@ import "./header-main.scss"
 
 const HeaderMain = () => {
     const [showCat, setShowCat] = useState(false);
+    const [searchTerm, setSearchTerm] = useState("");
+    const [searchData, setSearchData] = useState(null);
     const {pathname} = useLocation();
     const dispatch = useDispatch();
 
@@ -17,6 +19,22 @@ const HeaderMain = () => {
 
     const [categoriesToExclude] = useState(["Shop", "Women", "Men"]);
     const filteredCategories = categories ? categories.filter(category => !categoriesToExclude.includes(category.name)) : [];
+
+    const handleSearchChange = (e) => {
+        const term = e.target.value
+        setSearchTerm(term)
+
+        if (term === "") {
+            setSearchData(null)
+        }else {
+            const filteredProducts =
+                products &&
+                products.filter((product) =>
+                    product.name.toLowerCase().includes(term.toLowerCase())
+                );
+            setSearchData(filteredProducts);
+        }
+    };
 
     function chunkArray(array, chunkSize) {
         const chunks = [];
@@ -139,27 +157,36 @@ const HeaderMain = () => {
                     </div>
                     <div className="right categories__right">
                         <div className="search">
-                            <form className="search__form">
+                            <div className="search__form">
                                 <span className="search__icon icon-lg "><i className="ri-search-line"></i></span>
-                                <input className="search__input" type="search" placeholder="Search for products"/>
+                                <input
+                                    onChange={handleSearchChange}
+                                    className="search__input"
+                                    type="search"
+                                    value={searchTerm}
+                                    placeholder="Search for products"
+                                />
                                 <button className="search__btn" type="submit">Search</button>
-                            </form>
-                            <div className="panel">
-                                <ul className="panel__products">
-                                    <li className="panel__product">
-                                        <img className="panel__img" src={Photo} alt=""/>
-                                        <p className="panel__title">Happy Sailed Women's Summer Boho Floral Happy Sailed Women's Summer Boho Floral Happy Sailed Women's Summer Boho Floral</p>
-                                    </li>
-                                    <li className="panel__product">
-                                        <img className="panel__img" src={Photo} alt=""/>
-                                        <p className="panel__title">Happy Sailed Women's Summer Boho Floral</p>
-                                    </li>
-                                    <li className="panel__product">
-                                        <img className="panel__img" src={Photo} alt=""/>
-                                        <p className="panel__title">Happy Sailed Women's Summer Boho Floral</p>
-                                    </li>
-                                </ul>
                             </div>
+                            {
+                                searchData && searchData.length !== 0 ? (
+                                    <div className="panel">
+                                        <ul className="panel__products">
+                                            {
+                                                searchData &&
+                                                    searchData.map((i) => {
+                                                        return (
+                                                            <li key={i._id} className="panel__product">
+                                                                <img className="panel__img" src={i.variants[0]?.images[0]?.url} alt=""/>
+                                                                <p className="panel__title">{i.name}</p>
+                                                            </li>
+                                                        )
+                                                    })
+                                            }
+                                        </ul>
+                                    </div>
+                                ) : null
+                            }
                         </div>
                     </div>
                 </div>
