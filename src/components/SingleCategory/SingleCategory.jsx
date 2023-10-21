@@ -32,9 +32,7 @@ const SingleCategory = () => {
 
     const handleToggle = (id) => {
         setShowId(id)
-    }
-
-    console.log(showId, "id")
+    };
 
     useEffect(() => {
         document.addEventListener("click", (e) => {
