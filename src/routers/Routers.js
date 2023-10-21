@@ -17,7 +17,6 @@ const Routers = () => {
         <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/single-page" element={<SinglePage/>}/>
-            <Route path="/category-page" element={<CategoryPage/>}/>
             <Route path="/offer-page" element={<OfferPage/>}/>
             <Route path="/offer-page" element={<OfferPage/>}/>
             <Route path="/cart-page" element={<Cart/>}/>
@@ -25,8 +24,7 @@ const Routers = () => {
             <Route path="/:id/otp" element={<Otp/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/register" element={<Register/>}/>
-            <Route path="/loader" element={<Loader/>}/>
-            <Route path="/error" element={<NotFound/>}/>
+            <Route path="/category/:categoryId" element={<CategoryPage/>}/>
         </Routes>
     )
 };

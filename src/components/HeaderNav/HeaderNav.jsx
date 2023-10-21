@@ -64,7 +64,7 @@ const HeaderNav = () => {
                                         {
                                             filteredCategories.map(category => (
                                                 <li key={category._id} className="navigations__item child">
-                                                    <Link to={`/${category.slug}`} className="navigations__link">{category.name}
+                                                    <Link to={`/category/${category._id}`} className="navigations__link">{category.name}
                                                         {
                                                             category.children.length > 0 &&
                                                             <span className="navigations__icon icon-sm">

@@ -11,6 +11,7 @@ import {resendOtpReducer} from "../features/resendOtpSlice";
 import {brandsReducer} from "../features/brandSlice";
 import {offerReducer} from "../features/offerSlice";
 import {productReducer} from "../features/productsSlice";
+import {categoryReducer} from "../features/singleCategorySlice";
 import {accountReducer} from "../features/accountSlice";
 
 const store = configureStore({
@@ -28,6 +29,7 @@ const store = configureStore({
         offers: offerReducer,
         products: productReducer,
         accounts: accountReducer,
+        category: categoryReducer,
     }
 })
 
